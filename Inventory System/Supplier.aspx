@@ -54,20 +54,18 @@
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="modal-sm" style="height: 20px; width: 733px"></td>
+                <td class="modal-sm" style="height: 20px; width: 733px">
+                    <asp:Label ID="Label3" runat="server" Text="Supplier Address"></asp:Label>
+                </td>
                 <td style="height: 20px"></td>
                 <td style="height: 20px"></td>
                 <td style="height: 20px"></td>
             </tr>
             <tr>
                 <td class="modal-sm" style="width: 733px">
-                    &nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="modal-sm" style="width: 733px"><input id="Reset1" type="reset" value="reset" /><input id="Submit1" type="submit" value="submit" /></td>
+                    <asp:TextBox ID="txtSupplierAddress" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="SupplierAddressRequiredFieldValidator" runat="server" ControlToValidate="txtSupplierAddress" Display="Dynamic" ErrorMessage="*Required Field" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                </td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
@@ -78,13 +76,18 @@
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
+            <tr>
+                <td class="modal-sm" style="width: 733px"><input id="Reset1" type="reset" value="reset" /><input id="Submit1" type="submit" value="submit" /></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
         </table>
 
 
 
 
         <div style="margin-left: 50px">
-            <asp:GridView ID="GridView1"  runat="server" ></asp:GridView>
         </div>
     </div>
 </asp:Content>
