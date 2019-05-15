@@ -106,7 +106,10 @@
                         </tr>
                         <tr>
                             <td style="height: 130px; width: 490px;">
-                                <input id="Submit1" type="submit" value="submit" /><input id="Reset1" type="reset" value="reset" style="margin-left: 30px" /></td>
+                                <asp:Button ID="btnSave" runat="server" Text="Save" />
+                                <input id="Reset1" type="reset" value="reset" style="margin-left: 30px" />
+                                <asp:Label ID="lblSuccessMessage" runat="server" ForeColor="Green"></asp:Label>
+                            </td>
                         </tr>
                     </table>
 
@@ -123,6 +126,13 @@
                                 <asp:BoundField DataField="SupplierItem" HeaderText ="Supplier Item" />
                                 <asp:BoundField DataField="ItemPrice" HeaderText="Price" />
                                 <asp:BoundField DataField="ItemCategory" HeaderText="Category" />
+
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <asp:LinkButton ID="lnkView" runat="server" CommandArgument='<%%# Eval("SupplierID") %>' >View</asp:LinkButton>'
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
                             </Columns>
                         </asp:GridView>
                     </div>
