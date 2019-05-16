@@ -11,6 +11,7 @@
                         <tr>
                             <td style="width: 490px">
                                 <asp:Label ID="Label8" runat="server" Text="Supplier Name"></asp:Label>
+                                <asp:TextBox ID="hfSupplierID" runat="server"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -41,8 +42,7 @@
                         <tr>
                             <td class="modal-sm" style="height: 20px; width: 490px;">
                                 <asp:TextBox ID="txtContactNo" runat="server" Height="22px" Width="150px"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="SupplierNameRequiredFieldValidator0" runat="server" ControlToValidate="txtContactNo" ErrorMessage="Enter Email Address" Font-Bold="True" ForeColor="Red" Display="Dynamic" EnableViewState="False"></asp:RequiredFieldValidator>
-                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtContactNo" Display="Dynamic" ErrorMessage="Please enter a valid email address" Font-Bold="True" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                                <asp:RequiredFieldValidator ID="SupplierNameRequiredFieldValidator0" runat="server" ControlToValidate="txtContactNo" ErrorMessage="Enter Valid Contact Number" Font-Bold="True" ForeColor="Red" Display="Dynamic" EnableViewState="False"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
@@ -106,9 +106,11 @@
                         </tr>
                         <tr>
                             <td style="height: 130px; width: 490px;">
-                                <asp:Button ID="btnSave" runat="server" Text="Save" />
-                                <input id="Reset1" type="reset" value="reset" style="margin-left: 30px" />
+                                <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
+                                <asp:Button ID="btn_Delete" runat="server" Text="Delete" OnClick="btn_Delete_Click" />
+                                <asp:Button ID="btn_Clear" runat="server" Text="Clear" OnClick="btn_Clear_Click" />
                                 <asp:Label ID="lblSuccessMessage" runat="server" ForeColor="Green"></asp:Label>
+                                <asp:Label ID="lblErrorMessage" runat="server" ForeColor="Red"></asp:Label>
                             </td>
                         </tr>
                     </table>
@@ -117,8 +119,9 @@
                 <td style="height: 714px; vertical-align:top; margin-top:50px">
                      <div class="container-fluid" style="margin-left: 50px; margin-top:70px">
                          <H1>DATABASE</H1>
-                        <asp:GridView ID="gridViewSupplier" runat="server" AutoGenerateColumns="false" BorderStyle="Solid" ShowHeaderWhenEmpty="True">
+                        <asp:GridView ID="gridViewSupplier" runat="server" AutoGenerateColumns="false" BorderStyle="Solid" Width="887px">
                             <Columns>
+                                <asp:BoundField DataField="SupplierID" HeaderText ="Supplier ID" />
                                 <asp:BoundField DataField="SupplierName" HeaderText ="Supplier Name" />
                                 <asp:BoundField DataField ="SupplierPerson" HeaderText ="Supplier Contact Person" />
                                 <asp:BoundField DataField ="SupplierContact" HeaderText ="Supplier Contact Number" />
@@ -129,7 +132,7 @@
 
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:LinkButton ID="lnkView" runat="server" CommandArgument='<%%# Eval("SupplierID") %>' >View</asp:LinkButton>'
+                                        <asp:LinkButton ID="lnk" runat="server" CommandArgument='<%# Eval("SupplierID") %>' OnClick="lnk_OnClick" OnClientClick="lnk_OnClick" CausesValidation="false">View</asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
