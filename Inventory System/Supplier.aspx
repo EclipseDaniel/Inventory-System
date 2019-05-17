@@ -10,8 +10,13 @@
                     <table class="nav" style="margin-top: 50px; margin-left: 50px">
                         <tr>
                             <td style="width: 490px">
+                                <asp:Label ID="Label1" runat="server" Text="Supplier ID"></asp:Label>
+                            <asp:TextBox ID="hfSupplierID" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 490px">
                                 <asp:Label ID="Label8" runat="server" Text="Supplier Name"></asp:Label>
-                                <asp:TextBox ID="hfSupplierID" runat="server"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>

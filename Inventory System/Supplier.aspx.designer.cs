@@ -13,13 +13,13 @@ namespace Inventory_System {
     public partial class Supplier {
         
         /// <summary>
-        /// Label8 control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label8;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
         /// hfSupplierID control.
@@ -29,6 +29,15 @@ namespace Inventory_System {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox hfSupplierID;
+        
+        /// <summary>
+        /// Label8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label8;
         
         /// <summary>
         /// txtSupplierName control.
