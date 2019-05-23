@@ -17,6 +17,7 @@ namespace Inventory_System
             if(!IsPostBack)
             {
                 btnDelete.Enabled = false;
+                FillGridView();
             }
 
             txtItemDeliveryDate.Text = DateTime.Now.ToString("MM-dd-yyyy");
@@ -129,7 +130,7 @@ namespace Inventory_System
             SqlCommand sqlCmd = new SqlCommand("ItemDeleteByID", con);
 
             sqlCmd.CommandType = CommandType.StoredProcedure;
-            sqlCmd.Parameters.AddWithValue("@ItemNo", Convert.ToInt32(txtItemNo.Text));
+            sqlCmd.Parameters.AddWithValue("@ItemID", Convert.ToInt32(txtItemNo.Text));
             sqlCmd.ExecuteNonQuery();
             con.Close();
             Clear();

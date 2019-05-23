@@ -109,7 +109,7 @@
                                 <asp:BoundField DataField="ItemExpirationDate" HeaderText="Item Expiration Date" />
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:LinkButton ID="lnk" runat="server" CommandArgument='<%# Eval("ItemID") %>' OnClick="lnk_OnClick" OnClientClick="lnk_OnClick" CausesValidation="false">View</asp:LinkButton>
+                                        <asp:LinkButton ID="lnk" runat="server" CommandArgument='<%# Eval("ItemID") %>' OnClick="lnk_OnClick"  CausesValidation="false">View</asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
