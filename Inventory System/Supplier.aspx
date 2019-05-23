@@ -10,8 +10,12 @@
                     <table class="nav" style="margin-top: 50px; margin-left: 50px">
                         <tr>
                             <td style="width: 490px">
-                                <asp:Label ID="Label1" runat="server" Text="Supplier ID"></asp:Label>
-                            <asp:TextBox ID="hfSupplierID" runat="server"></asp:TextBox>
+                            <asp:Label ID="Label1" runat="server" Text="Supplier ID"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 490px">              
+                            <asp:TextBox ID="hfSupplierID" runat="server" Enabled="false" ForeColor="Gray"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -123,7 +127,7 @@
                 </td>
                 <td style="height: 714px; vertical-align:top; margin-top:50px">
                      <div class="container-fluid" style="margin-left: 50px; margin-top:70px">
-                         <H1>DATABASE</H1>
+                         <H1>Suppliers</H1>
                         <asp:GridView ID="gridViewSupplier" runat="server" AutoGenerateColumns="false" BorderStyle="Solid" Width="887px">
                             <Columns>
                                 <asp:BoundField DataField="SupplierID" HeaderText ="Supplier ID" />

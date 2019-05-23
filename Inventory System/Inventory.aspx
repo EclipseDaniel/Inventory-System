@@ -2,9 +2,8 @@
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: Title %></h2>
-    <tr>
-    <td>
+    <h2>Item Form</h2>
+    <div class="container-fluid" style="margin-top: 50px" ;>
         <table class="nav-justified">
             <tr>
                 <td class="modal-sm" style="width: 490px; height: 20px;">
@@ -13,7 +12,7 @@
             </tr>
             <tr>
                 <td class="modal-sm" style="width: 490px">
-                    <asp:TextBox ID="txtItemNo" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtItemNo" runat="server" Enabled="false" ForeColor="Gray"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -90,16 +89,14 @@
                 <td class="modal-sm" style="width: 490px ; height: 130px ;">
                     <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
                     <asp:Button ID="btnClear" runat="server" Text="Clear" />
-                    <asp:Button ID="btnDelete" runat="server" Text="Delete" />
+                    <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" />
                     <asp:Label ID="lblSuccessMessage" runat="server" ForeColor="Green"></asp:Label>
                     <asp:Label ID="lblErrorMessage" runat="server" ForeColor="Red"></asp:Label>
                 </td>
             </tr>
-        </table>
-    </td>
-        <td style="height: 714px; vertical-align:top; margin-top:50px">
+            <td style="height: 714px; vertical-align:top; margin-top:50px">
                      <div class="container-fluid" style="margin-left: 50px; margin-top:70px">
-                         <H1>DATABASE</H1>
+                         <H1>Items</H1>
                         <asp:GridView ID="gridViewItem" runat="server" AutoGenerateColumns="false" BorderStyle="Solid" Width="887px">
                             <Columns>
                                 <asp:BoundField DataField="ItemID" HeaderText ="Item ID" />
@@ -118,7 +115,8 @@
                             </Columns>
                         </asp:GridView>
                     </div>
-                </td>
-        </tr>
+            </td>
+        </table>
+        </div>
 
 </asp:Content>
