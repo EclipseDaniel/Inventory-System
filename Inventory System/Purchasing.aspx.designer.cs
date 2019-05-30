@@ -10,7 +10,7 @@
 namespace Inventory_System {
     
     
-    public partial class Inventory {
+    public partial class Purchasing {
         
         /// <summary>
         /// Label1 control.
@@ -22,13 +22,13 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// txtItemNo control.
+        /// txtPurchaseID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtItemNo;
+        protected global::System.Web.UI.WebControls.TextBox txtPurchaseID;
         
         /// <summary>
         /// Label2 control.
@@ -49,15 +49,6 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.TextBox txtItemName;
         
         /// <summary>
-        /// ItemNameRequiredFieldValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator ItemNameRequiredFieldValidator;
-        
-        /// <summary>
         /// Label3 control.
         /// </summary>
         /// <remarks>
@@ -74,15 +65,6 @@ namespace Inventory_System {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlItemType;
-        
-        /// <summary>
-        /// ItemTypeRequiredFieldValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator ItemTypeRequiredFieldValidator;
         
         /// <summary>
         /// Label4 control.
@@ -103,15 +85,6 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.TextBox txtItemQuantity;
         
         /// <summary>
-        /// ItemQuantityRequiredFieldValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator ItemQuantityRequiredFieldValidator;
-        
-        /// <summary>
         /// Label5 control.
         /// </summary>
         /// <remarks>
@@ -121,22 +94,13 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
-        /// ddlItemStatus control.
+        /// txtSupplierName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlItemStatus;
-        
-        /// <summary>
-        /// ItemStatusRequiredFieldValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator ItemStatusRequiredFieldValidator;
+        protected global::System.Web.UI.WebControls.TextBox txtSupplierName;
         
         /// <summary>
         /// Label6 control.
@@ -148,22 +112,13 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.Label Label6;
         
         /// <summary>
-        /// txtItemSupplier control.
+        /// txtShippedBy control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtItemSupplier;
-        
-        /// <summary>
-        /// ItemSupplierRequiredFieldValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator ItemSupplierRequiredFieldValidator;
+        protected global::System.Web.UI.WebControls.TextBox txtShippedBy;
         
         /// <summary>
         /// Label7 control.
@@ -175,13 +130,13 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.Label Label7;
         
         /// <summary>
-        /// txtItemDeliveryDate control.
+        /// txtTerms control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtItemDeliveryDate;
+        protected global::System.Web.UI.WebControls.TextBox txtTerms;
         
         /// <summary>
         /// Label8 control.
@@ -193,22 +148,49 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.Label Label8;
         
         /// <summary>
-        /// txtItemExpirationDate control.
+        /// txtAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtItemExpirationDate;
+        protected global::System.Web.UI.WebControls.TextBox txtAddress;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// Label9 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.Label Label9;
+        
+        /// <summary>
+        /// txtNotes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNotes;
+        
+        /// <summary>
+        /// Label10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label10;
+        
+        /// <summary>
+        /// txtDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDate;
         
         /// <summary>
         /// btnSave control.
@@ -220,15 +202,6 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.Button btnSave;
         
         /// <summary>
-        /// btnClear control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnClear;
-        
-        /// <summary>
         /// btnDelete control.
         /// </summary>
         /// <remarks>
@@ -236,6 +209,15 @@ namespace Inventory_System {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnDelete;
+        
+        /// <summary>
+        /// btnClear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnClear;
         
         /// <summary>
         /// lblSuccessMessage control.
@@ -256,12 +238,12 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.Label lblErrorMessage;
         
         /// <summary>
-        /// gridViewItem control.
+        /// gridViewPurchase control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridViewItem;
+        protected global::System.Web.UI.WebControls.GridView gridViewPurchase;
     }
 }

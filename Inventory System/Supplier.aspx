@@ -15,7 +15,7 @@
                         </tr>
                         <tr>
                             <td style="width: 490px">              
-                            <asp:TextBox ID="hfSupplierID" runat="server" Enabled="false" ForeColor="Gray"></asp:TextBox>
+                            <asp:TextBox ID="hfSupplierID" runat="server" Enabled="false" BackColor="WhiteSmoke"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -109,7 +109,19 @@
                         </tr>
                         <tr>
                             <td style="width: 490px">
-                                <asp:TextBox ID="txtItemCategory" runat="server" Height="22px" Width="150px"></asp:TextBox>
+                                <asp:DropDownList ID="ddlItemType" runat="server">
+                                    <asp:ListItem Text="" Value="" Selected="True"></asp:ListItem>
+                                    <asp:ListItem Text="Condiments" Value="Condiments"></asp:ListItem>
+                                    <asp:ListItem Text="Seasonings" Value="Seasonings"></asp:ListItem>
+                                    <asp:ListItem Text="Meats" Value="Meats"></asp:ListItem>
+                                    <asp:ListItem Text="Vegetables" Value="Vegetables"></asp:ListItem>
+                                    <asp:ListItem Text="Fruits" Value="Fruits"></asp:ListItem>
+                                    <asp:ListItem Text="Pastry" Value="Pastry"></asp:ListItem>
+                                    <asp:ListItem Text="Grain" Value=""></asp:ListItem>
+                                    <asp:ListItem Text="Beverage" Value=""></asp:ListItem>
+                                    <asp:ListItem Text="Oil" Value=""></asp:ListItem>
+                                    <asp:ListItem Text="Kitchenware" Value=""></asp:ListItem>
+                                </asp:DropDownList>
                                 <asp:RequiredFieldValidator ID="SupplierNameRequiredFieldValidator5" runat="server" ControlToValidate="txtItemCategory" ErrorMessage="Enter Item Category" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
                             </td>
                         </tr>

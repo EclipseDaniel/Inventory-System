@@ -37,12 +37,12 @@ namespace Inventory_System
                 cmd.Parameters.AddWithValue("@SupplierAddress", txtSupplierAddress.Text.Trim());
                 cmd.Parameters.AddWithValue("@SupplierItem", txtSupplierItem.Text.Trim());
                 cmd.Parameters.AddWithValue("@Price", txtItemPrice.Text.Trim());
-                cmd.Parameters.AddWithValue("@Category", txtItemCategory.Text.Trim());
+                cmd.Parameters.AddWithValue("@Category", ddlItemType.Text.Trim());
                 cmd.ExecuteNonQuery();
                 con.Close();
 
                 txtContactNo.Text = string.Empty;
-                txtItemCategory.Text = string.Empty;
+                ddlItemType.Text = string.Empty;
                 txtItemPrice.Text = string.Empty;
                 txtSupplierAddress.Text = string.Empty;
                 txtSupplierContactPerson.Text = string.Empty;
@@ -91,7 +91,7 @@ namespace Inventory_System
             txtSupplierAddress.Text = "";
             txtSupplierItem.Text = "";
             txtItemPrice.Text = "";
-            txtItemCategory.Text = "";
+            ddlItemType.Text = "";
             lblSuccessMessage.Text = "";
             lblErrorMessage.Text = "";
             btn_Delete.Enabled = false;
@@ -121,7 +121,7 @@ namespace Inventory_System
             txtSupplierAddress.Text = dt.Rows[0]["SupplierAddress"].ToString();
             txtSupplierItem.Text = dt.Rows[0]["SupplierItem"].ToString();
             txtItemPrice.Text = dt.Rows[0]["ItemPrice"].ToString();
-            txtItemCategory.Text = dt.Rows[0]["ItemCategory"].ToString();
+            ddlItemType.SelectedValue = dt.Rows[0]["ItemCategory"].ToString();
 
             btnSave.Text = "Update";
             btn_Delete.Enabled = true;

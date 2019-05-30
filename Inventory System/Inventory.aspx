@@ -12,7 +12,7 @@
             </tr>
             <tr>
                 <td class="modal-sm" style="width: 490px">
-                    <asp:TextBox ID="txtItemNo" runat="server" Enabled="false" ForeColor="Gray"></asp:TextBox>
+                    <asp:TextBox ID="txtItemNo" runat="server" Enabled="false" BackColor="WhiteSmoke"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -23,6 +23,7 @@
             <tr>
                 <td class="modal-sm" style="width: 490px">
                     <asp:TextBox ID="txtItemName" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="ItemNameRequiredFieldValidator" runat="server" ControlToValidate="txtItemName" ErrorMessage="Enter Item Name" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -32,7 +33,20 @@
             </tr>
             <tr>
                 <td class="modal-sm" style="width: 490px">
-                    <asp:TextBox ID="txtItemType" runat="server"></asp:TextBox>
+                    <asp:DropDownList ID="ddlItemType" runat="server">
+                        <asp:ListItem Text="" Value="" Selected="True"></asp:ListItem>
+                        <asp:ListItem Text="Condiments" Value="Condiments"></asp:ListItem>
+                        <asp:ListItem Text="Seasonings" Value="Seasonings"></asp:ListItem>
+                        <asp:ListItem Text="Meats" Value="Meats"></asp:ListItem>
+                        <asp:ListItem Text="Vegetables" Value="Vegetables"></asp:ListItem>
+                        <asp:ListItem Text="Fruits" Value="Fruits"></asp:ListItem>
+                        <asp:ListItem Text="Pastry" Value="Pastry"></asp:ListItem>
+                        <asp:ListItem Text="Grain" Value=""></asp:ListItem>
+                        <asp:ListItem Text="Beverage" Value=""></asp:ListItem>
+                        <asp:ListItem Text="Oil" Value=""></asp:ListItem>
+                        <asp:ListItem Text="Kitchenware" Value=""></asp:ListItem>
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="ItemTypeRequiredFieldValidator" runat="server" ControlToValidate="ddlItemType" ErrorMessage="Select Item Type" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -43,6 +57,7 @@
             <tr>
                 <td class="modal-sm" style="width: 490px">
                     <asp:TextBox ID="txtItemQuantity" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="ItemQuantityRequiredFieldValidator" runat="server" ControlToValidate="txtItemQuantity" ErrorMessage="Enter Item Quantity" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -52,7 +67,12 @@
             </tr>
             <tr>
                 <td class="modal-sm" style="width: 490px">
-                    <asp:TextBox ID="txtItemStatus" runat="server"></asp:TextBox>
+                    <asp:DropDownList ID="ddlItemStatus" runat="server">
+                        <asp:ListItem Text="Available" Value="Available"></asp:ListItem>
+                        <asp:ListItem Text="Critical" Value="Critical"></asp:ListItem>
+                        <asp:ListItem Text="Spoiled" Value="Spoiled"></asp:ListItem>
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="ItemStatusRequiredFieldValidator" runat="server" ControlToValidate="ddlItemStatus" ErrorMessage="Select Item Status" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -63,6 +83,7 @@
             <tr>
                 <td class="modal-sm" style="width: 490px">
                     <asp:TextBox ID="txtItemSupplier" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="ItemSupplierRequiredFieldValidator" runat="server" ControlToValidate="txtItemSupplier" ErrorMessage="Enter Item Supplier" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -83,6 +104,7 @@
             <tr>
                 <td class="modal-sm" style="width: 490px">
                     <asp:TextBox ID="txtItemExpirationDate" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtItemExpirationDate" ErrorMessage="Enter Expiration Date" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>   
             </tr>
             <tr>

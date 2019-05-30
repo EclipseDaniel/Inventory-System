@@ -202,13 +202,13 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.Label Label7;
         
         /// <summary>
-        /// txtItemCategory control.
+        /// ddlItemType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtItemCategory;
+        protected global::System.Web.UI.WebControls.DropDownList ddlItemType;
         
         /// <summary>
         /// SupplierNameRequiredFieldValidator5 control.
