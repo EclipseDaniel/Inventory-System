@@ -114,7 +114,7 @@
                 <td style="height: 714px; vertical-align:top; margin-top:50px">
                      <div class="container-fluid" style="margin-left: 50px; margin-top:70px">
                          <H1>DATABASE</H1>
-                        <asp:GridView ID="gridViewSupplier" runat="server" AutoGenerateColumns="false" BorderStyle="Solid" ShowHeaderWhenEmpty="True">
+                        <asp:GridView ID="gridViewSupplier" runat="server" AutoGenerateColumns="false" BorderStyle="Solid" ShowHeaderWhenEmpty="True" >
                             <Columns>
                                 <asp:BoundField DataField="SupplierName" HeaderText ="Supplier Name" />
                                 <asp:BoundField DataField ="SupplierPerson" HeaderText ="Supplier Contact Person" />
