@@ -122,7 +122,7 @@
                                     <asp:ListItem Text="Oil" Value=""></asp:ListItem>
                                     <asp:ListItem Text="Kitchenware" Value=""></asp:ListItem>
                                 </asp:DropDownList>
-                                <asp:RequiredFieldValidator ID="SupplierNameRequiredFieldValidator5" runat="server" ControlToValidate="txtItemCategory" ErrorMessage="Enter Item Category" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator ID="SupplierNameRequiredFieldValidator5" runat="server" ControlToValidate="ddlItemType" ErrorMessage="Enter Item Category" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
