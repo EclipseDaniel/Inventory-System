@@ -122,7 +122,7 @@
                                     <asp:ListItem Text="Oil" Value=""></asp:ListItem>
                                     <asp:ListItem Text="Kitchenware" Value=""></asp:ListItem>
                                 </asp:DropDownList>
-                                <asp:RequiredFieldValidator ID="SupplierNameRequiredFieldValidator5" runat="server" ControlToValidate="ddlItemType" ErrorMessage="Enter Item Category" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator ID="CategoryValidation" runat="server" ControlToValidate="txtItemCategory" ErrorMessage="Enter Item Category" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
@@ -140,7 +140,7 @@
                 <td style="height: 714px; vertical-align:top; margin-top:50px">
                      <div class="container-fluid" style="margin-left: 50px; margin-top:70px">
                          <H1>Suppliers</H1>
-                        <asp:GridView ID="gridViewSupplier" runat="server" AutoGenerateColumns="false" BorderStyle="Solid" Width="887px">
+                         `<asp:GridView ID="gridViewSupplier" runat="server" AutoGenerateColumns="false" BorderStyle="Solid" Width="887px">
                             <Columns>
                                 <asp:BoundField DataField="SupplierID" HeaderText ="Supplier ID" />
                                 <asp:BoundField DataField="SupplierName" HeaderText ="Supplier Name" />
