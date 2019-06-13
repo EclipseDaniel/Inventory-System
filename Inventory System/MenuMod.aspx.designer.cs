@@ -13,6 +13,15 @@ namespace Inventory_System {
     public partial class ProdMod {
         
         /// <summary>
+        /// txtbox_MenuId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbox_MenuId;
+        
+        /// <summary>
         /// txtbox_DishName control.
         /// </summary>
         /// <remarks>
@@ -31,13 +40,13 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.Button btn_Next;
         
         /// <summary>
-        /// txtbox_Ingridient control.
+        /// txtbox_Ingredients control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtbox_Ingridient;
+        protected global::System.Web.UI.WebControls.TextBox txtbox_Ingredients;
         
         /// <summary>
         /// txtbox_Quantity control.
