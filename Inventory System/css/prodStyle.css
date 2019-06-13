@@ -14,8 +14,23 @@
 }
 
 .container {
-    width: 85%;
+    width: 65%;
     margin: 0 auto;
+}
+
+.left_div {
+    width: 40%;
+    flex-direction:column;
+}
+
+.cafe_details {
+    padding:0px;
+    flex-basis:50%;
+}
+
+.stock_info{
+    padding:0 3em;
+    flex-basis:50%;
 }
 
 .footer p {
@@ -181,7 +196,7 @@
         font-size: 37px;
     }
 
-    .divider_info {
+    .left_div {
         flex-direction: column;
     }
 

@@ -28,14 +28,23 @@
             <!-- main content -->
             <div class="left_div">
                 <div class="cafe_details">
-                    <asp:Panel ID="Panel1" runat="server" BorderColor="Violet"></asp:Panel>
+                    <form action="#" method="post" runat="server">
+                        <asp:CheckBoxList ID="CheckBoxList1" runat="server"></asp:CheckBoxList>
+                        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                        <asp:Button ID="Button1" runat="server" Text="Button" />
+                    </form>
                 </div>
-
             </div>
 
             <div class="stock_info">
                 <div>
-                    <asp:Panel ID="Panel2" runat="server" BorderColor="SteelBlue"></asp:Panel>
+                     
+                        <asp:CheckBoxList ID="CheckBoxList2" runat="server"></asp:CheckBoxList>
+                        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                        
+                        
+               
                 </div>
             </div>
             <!-- main content -->
