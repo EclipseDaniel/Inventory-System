@@ -8,9 +8,18 @@
                     <table>
                         <tr>
                             <td>
+                                <asp:Label runat="server" Text="Menu ID"></asp:Label><br />
+                                    <asp:TextBox ID="txtbox_MenuId"  runat="server" Style="justify-content: flex-start; display: flex; align-items: flex-start" ></asp:TextBox><br />
+                                    <br />
+
+                            </td>
+                        </tr>
+                        <tr>
+                            
+                            <td>
                                 <div>
                                     <asp:Label runat="server" Text="Enter Dish Name"></asp:Label><br />
-                                    <asp:TextBox ID="txtbox_DishName" placeholder="Enter a Dish Name" runat="server" Style="justify-content: flex-start; display: flex; align-items: flex-start"></asp:TextBox><br />
+                                    <asp:TextBox ID="txtbox_DishName" placeholder="Enter a Dish Name" runat="server" Style="justify-content: flex-start; display: flex; align-items: flex-start" OnTextChanged="txtbox_DishName_TextChanged"></asp:TextBox><br />
                                     <br />
 
 
@@ -26,7 +35,7 @@
                                 <div>
                                     <br />
                                     <asp:Label runat="server" Text="Enter Ingredient"></asp:Label><br />
-                                    <asp:TextBox ID="txtbox_Ingridient" placeholder="Enter Ingredient" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtbox_Ingredients" placeholder="Enter Ingredient" runat="server"></asp:TextBox>
                                     <br />
                                     <br />
                                     <asp:Label runat="server" Text="Enter Quantity"></asp:Label><br />
@@ -53,8 +62,8 @@
 
                         <asp:GridView ID="gridDishMenu" runat="server" AutoGenerateColumns="false" BorderStyle="Solid" Width="750px">
                             <Columns>
-                                <asp:BoundField DataField="Menu" HeaderText="Menu" />
-                                <asp:BoundField DataField="Ingredient" HeaderText="Ingredient" />
+                                <asp:BoundField DataField="Dish" HeaderText="Dish" />
+                                <asp:BoundField DataField="Ingredients" HeaderText="Ingredients" />
                                 <asp:BoundField DataField="Quantity" HeaderText="Quantity" />
 
                             </Columns>
