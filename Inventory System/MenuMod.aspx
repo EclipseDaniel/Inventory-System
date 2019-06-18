@@ -1,11 +1,11 @@
 ﻿<%@ Page Language="C#" Title="Menu Module" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="MenuMod.aspx.cs" Inherits="Inventory_System.ProdMod" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="container-fluid" >
+    <div class="container-fluid" style="margin-top:50px" >
         <table class="nav-justified">
             <tr>
                 <td style="width:40%">
-                    <table style="margin-top: 50px;">
+                    <table>
                         <tr>
                             <td>
                                 <div>
