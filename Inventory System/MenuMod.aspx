@@ -34,8 +34,11 @@
                             <td>
                                 <div>
                                     <br />
-                                    <asp:Label runat="server" Text="Enter Ingredient"></asp:Label><br />
-                                    <asp:TextBox ID="txtbox_Ingredients" placeholder="Enter Ingredient" runat="server"></asp:TextBox>
+                                    <asp:Label runat="server" Text="Enter Ingredient"></asp:Label>
+                                   
+                                    <br />
+
+                                    <asp:TextBox ID="txtbox_Ingredient" placeholder="Enter Ingredient" runat="server"></asp:TextBox>
                                     <br />
                                     <br />
                                     <asp:Label runat="server" Text="Enter Quantity"></asp:Label><br />
