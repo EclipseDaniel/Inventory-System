@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProductionModule.aspx.cs" Inherits="Inventory_System.ProductionModule" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MenuModule.aspx.cs" Inherits="Inventory_System.ProductionModule" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,22 +34,15 @@
 
     <div class="productionform">
         <div class="container">
-            \
-            <%--form--%>
             <form action="#" method="post" runat="server">
                 <!-- main content -->
-
                 <div class="divider_info">
                     <div class="prod_form">
 
-
+                       <%-- Menu Form for adding Data in Datagrid--%>
                         <div class="prod_info">
                             <h2>Enter Dish Name</h2>
                             <p>Enter dish ingredients.</p>
-
-
-
-
 
                             <label>Dish Name</label>
                             <div class="input-group">
@@ -70,7 +63,7 @@
 
                             <label>Quantity</label>
                             <div class="input-group">
-                                <span class="fa fa-plus-circle " aria-hidden="true"></span>
+                                <span class="fa fa-plus-circle" aria-hidden="true"></span>
                                 <asp:TextBox ID="txtbox_Quantity" runat="server" placeholder="Enter Quantity " required=""></asp:TextBox>
                             </div>
 
@@ -79,26 +72,29 @@
                                 <asp:Button ID="btn_Add" Style="margin-left: 10px;" class="btn btn-dark" runat="server" Text="Add" OnClick="btn_Add_Click" />
                             </div>
 
-
+                            <%--Hidden Text box for Menu Id Validation for SQL Script--%>
                             <asp:TextBox ID="txtbox_MenuId" runat="server" required="" Visible="false"></asp:TextBox>
 
                         </div>
                     </div>
+                     <%-- Menu Form for adding Data in Datagrid--%>
 
+                    <%--Datagrid and Header for adding Production Details--%>
                     <div class="prodTable_Info">
                         <h1>Production Stock Details</h1>
-                        <asp:GridView ID="gridDishMenu" runat="server" AutoGenerateColumns="false" BorderStyle="Solid">
-                            <Columns>
-                                <asp:BoundField DataField="Dish" HeaderText="Dish" />
-                                <asp:BoundField DataField="Ingredients" HeaderText="Ingredients" />
-                                <asp:BoundField DataField="Quantity" HeaderText="Quantity" />
-
-                            </Columns>
-                        </asp:GridView>
+                        <div>
+                            <asp:GridView ID="gridDishMenu" runat="server" AutoGenerateColumns="false" BorderStyle="Solid">
+                                <Columns>
+                                    <asp:BoundField DataField="Dish" HeaderText="Dish" />
+                                    <asp:BoundField DataField="Ingredients" HeaderText="Ingredients" />
+                                    <asp:BoundField DataField="Quantity" HeaderText="Quantity" />
+                                </Columns>
+                            </asp:GridView>
+                        </div>
                     </div>
-
-
+                    <%--Datagrid and Header for adding Production Details--%>
                 </div>
+
                 <!-- //main content -->
             </form>
             <%--            form--%>

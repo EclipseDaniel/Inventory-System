@@ -127,8 +127,9 @@
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="Images\image.jpg" />
     <Content Include="Images\tick.png" />
-    <Content Include="MenuMod.aspx" />
-    <Content Include="ProductionModule.aspx" />
+    <Content Include="InventoryModule.aspx" />
+    <Content Include="MenuModule.aspx" />
+    <Content Include="PurchasingModule.aspx" />
     <Content Include="RegisterForm.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -150,7 +151,6 @@
     <Content Include="Images\graph.png" />
     <Content Include="Inventory.aspx" />
     <Content Include="Login.aspx" />
-    <Content Include="LoginForm.aspx" />
     <Content Include="Purchasing.aspx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -185,6 +185,7 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="Supplier.aspx" />
+    <Content Include="SupplierModule.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -224,6 +225,13 @@
     <Compile Include="Inventory.aspx.designer.cs">
       <DependentUpon>Inventory.aspx</DependentUpon>
     </Compile>
+    <Compile Include="InventoryModule.aspx.cs">
+      <DependentUpon>InventoryModule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InventoryModule.aspx.designer.cs">
+      <DependentUpon>InventoryModule.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -231,26 +239,12 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm.aspx.cs">
-      <DependentUpon>LoginForm.aspx</DependentUpon>
+    <Compile Include="MenuModule.aspx.cs">
+      <DependentUpon>MenuModule.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="LoginForm.aspx.designer.cs">
-      <DependentUpon>LoginForm.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="MenuMod.aspx.cs">
-      <DependentUpon>MenuMod.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MenuMod.aspx.designer.cs">
-      <DependentUpon>MenuMod.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ProductionModule.aspx.cs">
-      <DependentUpon>ProductionModule.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProductionModule.aspx.designer.cs">
-      <DependentUpon>ProductionModule.aspx</DependentUpon>
+    <Compile Include="MenuModule.aspx.designer.cs">
+      <DependentUpon>MenuModule.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Purchasing.aspx.cs">
@@ -259,6 +253,13 @@
     </Compile>
     <Compile Include="Purchasing.aspx.designer.cs">
       <DependentUpon>Purchasing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PurchasingModule.aspx.cs">
+      <DependentUpon>PurchasingModule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PurchasingModule.aspx.designer.cs">
+      <DependentUpon>PurchasingModule.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegisterForm.aspx.cs">
       <DependentUpon>RegisterForm.aspx</DependentUpon>
@@ -287,6 +288,13 @@
     </Compile>
     <Compile Include="Supplier.aspx.designer.cs">
       <DependentUpon>Supplier.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierModule.aspx.cs">
+      <DependentUpon>SupplierModule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SupplierModule.aspx.designer.cs">
+      <DependentUpon>SupplierModule.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

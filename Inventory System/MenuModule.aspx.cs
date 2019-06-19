@@ -19,9 +19,9 @@ namespace Inventory_System
 
             }
 
-            btn_Next.Enabled = !string.IsNullOrWhiteSpace(txtbox_DishName.Text);
-            btn_Cancel.Enabled = !string.IsNullOrWhiteSpace(txtbox_Ingre.Text);
-            btn_Add.Enabled = !string.IsNullOrWhiteSpace(txtbox_Quantity.Text);
+            //btn_Next.Enabled = !string.IsNullOrWhiteSpace(txtbox_DishName.Text);
+            //btn_Cancel.Enabled = !string.IsNullOrWhiteSpace(txtbox_Ingre.Text);
+            //btn_Add.Enabled = !string.IsNullOrWhiteSpace(txtbox_Quantity.Text);
 
         }
 
@@ -43,9 +43,9 @@ namespace Inventory_System
 
         protected void btn_Next_Click(object sender, EventArgs e)
         {
-            txtbox_DishName.ReadOnly = true;
-            txtbox_Quantity.ReadOnly = false;
-            txtbox_Ingre.ReadOnly = false;
+            //txtbox_DishName.ReadOnly = true;
+            //txtbox_Quantity.ReadOnly = false;
+            //txtbox_Ingre.ReadOnly = false;
             //btn_Next.Enabled = false;
             //btn_Add.Enabled = true;
             //btn_Cancel.Enabled = true;
@@ -114,13 +114,6 @@ namespace Inventory_System
             }
 
             txtbox_MenuId.Text = string.Empty;
-
-            //txtbox_Quantity.ReadOnly = true;
-            //txtbox_Ingre.ReadOnly = true;
-            //txtbox_DishName.ReadOnly = false;
-            //btn_Add.Enabled = false;
-            //btn_Cancel.Enabled = false;
-            //btn_Next.Enabled = false;
 
         }
 

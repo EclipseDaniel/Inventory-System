@@ -53,9 +53,11 @@
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/About">About</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
-                        <li><a runat="server" href="~/Supplier">Supplier</a></li>
-                        <li><a runat="server" href="~/Inventory">Inventory</a></li>
-                        <li><a runat="server" href="~/MenuMod">Menu Setting</a></li>
+                         <li><a runat="server" href="~/MenuModule">Menu Setting</a></li>
+                        <li><a runat="server" href="~/InventoryModule">Inventory</a></li>
+                        <li><a runat="server" href="~/SupplierModule">Supplier</a></li>
+                        
+                       
                     </ul>
                 </div>
             </div>
