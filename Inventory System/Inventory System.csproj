@@ -116,7 +116,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\prodStyle.css" />
-    <Content Include="css\regStyle.css" />
     <Content Include="css\style.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />

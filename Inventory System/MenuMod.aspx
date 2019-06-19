@@ -1,11 +1,11 @@
 ﻿<%@ Page Language="C#" Title="Menu Module" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="MenuMod.aspx.cs" Inherits="Inventory_System.ProdMod" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="container-fluid" >
+    <div class="container-fluid" style="margin-top:50px" >
         <table class="nav-justified">
             <tr>
                 <td style="width:40%">
-                    <table style="margin-top: 50px;">
+                    <table>
                         <tr>
                             <td>
                                 <asp:Label runat="server" Text="Menu ID"></asp:Label><br />
@@ -34,8 +34,11 @@
                             <td>
                                 <div>
                                     <br />
-                                    <asp:Label runat="server" Text="Enter Ingredient"></asp:Label><br />
-                                    <asp:TextBox ID="txtbox_Ingredients" placeholder="Enter Ingredient" runat="server"></asp:TextBox>
+                                    <asp:Label runat="server" Text="Enter Ingredient"></asp:Label>
+                                   
+                                    <br />
+
+                                    <asp:TextBox ID="txtbox_Ingredient" placeholder="Enter Ingredient" runat="server"></asp:TextBox>
                                     <br />
                                     <br />
                                     <asp:Label runat="server" Text="Enter Quantity"></asp:Label><br />

@@ -40,13 +40,13 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.Button btn_Next;
         
         /// <summary>
-        /// txtbox_Ingredients control.
+        /// txtbox_Ingredient control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtbox_Ingredients;
+        protected global::System.Web.UI.WebControls.TextBox txtbox_Ingredient;
         
         /// <summary>
         /// txtbox_Quantity control.

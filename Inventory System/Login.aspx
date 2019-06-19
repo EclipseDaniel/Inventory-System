@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Inventory_System.Login" %>
 
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Cafe by the Ruins</title>
@@ -65,10 +65,10 @@
                         </div>
 
                         <div class="login-check">
-
                             <label class="checkbox">
                                 <input type="checkbox" name="checkbox" checked=""><i> </i>Remember me</label>
                         </div>
+
                         <asp:Button ID="btn_Login" runat="server" class="btn btn-danger btn-block" onClick="btn_Login_Click" Text="Login" />
                         <asp:Button ID="btn_Clear" class="btn btn-danger btn-block" runat="server" Style="margin-left: 20px" Text="Clear"  OnClick="btn_Clear_Click"/>
 

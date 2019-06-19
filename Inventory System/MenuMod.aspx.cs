@@ -25,7 +25,7 @@ namespace Inventory_System
             {
                 if (txtbox_DishName.Text=="")
                 {
-                    btn_Add.Enabled = true;
+                    btn_Add.Enabled = false;
                 }
             }
         }
@@ -74,25 +74,42 @@ namespace Inventory_System
             string strIngredients = null;
             string strQuantitySelected = null;
             strDishSelected = txtbox_DishName.Text;
-            strIngredients = txtbox_Ingredients.Text;
+            strIngredients = txtbox_Ingredient.Text;
             strQuantitySelected = txtbox_Quantity.Text;
 
             if (con.State == ConnectionState.Closed)
             {
                 con.Open();
+                SqlDataAdapter sqlDa = new SqlDataAdapter("MenuViewByDishAndIngredients", con);
+                sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+                sqlDa.SelectCommand.Parameters.AddWithValue("@Dish", strDishSelected);
+                sqlDa.SelectCommand.Parameters.AddWithValue("@Ingredients", strIngredients);
+
+                DataTable dt = new DataTable();
+                sqlDa.Fill(dt);
+
+                string strCurrentQuantity = null;
+
+                if (dt.Rows.Count > 0)
+                {
+                    txtbox_MenuId.Text = dt.Rows[0]["MenuID"].ToString();
+                    strCurrentQuantity = (Convert.ToInt32(dt.Rows[0]["Quantity"]) + Convert.ToInt32(txtbox_MenuId.Text)).ToString();
+                }
+
                 SqlCommand cmd = new SqlCommand("MenuCreateOrUpdate", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@MenuID", (txtbox_MenuId.Text == "" ? 0 : Convert.ToInt32(txtbox_MenuId.Text)));
                 cmd.Parameters.AddWithValue("@Dish", txtbox_DishName.Text.Trim());
-                cmd.Parameters.AddWithValue("@Ingredients", txtbox_Ingredients.Text.Trim());
-                cmd.Parameters.AddWithValue("@Quantity", txtbox_Quantity.Text.Trim());
+                cmd.Parameters.AddWithValue("@Ingredients", txtbox_Ingredient.Text.Trim());
+                cmd.Parameters.AddWithValue("@Quantity", strCurrentQuantity);
                 cmd.ExecuteNonQuery();
-                con.Close();
 
+
+                con.Close();
 
                 string MenuID = txtbox_MenuId.Text;
                 txtbox_DishName.Text = string.Empty;
-                txtbox_Ingredients.Text = string.Empty;
+                txtbox_Ingredient.Text = string.Empty;
                 txtbox_Quantity.Text = string.Empty;
 
                 btn_Add.Enabled = false;
