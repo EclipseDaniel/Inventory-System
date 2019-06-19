@@ -11,15 +11,15 @@ namespace Inventory_System
 {
     public partial class ProdMod : System.Web.UI.Page
     {
-        SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=dbMain;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=PPCA-5253YR6-LX\AACRSQLEXPRESS;Initial Catalog=dbMain;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
-            //btn_Add.Enabled = false;
-            //btn_Cancel.Enabled = false;
-            //btn_Next.Enabled = false;
+            btn_Add.Enabled = false;
+            btn_Cancel.Enabled = false;
+            btn_Next.Enabled = false;
 
-            //txtbox_Quantity.ReadOnly = true;
-            //txtbox_Ingredients.ReadOnly = true;
+            txtbox_Quantity.ReadOnly = true;
+            txtbox_Ingredients.ReadOnly = true;
 
             if (!IsPostBack)
             {
@@ -47,24 +47,24 @@ namespace Inventory_System
 
         protected void btn_Next_Click(object sender, EventArgs e)
         {
-            //txtbox_DishName.ReadOnly = true;
-            //txtbox_Quantity.ReadOnly = false;
-            //txtbox_Ingredients.ReadOnly = false;
-            //btn_Next.Enabled = false;
-            //btn_Add.Enabled = true;
-            //btn_Cancel.Enabled = true;
+            txtbox_DishName.ReadOnly = true;
+            txtbox_Quantity.ReadOnly = false;
+            txtbox_Ingredients.ReadOnly = false;
+            btn_Next.Enabled = false;
+            btn_Add.Enabled = true;
+            btn_Cancel.Enabled = true;
         }
 
 
         protected void btn_Cancel_Click(object sender, EventArgs e)
         {
-            //txtbox_DishName.Text = string.Empty;
-            //txtbox_Ingredients.Text = string.Empty;
-            //txtbox_Quantity.Text = string.Empty;
+            txtbox_DishName.Text = string.Empty;
+            txtbox_Ingredients.Text = string.Empty;
+            txtbox_Quantity.Text = string.Empty;
 
-            //btn_Add.Enabled = false;
-            //btn_Cancel.Enabled = false;
-            //btn_Next.Enabled = false;
+            btn_Add.Enabled = false;
+            btn_Cancel.Enabled = false;
+            btn_Next.Enabled = false;
 
         }
 
@@ -102,18 +102,18 @@ namespace Inventory_System
                 FillGridView(strDishSelected);
             }
 
-            //txtbox_Quantity.ReadOnly = true;
-            //txtbox_Ingredients.ReadOnly = true;
-            //txtbox_DishName.ReadOnly = false;
-            //btn_Add.Enabled = false;
-            //btn_Cancel.Enabled = false;
-            //btn_Next.Enabled = false;
+            txtbox_Quantity.ReadOnly = true;
+            txtbox_Ingredients.ReadOnly = true;
+            txtbox_DishName.ReadOnly = false;
+            btn_Add.Enabled = false;
+            btn_Cancel.Enabled = false;
+            btn_Next.Enabled = false;
 
         }
 
         protected void txtbox_DishName_TextChanged(object sender, EventArgs e)
         {
-            //btn_Next.Enabled = true;
+            btn_Next.Enabled = true;
         }
     }
 }
