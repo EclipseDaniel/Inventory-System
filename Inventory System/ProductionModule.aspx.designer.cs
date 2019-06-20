@@ -13,13 +13,13 @@ namespace Inventory_System {
     public partial class ProductionModule1 {
         
         /// <summary>
-        /// dDlistMenu control.
+        /// ddlMenuList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dDlistMenu;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMenuList;
         
         /// <summary>
         /// txtbox_Quantity control.

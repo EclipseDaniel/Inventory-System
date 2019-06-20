@@ -47,7 +47,7 @@
                              <label>Ordered Dish</label>
                             <div class="dropdown">
                                 <span class="fa fa-bars" aria-hidden="true"></span>
-                                <asp:DropDownList ID="dDlistMenu" class="dropdown-content" runat="server"></asp:DropDownList>
+                                <asp:DropDownList ID="ddlMenuList" class="dropdown-content" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlMenuList_SelectedIndexChanged"></asp:DropDownList>
                             </div>
 
 
