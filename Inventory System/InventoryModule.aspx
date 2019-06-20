@@ -64,7 +64,7 @@
                             <label>Category</label>
                             <div class="dropdown">
                                 <span class="fa fa-tags" aria-hidden="true"></span>
-                                <asp:DropDownList ID="ddlistCategory" class="dropdownR" runat="server">
+                                <asp:DropDownList ID="ddlistCategory" class="dropdown-content" runat="server">
                                     <asp:ListItem Text="" Value="" Selected="True"></asp:ListItem>
                                     <asp:ListItem Text="Condiments" Value="Condiments"></asp:ListItem>
                                     <asp:ListItem Text="Seasonings" Value="Seasonings"></asp:ListItem>
@@ -88,7 +88,7 @@
                             <label>Status</label>
                             <div class="dropdown">
                                 <span class="fa fa-dot-circle-o" aria-hidden="true"></span>
-                                <asp:DropDownList ID="ddListStatus" class="dropdownR" runat="server">
+                                <asp:DropDownList ID="ddListStatus" class="dropdown-content" runat="server">
                                     <asp:ListItem Text="" Value="" Selected="True"></asp:ListItem>
                                     <asp:ListItem Text="Available" Value="Available"></asp:ListItem>
                                     <asp:ListItem Text="Critical" Value="Critical"></asp:ListItem>

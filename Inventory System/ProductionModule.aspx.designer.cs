@@ -10,51 +10,60 @@
 namespace Inventory_System {
     
     
-    public partial class RegisterForm {
+    public partial class ProductionModule1 {
         
         /// <summary>
-        /// txt_UserName control.
+        /// dDlistMenu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_UserName;
+        protected global::System.Web.UI.WebControls.DropDownList dDlistMenu;
         
         /// <summary>
-        /// txt_Password control.
+        /// txtbox_Quantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Password;
+        protected global::System.Web.UI.WebControls.TextBox txtbox_Quantity;
         
         /// <summary>
-        /// btn_Login control.
+        /// btn_Cancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Login;
+        protected global::System.Web.UI.WebControls.Button btn_Cancel;
         
         /// <summary>
-        /// btn_Clear control.
+        /// btn_Add control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Clear;
+        protected global::System.Web.UI.WebControls.Button btn_Add;
         
         /// <summary>
-        /// lblError control.
+        /// txtbox_DishID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblError;
+        protected global::System.Web.UI.WebControls.TextBox txtbox_DishID;
+        
+        /// <summary>
+        /// gridOrderedDish control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridOrderedDish;
     }
 }
