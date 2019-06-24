@@ -77,9 +77,23 @@
                             <asp:GridView ID="gridOrderedDish" runat="server" AutoGenerateColumns="false" BorderStyle="Solid">
                                 <Columns>
                                     <asp:BoundField DataField="Dish" HeaderText="Dish" />
+                                    <asp:BoundField DataField="Order" HeaderText="Order" />
+                                </Columns>
+                            </asp:GridView>
+                        </div>
+
+                        <div class="text-center">
+                            <asp:Button ID="Button1" class="btn btn-dark" runat="server" Text="Proceed" OnClick="btn_Proceed_Click" />
+                            <asp:Button ID="Button2" Style="margin-left: 10px;" class="btn btn-dark" runat="server" Text="Send Email" OnClick="btn_SendEmail_Click" />
+                        </div>
+
+                        <div style="margin-top:200px;">
+                            <asp:GridView ID="gridProdMod" runat="server" AutoGenerateColumns="false" BorderStyle="Solid">
+                                <Columns>
+                                    <asp:BoundField DataField="Dish" HeaderText="Dish" />
                                     <asp:BoundField DataField="Ingredients" HeaderText="Ingredients" />
-                                    <asp:BoundField DataField="Quantity" HeaderText="Quantity" />
-                                    <asp:BoundField DataField="StockLevel" HeaderText="Stock Level" />
+                                    <asp:BoundField DataField="TotalQty" HeaderText="Quantity" />
+                                    <asp:BoundField DataField="ItemQuantity" HeaderText="Stock Level" />
                                 </Columns>
                             </asp:GridView>
                         </div>
