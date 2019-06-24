@@ -7,7 +7,7 @@
     <!-- Meta-Tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <meta name="keywords" content="Cafe Inventory System  Production form a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
+    <meta name="keywords" content="Cafe Inventory System Production form a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
     <script>
         addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
@@ -39,12 +39,12 @@
                 <div class="divider_info">
                     <div class="prod_form">
 
-                       <%-- Production Form--%>
+                        <%-- Production Form--%>
                         <div class="prod_info">
                             <h2>Enter Order</h2>
                             <p>Enter order quantity</p>
 
-                             <label>Ordered Dish</label>
+                            <label>Ordered Dish</label>
                             <div class="dropdown">
                                 <span class="fa fa-bars" aria-hidden="true"></span>
                                 <asp:DropDownList ID="dDlistMenu" class="dropdown-content" runat="server"></asp:DropDownList>
@@ -59,8 +59,8 @@
                             </div>
 
                             <div class="text-center">
-                                <asp:Button ID="btn_Cancel" class="btn btn-dark" runat="server" Text="Cancel" OnClick="btn_Cancel_Click"     />
-                                <asp:Button ID="btn_Add" Style="margin-left: 10px;" class="btn btn-dark" runat="server" Text="Add" OnClick="btn_Add_Click"  />
+                                <asp:Button ID="btn_Cancel" class="btn btn-dark" runat="server" Text="Cancel" OnClick="btn_Cancel_Click" />
+                                <asp:Button ID="btn_Add" Style="margin-left: 10px;" class="btn btn-dark" runat="server" Text="Add" OnClick="btn_Add_Click" />
                             </div>
 
                             <%--Hidden Text box for Dish Id Validation for SQL Script--%>
@@ -68,7 +68,7 @@
 
                         </div>
                     </div>
-                     <%-- Production Form--%>
+                    <%-- Production Form--%>
 
                     <%--Datagrid and Header for checking production stock levels--%>
                     <div class="prodTable_Info">
@@ -82,6 +82,11 @@
                                     <asp:BoundField DataField="StockLevel" HeaderText="Stock Level" />
                                 </Columns>
                             </asp:GridView>
+                        </div>
+
+                        <div class="text-center">
+                            <asp:Button ID="btn_Proceed" class="btn btn-dark" runat="server" Text="Proceed" OnClick="btn_Proceed_Click" />
+                            <asp:Button ID="btn_SendEmail" Style="margin-left: 10px;" class="btn btn-dark" runat="server" Text="Send Email" OnClick="btn_SendEmail_Click" />
                         </div>
                     </div>
                     <%--Datagrid and Header for checking production stock levels--%>

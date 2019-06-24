@@ -13,5 +13,11 @@ namespace Inventory_System
         {
 
         }
+
+        protected void btn_Login_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

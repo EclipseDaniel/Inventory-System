@@ -23,5 +23,15 @@ namespace Inventory_System
         {
 
         }
+
+        protected void btn_Proceed_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btn_SendEmail_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -13,6 +13,15 @@ namespace Inventory_System {
     public partial class RegisterForm {
         
         /// <summary>
+        /// txt_Email control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_Email;
+        
+        /// <summary>
         /// txt_UserName control.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,24 @@ namespace Inventory_System {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_UserName;
+        
+        /// <summary>
+        /// txt_ContactNum control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_ContactNum;
+        
+        /// <summary>
+        /// txt_UserRole control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_UserRole;
         
         /// <summary>
         /// txt_Password control.
@@ -31,6 +58,15 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.TextBox txt_Password;
         
         /// <summary>
+        /// txt_ConformPass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_ConformPass;
+        
+        /// <summary>
         /// btn_Login control.
         /// </summary>
         /// <remarks>
@@ -38,15 +74,6 @@ namespace Inventory_System {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_Login;
-        
-        /// <summary>
-        /// btn_Clear control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Clear;
         
         /// <summary>
         /// lblError control.

@@ -39,15 +39,31 @@
             <div class="divider_info">
                 <div class="cafe_form">
                     <div class="cafe_info">
-                        <h2>Login to your Account</h2>
-                        <p>Enter your details to login.</p>
+                        <h2>Register an Account</h2>
+                        <p>Enter your details to Register.</p>
 
                         <form action="#" method="post" runat="server">
 
                             <label>Email Address</label>
                             <div class="input-group">
                                 <span class="fa fa-envelope" aria-hidden="true"></span>
+                                <asp:TextBox ID="txt_Email" runat="server" placeholder="Enter Your  Email Address" required=""></asp:TextBox>
+                            </div>
+                             <label>User Name</label>
+                            <div class="input-group">
+                                <span class="fa fa-envelope" aria-hidden="true"></span>
                                 <asp:TextBox ID="txt_UserName" runat="server" placeholder="Enter Your User Name" required=""></asp:TextBox>
+                            </div>
+                             <label>Contact Number</label>
+                            <div class="input-group">
+                                <span class="fa fa-envelope" aria-hidden="true"></span>
+                                <asp:TextBox ID="txt_ContactNum" runat="server" placeholder="Enter Your Contact Number" required=""></asp:TextBox>
+                            </div>
+
+                             <label>User Role</label>
+                            <div class="input-group">
+                                <span class="fa fa-envelope" aria-hidden="true"></span>
+                                <asp:TextBox ID="txt_UserRole" runat="server" placeholder="Enter Your User Role" required=""></asp:TextBox>
                             </div>
 
                             <label>Password</label>
@@ -56,25 +72,31 @@
                                 <asp:TextBox ID="txt_Password" runat="server" placeholder="Enter Password" required="" TextMode="Password"></asp:TextBox>
                                 <%--<input type="Password" placeholder="Enter Password" required="">--%>
                             </div>
+                            <label>Confirm Password</label>
+                            <div class="input-group">
+                                <span class="fa fa-lock" aria-hidden="true"></span>
+                                <asp:TextBox ID="txt_ConformPass" runat="server" placeholder="Confirm Password" required="" TextMode="Password"></asp:TextBox>
+                                <%--<input type="Password" placeholder="Enter Password" required="">--%>
+                            </div>
+
 
                             <div class="login-check">
                                 <label class="checkbox">
                                     <input type="checkbox" name="checkbox" checked=""><i> </i>Remember me</label>
                             </div>
 
-                            <asp:Button ID="btn_Login" runat="server" class="btn btn-danger btn-block" OnClick="btn_Login_Click" Text="Login" />
-                            <asp:Button ID="btn_Clear" class="btn btn-danger btn-block" runat="server" Style="margin-left: 20px" Text="Clear" OnClick="btn_Clear_Click" />
+                            <asp:Button ID="btn_Login" runat="server" class="btn btn-danger btn-block" OnClick="btn_Login_Click" Text="Register" />
 
                         </form>
 
-                        <asp:Label ID="lblError" runat="server" Text="Incorrect User Credential" ForeColor="Red"></asp:Label>
+                        <asp:Label ID="lblError" runat="server" Text="Incorrect Credential Input" ForeColor="Red"></asp:Label>
                         <p class="reg_Form">Dont have an account? <a href="#">Register here</a></p>
 
                     </div>
                 </div>
 
                 <div class="account_Info">
-                    <h1>Manage Your Account</h1>
+                    <h1>Register your Account</h1>
                     <img src="images/cafe2.png" alt="" />
                 </div>
 
