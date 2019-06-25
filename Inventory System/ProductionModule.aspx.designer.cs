@@ -67,22 +67,13 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.GridView gridOrderedDish;
         
         /// <summary>
-        /// Button1 control.
+        /// btn_Proceed control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
-        
-        /// <summary>
-        /// Button2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button btn_Proceed;
         
         /// <summary>
         /// gridProdMod control.
@@ -94,13 +85,13 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.GridView gridProdMod;
         
         /// <summary>
-        /// btn_Proceed control.
+        /// btn_ProceedProcess control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Proceed;
+        protected global::System.Web.UI.WebControls.Button btn_ProceedProcess;
         
         /// <summary>
         /// btn_SendEmail control.

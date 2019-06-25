@@ -115,6 +115,11 @@ namespace Inventory_System
             gridProdMod.DataBind();
         }
 
+        protected void btn_ProceedProcess_Click(object sender, EventArgs e)
+        {
+
+        }
+
         protected void btn_SendEmail_Click(object sender, EventArgs e)
         {
 
@@ -195,5 +200,7 @@ namespace Inventory_System
             public string Dish { get; set; }
             public string Order { get; set; }
         }
+
+        
     }
 }

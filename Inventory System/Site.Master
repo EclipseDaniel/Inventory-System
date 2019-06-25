@@ -52,7 +52,7 @@
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                        <li><a runat="server" href="~/Contact">Production</a></li>
                          <li><a runat="server" href="~/MenuModule">Menu Setting</a></li>
                         <li><a runat="server" href="~/InventoryModule">Inventory</a></li>
                         <li><a runat="server" href="~/SupplierModule">Supplier</a></li>
@@ -63,13 +63,12 @@
             </div>
         </div>
 
-
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Develop by team Cafe by the Ruins</p>
+                <p>&copy; 2019 Cafe Inventory System . All Rights Reserved | Design by <a href="#" target="blank">TeamCafeByTheRuins</a></p>
             </footer>
         </div>
 

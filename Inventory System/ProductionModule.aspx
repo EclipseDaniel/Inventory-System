@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProductionModule.aspx.cs" Inherits="Inventory_System.ProductionModule1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true"  CodeBehind="ProductionModule.aspx.cs" Inherits="Inventory_System.ProductionModule1" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,6 +31,29 @@
 
 </head>
 <body>
+
+     <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                 <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" runat="server" href="~/">Cafe by the Ruins</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/">Home</a></li>
+                        <li><a runat="server" href="~/Contact">Production</a></li>
+                         <li><a runat="server" href="~/MenuModule">Menu Setting</a></li>
+                        <li><a runat="server" href="~/InventoryModule">Inventory</a></li>
+                        <li><a runat="server" href="~/SupplierModule">Supplier</a></li>
+                                               
+                    </ul>
+                </div>
+            </div>
+        </div>
 
     <div class="productionform">
         <div class="container">
@@ -71,9 +94,9 @@
                     <%-- Production Form--%>
 
                     <%--Datagrid and Header for checking production stock levels--%>
-                    <div class="prodTable_Info">
+                    <div class="prodTable_Info" >
                         <h1>Production Data</h1>
-                        <div>
+                        <div class="text-center" style="margin:10px,10px,10px,10px;align-content:center flex-start;">
                             <asp:GridView ID="gridOrderedDish" runat="server" AutoGenerateColumns="false" BorderStyle="Solid">
                                 <Columns>
                                     <asp:BoundField DataField="Dish" HeaderText="Dish" />
@@ -83,11 +106,11 @@
                         </div>
 
                         <div class="text-center">
-                            <asp:Button ID="Button1" class="btn btn-dark" runat="server" Text="Proceed" OnClick="btn_Proceed_Click" />
-                            <asp:Button ID="Button2" Style="margin-left: 10px;" class="btn btn-dark" runat="server" Text="Send Email" OnClick="btn_SendEmail_Click" />
+                            <asp:Button ID="btn_Proceed" style="margin-top:30px" class="btn btn-dark" runat="server" Text="Proceed" OnClick="btn_Proceed_Click" />
+                            
                         </div>
 
-                        <div style="margin-top:200px;">
+                        <div class="text-center" style="margin-top:200px;align-content:center flex-start;">
                             <asp:GridView ID="gridProdMod" runat="server" AutoGenerateColumns="false" BorderStyle="Solid">
                                 <Columns>
                                     <asp:BoundField DataField="Dish" HeaderText="Dish" />
@@ -99,7 +122,7 @@
                         </div>
 
                         <div class="text-center">
-                            <asp:Button ID="btn_Proceed" class="btn btn-dark" runat="server" Text="Proceed" OnClick="btn_Proceed_Click" />
+                            <asp:Button ID="btn_ProceedProcess" class="btn btn-dark" runat="server" Text="Proceed" OnClick="btn_ProceedProcess_Click" />
                             <asp:Button ID="btn_SendEmail" Style="margin-left: 10px;" class="btn btn-dark" runat="server" Text="Send Email" OnClick="btn_SendEmail_Click" />
                         </div>
                     </div>
