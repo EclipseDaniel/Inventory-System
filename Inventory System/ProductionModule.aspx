@@ -117,6 +117,7 @@
                                     <asp:BoundField DataField="Ingredients" HeaderText="Ingredients" />
                                     <asp:BoundField DataField="TotalQty" HeaderText="Quantity" />
                                     <asp:BoundField DataField="ItemQuantity" HeaderText="Stock Level" />
+                                     <asp:BoundField DataField="QtyLeft" HeaderText="QtyLeft" />
                                 </Columns>
                             </asp:GridView>
                         </div>
