@@ -11,7 +11,7 @@ namespace Inventory_System
 {
     public partial class ProductionModule1 : System.Web.UI.Page
     {
-        SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=dbMain;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=PPCA-5253YR6-LX\AACRSQLEXPRESS;Initial Catalog=dbMain;Integrated Security=True");
         List<cMenu> listMenu;
         List<cOrder> listOrder;
 

@@ -11,7 +11,7 @@ namespace Inventory_System
 {
     public partial class InventoryModule : System.Web.UI.Page
     {
-        SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=dbMain;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=PPCA-5253YR6-LX\AACRSQLEXPRESS;Initial Catalog=dbMain;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -82,7 +82,45 @@ namespace Inventory_System
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("ItemCreateOrUpdate", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ItemID", (txtItemNo.Text == "" ? 0 : Convert.ToInt32(txtItemNo.Text)));
+                cmd.Parameters.AddWithValue("@ItemName", txtItemName.Text.Trim());
+                cmd.Parameters.AddWithValue("@ItemType", ddlistCategory.SelectedValue.Trim());
+                cmd.Parameters.AddWithValue("@ItemQuantity", txtItemQuantity.Text.Trim());
+                cmd.Parameters.AddWithValue("@ItemStatus", ddListStatus.SelectedValue.Trim());
+                cmd.Parameters.AddWithValue("@ItemSupplier", txtSupplierItem.Text.Trim());
+                cmd.Parameters.AddWithValue("@ItemDeliveryDate", txtItemDeliveryDate.Text.Trim());
+                cmd.Parameters.AddWithValue("@ItemExpirationDate", txtItemExpirationDate.Text.Trim());
+                cmd.ExecuteNonQuery();
+                con.Close();
 
+                txtItemNo.Text = string.Empty;
+                txtItemName.Text = string.Empty;
+                ddlistCategory.Text = string.Empty;
+                txtItemQuantity.Text = string.Empty;
+                ddListStatus.Text = string.Empty;
+                txtSupplierItem.Text = string.Empty;
+                txtItemDeliveryDate.Text = string.Empty;
+                txtItemExpirationDate.Text = string.Empty;
+
+                string itemID = txtItemNo.Text;
+                Clear();
+
+                if (itemID == "")
+                {
+                    lblSuccessMessage.Text = "You have successfully added a record!";
+                }
+                else
+                {
+                    lblSuccessMessage.Text = "Record has been updated!";
+                }
+
+                FillGridView();
+            }
         }
 
         protected void btn_Delete_Click(object sender, EventArgs e)
