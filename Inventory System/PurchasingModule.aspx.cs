@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 
+
 namespace Inventory_System
 {
     public partial class PurchasingModule : System.Web.UI.Page
@@ -46,6 +47,8 @@ namespace Inventory_System
             txtAddress.Text = "";
             txtNotes.Text = "";
             txtDate.Text = "";
+            txtItemPrice.Text = "";
+            txtTotalPrice.Text = "";
             lblSuccessMessage.Text = "";
             lblErrorMessage.Text = "";
             btn_Delete.Enabled = false;
@@ -78,12 +81,15 @@ namespace Inventory_System
             txtAddress.Text = dt.Rows[0]["Address"].ToString();
             txtNotes.Text = dt.Rows[0]["Notes"].ToString();
             txtDate.Text = dt.Rows[0]["Date"].ToString();
+            txtItemPrice.Text = dt.Rows[0]["Price"].ToString();
+            txtTotalPrice.Text = dt.Rows[0]["TotalPrice"].ToString();
             btnSave.Text = "Update";
             btn_Delete.Enabled = true;
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            
             if (con.State == ConnectionState.Closed)
             {
                 con.Open();
@@ -99,6 +105,8 @@ namespace Inventory_System
                 cmd.Parameters.AddWithValue("@Address", txtAddress.Text.Trim());
                 cmd.Parameters.AddWithValue("@Notes", txtNotes.Text.Trim());
                 cmd.Parameters.AddWithValue("@Date", txtDate.Text.Trim());
+                cmd.Parameters.AddWithValue("@Price", txtItemPrice.Text.Trim());
+                cmd.Parameters.AddWithValue("@TotalPrice", txtTotalPrice.Text.Trim());
                 cmd.ExecuteNonQuery();
                 con.Close();
 
@@ -110,6 +118,8 @@ namespace Inventory_System
                 txtTerms.Text = string.Empty;
                 txtNotes.Text = string.Empty;
                 txtDate.Text = string.Empty;
+                txtItemPrice.Text = string.Empty;
+                txtTotalPrice.Text = string.Empty;
 
                 string supplierID = txtPurchaseID.Text;
                 Clear();
@@ -132,10 +142,10 @@ namespace Inventory_System
         {
             if (con.State == ConnectionState.Closed)
                 con.Open();
-            SqlCommand sqlCmd = new SqlCommand("SupplierDeleteByID", con);
+            SqlCommand sqlCmd = new SqlCommand("PurchaseDeleteByID", con);
 
             sqlCmd.CommandType = CommandType.StoredProcedure;
-            sqlCmd.Parameters.AddWithValue("@SupplierID", Convert.ToInt32(txtPurchaseID.Text));
+            sqlCmd.Parameters.AddWithValue("@PurchaseID", Convert.ToInt32(txtPurchaseID.Text));
             sqlCmd.ExecuteNonQuery();
             con.Close();
             Clear();
@@ -148,6 +158,21 @@ namespace Inventory_System
         protected void btn_Clear_Click(object sender, EventArgs e)
         {
             Clear();
+        }
+
+        
+        public void totalPrice()
+        {
+            string price, quantity;
+            price = txtItemPrice.Text;
+            quantity = txtItemQuantity.Text;
+            int total = Convert.ToInt32(price) * Convert.ToInt32(quantity);
+            txtTotalPrice.Text = total.ToString();
+        }
+
+        protected void btnCompute_Click(object sender, EventArgs e)
+        {
+            totalPrice();
         }
     }
 }

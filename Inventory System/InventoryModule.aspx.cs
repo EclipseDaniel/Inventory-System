@@ -144,5 +144,22 @@ namespace Inventory_System
         {
             Clear();
         }
+
+        protected void checkInventory_Click(object sender, EventArgs e)
+        {
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+            string checkQuantity = "SELECT * FROM tblItemDetails WHERE ItemQuantity < 100";
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = checkQuantity;
+            cmd.Connection = con;
+            SqlDataAdapter da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            gridViewItem.DataSource = ds;
+            gridViewItem.DataBind();
+            con.Close();
+        }
     }
 }

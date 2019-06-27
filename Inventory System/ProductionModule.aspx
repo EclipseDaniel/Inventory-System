@@ -28,32 +28,41 @@
     <!-- google fonts -->
     <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <!-- //google fonts -->
+    <style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
 
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+</style>
 </head>
 <body>
 
-     <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/">Cafe by the Ruins</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/Contact">Production</a></li>
-                         <li><a runat="server" href="~/MenuModule">Menu Setting</a></li>
-                        <li><a runat="server" href="~/InventoryModule">Inventory</a></li>
-                        <li><a runat="server" href="~/SupplierModule">Supplier</a></li>
-                                               
-                    </ul>
-                </div>
-            </div>
-        </div>
+<ul>
+  <li><a class="active" href="About.aspx">Home</a></li>
+  <li><a href="MenuModule.aspx">Menu</a></li>
+  <li><a href="ProductionModule.aspx">Production</a></li>
+  <li><a href="InventoryModule.aspx">Inventory</a></li>
+  <li><a href="PurchasingModule.aspx">Purchasing</a></li>
+</ul>
 
     <div class="productionform">
         <div class="container">
