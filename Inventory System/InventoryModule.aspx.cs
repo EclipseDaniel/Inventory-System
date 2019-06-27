@@ -149,7 +149,9 @@ namespace Inventory_System
         {
             if (con.State == ConnectionState.Closed)
                 con.Open();
-            string checkQuantity = "SELECT * FROM tblItemDetails WHERE ItemQuantity < 100";
+            string quantity;
+            quantity = txtCheckQuantity.Text;
+            string checkQuantity = $"SELECT * FROM tblItemDetails WHERE ItemQuantity <= {quantity}";
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = checkQuantity;
             cmd.Connection = con;

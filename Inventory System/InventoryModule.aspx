@@ -83,9 +83,13 @@ li a:hover {
 
                         <div class="prod_info">
                             <h2>Inventory Details</h2>
-                            <asp:Button Text="Check Inventory" ID="checkInventory" runat="server" onclick="checkInventory_Click"    />
                             <p></p>
-
+                            <div class="input-group">
+                            <span class="fa fa-cutlery" aria-hidden="true"></span>
+                            <asp:TextBox ID="txtCheckQuantity" runat="server"></asp:TextBox>
+                            <asp:Button Text="Check Inventory" ID="checkInventory" runat="server" onclick="checkInventory_Click"    />
+                            </div>
+                            <p></p>
                             <label>Item</label>
                             <div class="input-group">
                                 <span class="fa fa-cutlery" aria-hidden="true"></span>
