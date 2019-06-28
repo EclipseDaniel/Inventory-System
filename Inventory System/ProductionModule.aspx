@@ -116,7 +116,7 @@ li a:hover {
 
                         <div class="text-center">
                             <asp:Button ID="btn_Proceed" style="margin-top:30px" class="btn btn-dark" runat="server" Text="Proceed" OnClick="btn_Proceed_Click" />
-                            
+                            <asp:Button ID="btn_Validate" Style="margin-left: 10px;" class="btn btn-dark" runat="server" Text="Check"  OnClick="btn_Validate_Click" />
                         </div>
 
                         <div class="text-center" style="margin-top:200px;align-content:center flex-start;">
@@ -133,7 +133,6 @@ li a:hover {
 
                         <div class="text-center">
                             <asp:Button ID="btn_ProceedProcess" class="btn btn-dark" runat="server" Text="Proceed" OnClick="btn_ProceedProcess_Click" />
-                            <asp:Button ID="btn_SendEmail" Style="margin-left: 10px;" class="btn btn-dark" runat="server" Text="Send Email" OnClick="btn_SendEmail_Click" />
                         </div>
                     </div>
                     <%--Datagrid and Header for checking production stock levels--%>

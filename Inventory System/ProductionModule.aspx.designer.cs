@@ -76,6 +76,15 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.Button btn_Proceed;
         
         /// <summary>
+        /// btn_Validate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_Validate;
+        
+        /// <summary>
         /// gridProdMod control.
         /// </summary>
         /// <remarks>
@@ -92,14 +101,5 @@ namespace Inventory_System {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_ProceedProcess;
-        
-        /// <summary>
-        /// btn_SendEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_SendEmail;
     }
 }

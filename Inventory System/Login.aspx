@@ -50,7 +50,7 @@
 
                     <form action="#" method="post" runat="server">
 
-                        <label>Email Address</label>
+                        <label>Username</label>
                         <div class="input-group">
                             <span class="fa fa-envelope" aria-hidden="true"></span>
                             <asp:TextBox ID="txt_UserName" runat="server" placeholder="Enter Your User Name" required=""></asp:TextBox>
@@ -64,8 +64,7 @@
                         </div>
 
                         <div class="login-check">
-                            <label class="checkbox">
-                                <input type="checkbox" name="checkbox" checked=""><i> </i>Remember me</label>
+                                <input type="checkbox" name="checkbox" checked=""><i> </i><label>Remember me</label>
                         </div>
 
                         <asp:Button ID="btn_Login" runat="server" class="btn btn-danger btn-block" onClick="btn_Login_Click" Text="Login" />
