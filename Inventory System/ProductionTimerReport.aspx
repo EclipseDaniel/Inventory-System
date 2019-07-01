@@ -15,7 +15,7 @@
 
         function hideURLbar() {
             window.scrollTo(0, 1);
-        }
+        } 
     </script>
 
     <!-- //Meta-Tags -->
