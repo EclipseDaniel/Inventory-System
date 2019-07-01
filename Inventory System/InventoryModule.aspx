@@ -166,7 +166,9 @@ li a:hover {
 
                     <div class="prodTable_Info">
                         <h1>Inventory Details</h1>
-                        <asp:GridView ID="gridViewItem" runat="server" AutoGenerateColumns="false" BorderStyle="Solid" Width="887px">
+                        <asp:GridView ID="gridViewItem" runat="server" AutoGenerateColumns="false" CssClass="Grid" HorizontalAlign="Center">
+                            <HeaderStyle CssClass ="GridHeader"/>
+                            <AlternatingRowStyle CssClass ="GridAltItem" />
                             <Columns>
                                 <asp:BoundField DataField="ItemID" HeaderText="Item ID" />
                                 <asp:BoundField DataField="ItemName" HeaderText="Item Name" />

@@ -41,7 +41,7 @@
 
 </head>
 <body>
-     <div class="navbar navbar-inverse navbar-fixed-top">
+     <div class=" navbar-fixed-top">
             <div class="container">
                  <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -54,7 +54,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/Contact">Production</a></li>
+                        <li><a runat="server" href="~/">Production</a></li>
                          <li><a runat="server" href="~/MenuModule">Menu Setting</a></li>
                         <li><a runat="server" href="~/InventoryModule">Inventory</a></li>
                         <li><a runat="server" href="~/SupplierModule">Supplier</a></li>
@@ -149,7 +149,10 @@
 
                     <div class="prodTable_Info">
                         <h1>Suppliers Details</h1>
-                        `<asp:GridView ID="gridViewSupplier" runat="server" AutoGenerateColumns="false" BorderStyle="Solid" Width="887px">
+                        `<asp:GridView ID="gridViewSupplier" runat="server" AutoGenerateColumns="false" HorizontalAlign="Center" CssClass="Grid">
+                            <HeaderStyle CssClass ="GridHeader"/>
+                            <AlternatingRowStyle CssClass ="GridAltItem" />
+
                             <Columns>
                                 <asp:BoundField DataField="SupplierID" HeaderText="Supplier ID" />
                                 <asp:BoundField DataField="SupplierName" HeaderText="Supplier Name" />
