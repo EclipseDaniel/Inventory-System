@@ -31,50 +31,93 @@
     <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <!-- //google fonts -->
 
-    <style type="text/css">
-        .auto-style1 {
-            margin-top: 10px;
-            margin-bottom: 20px;
-            padding: 3px 10px;
-            border: 1px solid #ddd;
-            background: #fff;
-            height: 43px;
-        }
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-        .ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #333;
-        }
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
 
-        .li {
-            float: left;
-        }
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
 
-            .li a {
-                display: block;
-                color: white;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-            }
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
 
-                .li a:hover {
-                    background-color: #111;
-                }
-    </style>
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
 </head>
 <body>
 
-    <ul>
-        <li><a class="active" href="About.aspx">Home</a></li>
-        <li><a href="MenuModule.aspx">Menu</a></li>
-        <li><a href="ProductionModule.aspx">Production</a></li>
-        <li><a href="InventoryModule.aspx">Inventory</a></li>
-        <li><a href="PurchasingModule.aspx">Purchasing</a></li>
-    </ul>
+<div class="navbar">
+  <a href="About.aspx">Home</a>
+  <a href="Contact.aspx">Contacts</a>
+  <a href="PurchasingModule.aspx">Purchase</a>
+  <a href="InventoryModule.aspx">Inventory</a>
+  <a href="MenuModule.aspx">Menu</a>
+  <a href="ProductionModule.aspx">Production</a>
+  <a href="SupplierModule.aspx">Supplier</a>
+  <div class="dropdown">
+    <button class="dropbtn">Dropdown 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="Reports.aspx">Purchase Order Reports</a>
+      <a href="ProductionReports">Production Reports</a>
+      <a href="CrystelReportsItemDetails.aspx">Item Details Reports</a>
+    </div>
+  </div> 
+</div>
 
 
 
@@ -94,11 +137,15 @@
 
                             <label>Item</label>
                             <div class="input-group">
+
+                             <div class="dropdown">
                                 <span class="fa fa-cutlery" aria-hidden="true"></span>
-                                <asp:TextBox ID="txtItemName" runat="server" placeholder="Enter Item Name"></asp:TextBox>
+                                <asp:DropDownList ID="ddlMenuList" class="dropdown-content" runat="server" AutoPostBack="true" ></asp:DropDownList>
+                            </div>
+                                
                             </div>
 
-                            <label>Category</label>
+                            <label>Category</label>&nbsp;&nbsp;&nbsp;&nbsp;
                             <div class="dropdown">
                                 <span class="fa fa-tags" aria-hidden="true"></span>
                                 <asp:DropDownList ID="dDlistCategory" class="dropdown-content" runat="server">

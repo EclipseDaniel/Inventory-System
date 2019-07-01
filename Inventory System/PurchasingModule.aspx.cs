@@ -13,12 +13,18 @@ namespace Inventory_System
     public partial class PurchasingModule : System.Web.UI.Page
     {
         SqlConnection con = new SqlConnection(@"Data Source=PPCA-5253YR6-LX\AACRSQLEXPRESS;Initial Catalog=dbMain;Integrated Security=True");
+        List<cInventory> listInventory;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 btn_Delete.Enabled = false;
                 FillGridView();
+                listInventoryLoad("SELECT DISTINCT ItemName FROM [dbMain].[dbo].[tblItemDetails]");
+                ddlMenuList.DataSource = listInventory;
+                ddlMenuList.DataTextField = "ItemName";
+                ddlMenuList.DataBind();
+                ddlMenuList.Items.Insert(0, "Select");
             }
 
         }
@@ -35,10 +41,43 @@ namespace Inventory_System
             gridViewPurchase.DataBind();
         }
 
+        class cInventory
+        {
+            public string ItemName { get; set; }
+        }
+        public DataSet GetDataSet(string query)
+        {
+            DataSet ds = new DataSet();
+
+            con.Open();
+            var dbCmd = new SqlCommand(query, con);
+            var dbDataAdp = new SqlDataAdapter(dbCmd);
+            dbDataAdp.Fill(ds, "Temp");
+            con.Close();
+            return ds;
+        }
+        public void listInventoryLoad(string strQuery)
+        {
+            DataTable dt = new DataTable();
+            dt = GetDataSet(strQuery).Tables["Temp"];
+            if (dt.Rows.Count > 0)
+            {
+                listInventory = new List<cInventory>();
+                listInventory.Clear();
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    listInventory.Add(new cInventory
+                    {
+                        ItemName = dr["ItemName"].ToString()                        
+                    });
+                }
+            }
+        }
+
         public void Clear()
         {
             txtPurchaseID.Text = "";
-            txtItemName.Text = "";
             dDlistCategory.Text = "";
             txtItemQuantity.Text = "";
             txtSupplierName.Text = "";
@@ -72,7 +111,6 @@ namespace Inventory_System
             con.Close();
 
             txtPurchaseID.Text = PurchaseID.ToString();
-            txtItemName.Text = dt.Rows[0]["ItemName"].ToString();
             dDlistCategory.SelectedValue = dt.Rows[0]["ItemType"].ToString();
             txtItemQuantity.Text = dt.Rows[0]["ItemQuantity"].ToString();
             txtSupplierName.Text = dt.Rows[0]["SupplierName"].ToString();
@@ -96,7 +134,6 @@ namespace Inventory_System
                 SqlCommand cmd = new SqlCommand("PurchaseCreateOrUpdate", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@PurchaseID", (txtPurchaseID.Text == "" ? 0 : Convert.ToInt32(txtPurchaseID.Text)));
-                cmd.Parameters.AddWithValue("@ItemName", txtItemName.Text.Trim());
                 cmd.Parameters.AddWithValue("@ItemType", dDlistCategory.Text.Trim());
                 cmd.Parameters.AddWithValue("@ItemQuantity", txtItemQuantity.Text.Trim());
                 cmd.Parameters.AddWithValue("@SupplierName", txtSupplierName.Text.Trim());
@@ -110,7 +147,6 @@ namespace Inventory_System
                 cmd.ExecuteNonQuery();
                 con.Close();
 
-                txtItemName.Text = string.Empty;
                 dDlistCategory.Text = string.Empty;
                 txtItemQuantity.Text = string.Empty;
                 txtSupplierName.Text = string.Empty;

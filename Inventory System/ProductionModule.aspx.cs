@@ -302,7 +302,6 @@ namespace Inventory_System
 
         protected void btn_Validate_Click(object sender, EventArgs e)
         {
-
             if (con.State == ConnectionState.Closed)
                 con.Open();
             SqlDataAdapter sqlDa = new SqlDataAdapter("ItemWithCriticalLevel", con);
@@ -318,12 +317,45 @@ namespace Inventory_System
                     btn_PurchaseGood.Enabled = true;
                     btn_ProcessOrder.Enabled = false;
                 }
-                else
-                {
-                    btn_PurchaseGood.Enabled = false;
-                    btn_ProcessOrder.Enabled = true;
-                }
+                
+            }
+        }
 
+        protected void btn_PurchaseGood_Click(object sender, EventArgs e)
+        {
+
+            Response.Redirect("~/PurchasingModule.aspx");
+        }
+
+        protected void btn_ProcessOrder_Click(object sender, EventArgs e)
+        {
+            listInventoryViewLoad("SELECT * FROM vwInventoryLeft");
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+            SqlDataAdapter sqlDa = new SqlDataAdapter("ItemViewAll", con);
+            sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataTable dt = new DataTable();
+            sqlDa.Fill(dt);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                foreach (cInventoryView c in listInventoryView)
+                {
+                    if (c.ItemID == dr["ItemID"].ToString())
+                    {
+                        SqlCommand cmd = new SqlCommand("InventoryUpdateQuantity", con);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@ItemID", Convert.ToInt32(c.ItemID));
+                        cmd.Parameters.AddWithValue("@ItemQuantity", c.QtyLeft.Trim());
+                        cmd.ExecuteNonQuery();
+                        break;
+                    }
+                }
+            }
+
+            con.Close();
+
+            Response.Redirect("~/ProductionTimerModule.aspx");
         }
     }
 }
