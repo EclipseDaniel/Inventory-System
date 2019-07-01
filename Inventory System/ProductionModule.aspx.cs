@@ -319,7 +319,7 @@ namespace Inventory_System
                     btn_ProcessOrder.Enabled = false;
                 }
                 else
-                {
+                { 
                     btn_PurchaseGood.Enabled = false;
                     btn_ProcessOrder.Enabled = true;
                 }
