@@ -47,12 +47,23 @@
                             <label>Email Address</label>
                             <div class="input-group">
                                 <span class="fa fa-envelope" aria-hidden="true"></span>
+                                <asp:TextBox ID="txt_AccountID" Visible="false" runat="server"></asp:TextBox>
                                 <asp:TextBox ID="txt_Email" runat="server" placeholder="Enter Your  Email Address" required=""></asp:TextBox>
                             </div>
                              <label>User Name</label>
                             <div class="input-group">
                                 <span class="fa fa-envelope" aria-hidden="true"></span>
                                 <asp:TextBox ID="txt_UserName" runat="server" placeholder="Enter Your User Name" required=""></asp:TextBox>
+                            </div>
+                            <label>First Name</label>
+                            <div class="input-group">
+                                <span class="fa fa-envelope" aria-hidden="true"></span>
+                                <asp:TextBox ID="txt_FirstName" runat="server" placeholder="Enter Your First Name" required=""></asp:TextBox>
+                            </div>
+                            <label>Last Name</label>
+                            <div class="input-group">
+                                <span class="fa fa-envelope" aria-hidden="true"></span>
+                                <asp:TextBox ID="txt_LastName" runat="server" placeholder="Enter Your Last Name" required=""></asp:TextBox>
                             </div>
                              <label>Contact Number</label>
                             <div class="input-group">
@@ -81,8 +92,7 @@
 
 
                             <div class="login-check">
-                                <label class="checkbox">
-                                    <input type="checkbox" name="checkbox" checked=""><i> </i>Remember me</label>
+                                    <input type="checkbox" name="checkbox" checked=""><i> </i><label>Remember me</label>
                             </div>
 
                             <asp:Button ID="btn_Login" runat="server" class="btn btn-danger btn-block" OnClick="btn_Login_Click" Text="Register" />
@@ -90,6 +100,7 @@
                         </form>
 
                         <asp:Label ID="lblError" runat="server" Text="Incorrect Credential Input" ForeColor="Red"></asp:Label>
+                        <asp:Label ID="lblSuccessMessage" runat="server" ForeColor="Green"></asp:Label>
                         <p class="reg_Form">Dont have an account? <a href="#">Register here</a></p>
 
                     </div>

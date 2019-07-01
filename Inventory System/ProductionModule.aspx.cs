@@ -11,9 +11,11 @@ namespace Inventory_System
 {
     public partial class ProductionModule1 : System.Web.UI.Page
     {
-        SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=dbMain;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=PPCA-5253YR6-LX\AACRSQLEXPRESS;Initial Catalog=dbMain;Integrated Security=True");
         List<cMenu> listMenu;
         List<cOrder> listOrder;
+        List<cInventory> listInventory;
+        List<cInventoryView> listInventoryView;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -117,12 +119,32 @@ namespace Inventory_System
 
         protected void btn_ProceedProcess_Click(object sender, EventArgs e)
         {
+            listInventoryViewLoad("SELECT * FROM vwInventoryLeft");
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+            SqlDataAdapter sqlDa = new SqlDataAdapter("ItemViewAll", con);
+            sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataTable dt = new DataTable();
+            sqlDa.Fill(dt);
 
-        }
+            foreach (DataRow dr in dt.Rows)
+            {
+                foreach (cInventoryView c in listInventoryView)
+                {
+                    if (c.ItemID == dr["ItemID"].ToString())
+                    {
+                        SqlCommand cmd = new SqlCommand("InventoryUpdateQuantity", con);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@ItemID", Convert.ToInt32(c.ItemID));
+                        cmd.Parameters.AddWithValue("@ItemQuantity", c.QtyLeft.Trim());
+                        cmd.ExecuteNonQuery();
+                        break;
+                    }
+                }
+            }
 
-        protected void btn_SendEmail_Click(object sender, EventArgs e)
-        {
-
+            con.Close();
+            Response.Write("Transaction Successful");
         }
 
         public void executeCommand(string sqlQuery)
@@ -187,6 +209,59 @@ namespace Inventory_System
             }
         }
 
+        public void listInventoryLoad(string strQuery)
+        {
+            DataTable dt = new DataTable();
+            dt = GetDataSet(strQuery).Tables["Temp"];
+            if (dt.Rows.Count > 0)
+            {
+                listInventory = new List<cInventory>();
+                listInventory.Clear();
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    listInventory.Add(new cInventory
+                    {
+                        ItemID = dr["ItemID"].ToString(),
+                        ItemName = dr["ItemName"].ToString(),
+                        ItemType = dr["ItemType"].ToString(),
+                        ItemQuantity = dr["ItemQuantity"].ToString(),
+                        ItemStatus = dr["ItemStatus"].ToString(),
+                        ItemSupplier = dr["ItemSupplier"].ToString(),
+                        ItemDeliveryDate = dr["ItemDeliveryDate"].ToString(),
+                        ItemExpirationDate = dr["ItemExpirationDate"].ToString()
+                    });
+                }
+            }
+        }
+
+        public void listInventoryViewLoad(string strQuery)
+        {
+            DataTable dt = new DataTable();
+            dt = GetDataSet(strQuery).Tables["Temp"];
+            if (dt.Rows.Count > 0)
+            {
+                listInventoryView = new List<cInventoryView>();
+                listInventoryView.Clear();
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    listInventoryView.Add(new cInventoryView
+                    {
+                        ItemID = dr["ItemID"].ToString(),
+                        ItemName = dr["ItemName"].ToString(),
+                        ItemType = dr["ItemType"].ToString(),
+                        QtyLeft = dr["QtyLeft"].ToString(),
+                        ItemStatus = dr["ItemStatus"].ToString(),
+                        ItemSupplier = dr["ItemSupplier"].ToString(),
+                        ItemDeliveryDate = dr["ItemDeliveryDate"].ToString(),
+                        ItemExpirationDate = dr["ItemExpirationDate"].ToString()
+                    });
+                }
+            }
+        }
+
+
         class cMenu
         {
             public string MenuID { get; set; }
@@ -201,6 +276,35 @@ namespace Inventory_System
             public string Order { get; set; }
         }
 
-        
+        class cInventory
+        {
+            public string ItemID { get; set; }
+            public string ItemName { get; set; }
+            public string ItemType { get; set; }
+            public string ItemQuantity { get; set; }
+            public string ItemStatus { get; set; }
+            public string ItemSupplier { get; set; }
+            public string ItemDeliveryDate { get; set; }
+            public string ItemExpirationDate { get; set; }
+        }
+
+        class cInventoryView
+        {
+            public string ItemID { get; set; }
+            public string ItemName { get; set; }
+            public string ItemType { get; set; }
+            public string QtyLeft { get; set; }
+            public string ItemStatus { get; set; }
+            public string ItemSupplier { get; set; }
+            public string ItemDeliveryDate { get; set; }
+            public string ItemExpirationDate { get; set; }
+        }
+
+        protected void btn_Validate_Click(object sender, EventArgs e)
+        {
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+
+        }
     }
 }

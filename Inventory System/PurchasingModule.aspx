@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <meta name="keywords" content="Cafe Inventory System  Purchasing form a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
+
+
     <script>
         addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
@@ -16,6 +18,7 @@
         function hideURLbar() {
             window.scrollTo(0, 1);
         }
+
     </script>
     <!-- //Meta-Tags -->
 
@@ -37,10 +40,40 @@
             background: #fff;
             height: 43px;
         }
-    </style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
 
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+</style>
 </head>
 <body>
+
+<ul>
+  <li><a class="active" href="About.aspx">Home</a></li>
+  <li><a href="MenuModule.aspx">Menu</a></li>
+  <li><a href="ProductionModule.aspx">Production</a></li>
+  <li><a href="InventoryModule.aspx">Inventory</a></li>
+  <li><a href="PurchasingModule.aspx">Purchasing</a></li>
+</ul>
 
 
 
@@ -75,10 +108,10 @@
                                     <asp:ListItem Text="Vegetables" Value="Vegetables"></asp:ListItem>
                                     <asp:ListItem Text="Fruits" Value="Fruits"></asp:ListItem>
                                     <asp:ListItem Text="Pastry" Value="Pastry"></asp:ListItem>
-                                    <asp:ListItem Text="Grain" Value=""></asp:ListItem>
-                                    <asp:ListItem Text="Beverage" Value=""></asp:ListItem>
-                                    <asp:ListItem Text="Oil" Value=""></asp:ListItem>
-                                    <asp:ListItem Text="Kitchenware" Value=""></asp:ListItem>
+                                    <asp:ListItem Text="Grain" Value="Grain"></asp:ListItem>
+                                    <asp:ListItem Text="Beverage" Value="Beverage"></asp:ListItem>
+                                    <asp:ListItem Text="Oil" Value="Oil"></asp:ListItem>
+                                    <asp:ListItem Text="Kitchenware" Value="Kitchenware"></asp:ListItem>
                                 </asp:DropDownList>
                             </div>
 
@@ -123,6 +156,19 @@
                             <div class="input-group">
                                 <span class="fa fa-calendar" aria-hidden="true"></span>
                                 <asp:TextBox ID="txtDate" runat="server" placeholder="Enter Date of Purchase"></asp:TextBox>
+                            </div>
+
+                            <label>Item Price</label>
+                            <div class="input-group">
+                                <span class="fa fa-user" aria-hidden="true"></span>
+                                <asp:TextBox ID="txtItemPrice" runat="server" placeholer="Php per piece/kilo"></asp:TextBox>
+                            </div>
+
+                            <label>Total Price</label>
+                            <asp:Button ID="btnCompute" Text="Compute" runat="server" OnClick="btnCompute_Click" />
+                            <div class="input-group">
+                                <span class="fa fa-user" aria-hidden="true"></span>
+                                <asp:TextBox ID="txtTotalPrice" runat="server" placeholer="Total Price"></asp:TextBox>
                             </div>
 
                             <div class="text-center">
