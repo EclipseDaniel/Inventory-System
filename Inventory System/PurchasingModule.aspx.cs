@@ -81,7 +81,7 @@ namespace Inventory_System
             txtAddress.Text = dt.Rows[0]["Address"].ToString();
             txtNotes.Text = dt.Rows[0]["Notes"].ToString();
             txtDate.Text = dt.Rows[0]["Date"].ToString();
-            txtItemPrice.Text = dt.Rows[0]["Price"].ToString();
+            txtItemPrice.Text = dt.Rows[0]["ItemPrice"].ToString();
             txtTotalPrice.Text = dt.Rows[0]["TotalPrice"].ToString();
             btnSave.Text = "Update";
             btn_Delete.Enabled = true;
@@ -105,7 +105,7 @@ namespace Inventory_System
                 cmd.Parameters.AddWithValue("@Address", txtAddress.Text.Trim());
                 cmd.Parameters.AddWithValue("@Notes", txtNotes.Text.Trim());
                 cmd.Parameters.AddWithValue("@Date", txtDate.Text.Trim());
-                cmd.Parameters.AddWithValue("@Price", txtItemPrice.Text.Trim());
+                cmd.Parameters.AddWithValue("@ItemPrice", txtItemPrice.Text.Trim());
                 cmd.Parameters.AddWithValue("@TotalPrice", txtTotalPrice.Text.Trim());
                 cmd.ExecuteNonQuery();
                 con.Close();

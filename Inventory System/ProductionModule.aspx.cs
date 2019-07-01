@@ -166,7 +166,7 @@ namespace Inventory_System
             var dbCmd = new SqlCommand(query, con);
             var dbDataAdp = new SqlDataAdapter(dbCmd);
             dbDataAdp.Fill(ds, "Temp");
-
+            con.Close();
             return ds;
         }
 
@@ -305,6 +305,7 @@ namespace Inventory_System
             if (con.State == ConnectionState.Closed)
                 con.Open();
 
+          
         }
     }
 }
