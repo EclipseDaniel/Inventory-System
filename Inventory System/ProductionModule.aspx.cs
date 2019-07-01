@@ -63,7 +63,7 @@ namespace Inventory_System
                         }
                         strCurrentQuantity = Convert.ToInt32(txtbox_Quantity.Text).ToString();
                     }
-                    
+
                 }
                 else
                 {
@@ -302,9 +302,39 @@ namespace Inventory_System
 
         protected void btn_Validate_Click(object sender, EventArgs e)
         {
+
             if (con.State == ConnectionState.Closed)
                 con.Open();
+            SqlDataAdapter sqlDa = new SqlDataAdapter("ItemWithCriticalLevel", con);
+            sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataTable dt = new DataTable();
+            sqlDa.Fill(dt);
 
+            foreach (DataRow dr in dt.Rows)
+            {
+
+                if (dr["CriticalLevel"].ToString() == "Critical")
+                {
+                    btn_PurchaseGood.Enabled = true;
+                    btn_ProcessOrder.Enabled = false;
+                }
+                else
+                {
+                    btn_PurchaseGood.Enabled = false;
+                    btn_ProcessOrder.Enabled = true;
+                }
+
+            }
+        }
+
+        protected void btn_PurchaseGood_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/PurchasingModule.aspx");
+        }
+
+        protected void btn_ProcessOrder_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/ProductionTimerModule.aspx");
         }
     }
 }

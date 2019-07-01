@@ -83,7 +83,6 @@ li a:hover {
                             </div>
 
 
-
                             <label>Quantity</label>
                             <div class="input-group">
                                 <span class="fa fa-plus-circle" aria-hidden="true"></span>
@@ -120,7 +119,9 @@ li a:hover {
                         </div>
 
                         <div class="text-center" style="margin-top:200px;align-content:center flex-start;">
-                            <asp:GridView ID="gridProdMod" runat="server" AutoGenerateColumns="false" BorderStyle="Solid">
+                            <asp:GridView ID="gridProdMod" runat="server" AutoGenerateColumns="false" CssClass="Grid">
+                                <HeaderStyle CssClass ="GridHeader"/>
+                                <AlternatingRowStyle CssClass ="GridAltItem" />
                                 <Columns>
                                     <asp:BoundField DataField="Dish" HeaderText="Dish" />
                                     <asp:BoundField DataField="Ingredients" HeaderText="Ingredients" />
@@ -132,7 +133,9 @@ li a:hover {
                         </div>
 
                         <div class="text-center">
-                            <asp:Button ID="btn_ProceedProcess" class="btn btn-dark" runat="server" Text="Proceed" OnClick="btn_ProceedProcess_Click" />
+                            <asp:Button ID="btn_ProceedProcess" class="btn btn-dark" runat="server" Text="Proceed" OnClick="btn_ProceedProcess_Click" style="margin-left:10px" />
+                            <asp:Button ID="btn_PurchaseGood" class="btn btn-dark" runat="server" Text="Purchase Goods" OnClick="btn_PurchaseGood_Click" style="margin-left:10px"/>
+                            <asp:Button ID="btn_ProcessOrder" class="btn btn-dark" runat="server" Text="Process Order" OnClick="btn_ProcessOrder_Click" style="margin-left:10px"/>
                         </div>
                     </div>
                     <%--Datagrid and Header for checking production stock levels--%>

@@ -149,7 +149,10 @@
 
                     <div class="prodTable_Info">
                         <h1>Suppliers Details</h1>
-                        `<asp:GridView ID="gridViewSupplier" runat="server" AutoGenerateColumns="false" BorderStyle="Solid" Width="887px">
+                        `<asp:GridView ID="gridViewSupplier" runat="server" AutoGenerateColumns="false" HorizontalAlign="Center" CssClass="Grid">
+                            <HeaderStyle CssClass ="GridHeader"/>
+                            <AlternatingRowStyle CssClass ="GridAltItem" />
+
                             <Columns>
                                 <asp:BoundField DataField="SupplierID" HeaderText="Supplier ID" />
                                 <asp:BoundField DataField="SupplierName" HeaderText="Supplier Name" />

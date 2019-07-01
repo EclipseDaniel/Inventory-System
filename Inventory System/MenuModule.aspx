@@ -140,7 +140,9 @@ li a:hover {
                     <div class="prodTable_Info">
                         <h1>Production Stock Details</h1>
                         <div>
-                            <asp:GridView ID="gridDishMenu" runat="server" AutoGenerateColumns="false" BorderStyle="Solid">
+                            <asp:GridView ID="gridDishMenu" runat="server" AutoGenerateColumns="false" CssClass="Grid" HorizontalAlign="Center">
+                             <HeaderStyle CssClass ="GridHeader"/>
+                             <AlternatingRowStyle CssClass ="GridAltItem" />
                                 <Columns>
                                     <asp:BoundField DataField="Dish" HeaderText="Dish" />
                                     <asp:BoundField DataField="Ingredients" HeaderText="Ingredients" />

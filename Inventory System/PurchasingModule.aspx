@@ -40,40 +40,41 @@
             background: #fff;
             height: 43px;
         }
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
 
-li {
-  float: left;
-}
+        .ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
 
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
+        .li {
+            float: left;
+        }
 
-li a:hover {
-  background-color: #111;
-}
-</style>
+            .li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+                .li a:hover {
+                    background-color: #111;
+                }
+    </style>
 </head>
 <body>
 
-<ul>
-  <li><a class="active" href="About.aspx">Home</a></li>
-  <li><a href="MenuModule.aspx">Menu</a></li>
-  <li><a href="ProductionModule.aspx">Production</a></li>
-  <li><a href="InventoryModule.aspx">Inventory</a></li>
-  <li><a href="PurchasingModule.aspx">Purchasing</a></li>
-</ul>
+    <ul>
+        <li><a class="active" href="About.aspx">Home</a></li>
+        <li><a href="MenuModule.aspx">Menu</a></li>
+        <li><a href="ProductionModule.aspx">Production</a></li>
+        <li><a href="InventoryModule.aspx">Inventory</a></li>
+        <li><a href="PurchasingModule.aspx">Purchasing</a></li>
+    </ul>
 
 
 
@@ -148,9 +149,9 @@ li a:hover {
                             <label>Notes</label>
                             <div class="input-group">
                                 <span class="fa fa-commenting" aria-hidden="true"></span>
-                                  <asp:TextBox ID="txtNotes" runat="server" Placeholder="Enter Notes"></asp:TextBox>
+                                <asp:TextBox ID="txtNotes" runat="server" Placeholder="Enter Notes"></asp:TextBox>
                             </div>
-                            
+
 
                             <label>Date</label>
                             <div class="input-group">
@@ -181,13 +182,16 @@ li a:hover {
                             <asp:Label ID="lblSuccessMessage" runat="server" ForeColor="Green"></asp:Label>
                             <asp:Label ID="lblErrorMessage" runat="server" ForeColor="Red"></asp:Label>
                             <asp:TextBox ID="txtPurchaseID" runat="server" Visible="false"></asp:TextBox>
-                            
+
                         </div>
                     </div>
 
                     <div class="prodTable_Info">
                         <h1>Purchase Order Data</h1>
-                        2<asp:GridView ID="gridViewPurchase" runat="server" AutoGenerateColumns="false" BorderStyle="Solid" Width="887px">
+                        <asp:GridView ID="gridViewPurchase" runat="server" AutoGenerateColumns="false"  Width="887px" CssClass="Grid">
+                            <HeaderStyle CssClass ="GridHeader"/>
+                            <AlternatingRowStyle CssClass ="GridAltItem" />
+
                             <Columns>
                                 <asp:BoundField DataField="PurchaseID" HeaderText="Purchase ID" />
                                 <asp:BoundField DataField="ItemName" HeaderText="Item Name" />
