@@ -53,41 +53,93 @@
                 </div>
             </div>
         </div>--%>
-    <style>
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
   overflow: hidden;
   background-color: #333;
 }
 
-li {
+.navbar a {
   float: left;
-}
-
-li a {
-  display: block;
+  font-size: 16px;
   color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
 
-li a:hover {
-  background-color: #111;
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 </style>
 </head>
 <body>
 
-<ul>
-  <li><a class="active" href="About.aspx">Home</a></li>
-  <li><a href="MenuModule.aspx">Menu</a></li>
-  <li><a href="ProductionModule.aspx">Production</a></li>
-  <li><a href="InventoryModule.aspx">Inventory</a></li>
-  <li><a href="PurchasingModule.aspx">Purchasing</a></li>
-</ul>
+<div class="navbar">
+  <a href="About.aspx">Home</a>
+  <a href="Contact.aspx">Contacts</a>
+  <a href="PurchasingModule.aspx">Purchase</a>
+  <a href="InventoryModule.aspx">Inventory</a>
+  <a href="MenuModule.aspx">Menu</a>
+  <a href="ProductionModule.aspx">Production</a>
+  <a href="SupplierModule.aspx">Supplier</a>
+  <div class="dropdown">
+    <button class="dropbtn">Dropdown 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="Reports.aspx">Purchase Order Reports</a>
+      <a href="ProductionReports">Production Reports</a>
+      <a href="CrystelReportsItemDetails.aspx">Item Details Reports</a>
+    </div>
+  </div> 
+</div>
     <div class="productionform">
         <div class="container">
             <form action="#" method="post" runat="server">

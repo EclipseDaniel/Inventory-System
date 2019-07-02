@@ -76,15 +76,6 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.Button btn_Proceed;
         
         /// <summary>
-        /// btn_Validate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Validate;
-        
-        /// <summary>
         /// gridProdMod control.
         /// </summary>
         /// <remarks>
@@ -94,13 +85,13 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.GridView gridProdMod;
         
         /// <summary>
-        /// btn_ProceedProcess control.
+        /// btn_Validate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_ProceedProcess;
+        protected global::System.Web.UI.WebControls.Button btn_Validate;
         
         /// <summary>
         /// btn_PurchaseGood control.

@@ -34,7 +34,7 @@ namespace Inventory_System
                 {
                     if (c.Username == txt_UserName.Text && c.Password == txt_Password.Text)
                     {
-                        Response.Write("Sucess");
+                        Response.Redirect("~/About.aspx");
                     }
                 }
             }

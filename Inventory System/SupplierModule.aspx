@@ -37,32 +37,93 @@
             background: #fff;
             height: 43px;
         }
-    </style>
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
 
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
 </head>
 <body>
-     <div class=" navbar-fixed-top">
-            <div class="container">
-                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/">Cafe by the Ruins</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/">Production</a></li>
-                         <li><a runat="server" href="~/MenuModule">Menu Setting</a></li>
-                        <li><a runat="server" href="~/InventoryModule">Inventory</a></li>
-                        <li><a runat="server" href="~/SupplierModule">Supplier</a></li>
-                                               
-                    </ul>
-                </div>
-            </div>
-        </div>
+
+<div class="navbar">
+  <a href="About.aspx">Home</a>
+  <a href="Contact.aspx">Contacts</a>
+  <a href="PurchasingModule.aspx">Purchase</a>
+  <a href="InventoryModule.aspx">Inventory</a>
+  <a href="MenuModule.aspx">Menu</a>
+  <a href="ProductionModule.aspx">Production</a>
+  <a href="SupplierModule.aspx">Supplier</a>
+  <div class="dropdown">
+    <button class="dropbtn">Dropdown 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="Reports.aspx">Purchase Order Reports</a>
+      <a href="ProductionReports">Production Reports</a>
+      <a href="CrystelReportsItemDetails.aspx">Item Details Reports</a>
+    </div>
+  </div> 
+</div>
 
     <div class="productionform">
         <div class="container">

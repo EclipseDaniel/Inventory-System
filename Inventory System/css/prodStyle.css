@@ -108,9 +108,9 @@ img {
             background: Tan url(images/spin.gif) no-repeat 0 100%;
         }
 
-.GridItem, .GridAltItem {
+/*.GridItem, .GridAltItem {
     font-size: smaller;
-}
+}*/
 
 .GridItem {
     background-color: LightGoldenrodYellow;
