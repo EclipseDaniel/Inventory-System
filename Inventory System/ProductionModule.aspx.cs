@@ -315,7 +315,7 @@ namespace Inventory_System
                 if (dr["CriticalLevel"].ToString() == "Critical")
                 {
                     btn_PurchaseGood.Enabled = true;
-                    btn_ProcessOrder.Enabled = false;
+                    Response.Write($"<script>alert('Ingredient is in critical level')</script>");
                 }
                 
             }

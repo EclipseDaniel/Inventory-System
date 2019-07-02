@@ -27,85 +27,9 @@
     <!-- google fonts -->
     <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <!-- //google fonts -->
-
-    <style type="text/css">
-        .auto-style1 {
-            margin-top: 10px;
-            margin-bottom: 20px;
-            padding: 3px 10px;
-            border: 1px solid #ddd;
-            background: #fff;
-            height: 43px;
-        }
-<style>
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.navbar {
-  overflow: hidden;
-  background-color: #333;
-}
-
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-.dropdown {
-  float: left;
-  overflow: hidden;
-}
-
-.dropdown .dropbtn {
-  font-size: 16px;  
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
-}
-
-.navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-</style>
 </head>
-<body>
-
-<div class="navbar">
+  <body>
+    <div class="navbar">
   <a href="About.aspx">Home</a>
   <a href="Contact.aspx">Contacts</a>
   <a href="PurchasingModule.aspx">Purchase</a>
@@ -113,11 +37,12 @@ body {
   <a href="MenuModule.aspx">Menu</a>
   <a href="ProductionModule.aspx">Production</a>
   <a href="SupplierModule.aspx">Supplier</a>
-  <div class="dropdown">
-    <button class="dropbtn">Dropdown 
+  <a href="InventoryReportView.aspx">Forecasting</a>
+  <div class="dropdownReport">
+    <button class="dropbtnReport">Reports 
       <i class="fa fa-caret-down"></i>
     </button>
-    <div class="dropdown-content">
+    <div class="contentNavbar">
       <a href="Reports.aspx">Purchase Order Reports</a>
       <a href="ProductionReports">Production Reports</a>
       <a href="CrystelReportsItemDetails.aspx">Item Details Reports</a>

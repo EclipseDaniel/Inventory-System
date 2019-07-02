@@ -39,11 +39,12 @@
   <a href="MenuModule.aspx">Menu</a>
   <a href="ProductionModule.aspx">Production</a>
   <a href="SupplierModule.aspx">Supplier</a>
-  <div class="dropdownR">
-    <button class="dropbtn">Dropdown 
+  <a href="InventoryReportView.aspx">Forecasting</a>
+  <div class="dropdownReport">
+    <button class="dropbtnReport">Reports 
       <i class="fa fa-caret-down"></i>
     </button>
-    <div class="dropdownR-content">
+    <div class="contentNavbar">
       <a href="Reports.aspx">Purchase Order Reports</a>
       <a href="ProductionReports">Production Reports</a>
       <a href="CrystelReportsItemDetails.aspx">Item Details Reports</a>

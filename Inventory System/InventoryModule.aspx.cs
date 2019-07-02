@@ -18,6 +18,7 @@ namespace Inventory_System
             {
                 btn_Delete.Enabled = false;
                 //FillGridView();
+                criticalLevel();
             }
         }
 
@@ -162,6 +163,26 @@ namespace Inventory_System
             gridViewItem.DataSource = ds;
             gridViewItem.DataBind();
             con.Close();
+        }
+
+        protected void criticalLevel()
+        {
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+            SqlDataAdapter sqlDa = new SqlDataAdapter("ItemWithCriticalLevel", con);
+            sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataTable dt = new DataTable();
+            sqlDa.Fill(dt);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+
+                if (dr["CriticalLevel"].ToString() == "Critical")
+                {
+                    Response.Write($"<script>alert('Ingredient is in critical level')</script>");
+                }
+
+            }
         }
     }
 }

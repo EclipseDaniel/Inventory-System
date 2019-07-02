@@ -126,27 +126,27 @@ img {
         text-decoration: none;
     }
 
-.dropdownR {
+.dropdownReport {
     float: left;
     overflow: hidden;
 }
 
-    .dropdownR .dropbtnR {
+    .dropdownReport .dropbtnReport {
         font-size: 16px;
         border: none;
         outline: none;
         color: white;
         padding: 14px 16px;
-        background-color: inherit;
+        background-color: black;
         font-family: inherit;
         margin: 0;
     }
 
-.navbar a:hover, .dropdownR:hover .dropbtn {
+.navbar a:hover, .dropdownReport:hover .dropbtnReport {
     background-color: red;
 }
 
-.dropdownR-content {
+.contentNavbar {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
@@ -155,7 +155,7 @@ img {
     z-index: 1;
 }
 
-.dropdownR-content a {
+.contentNavbar a {
     float: none;
     color: black;
     padding: 12px 16px;
@@ -164,11 +164,11 @@ img {
     text-align: left;
 }
 
-    .dropdownR-content a:hover {
+    .contentNavbar a:hover {
         background-color: #ddd;
     }
 
-.dropdownR:hover .dropdownR-content {
+.dropdownReport:hover .contentNavbar {
     display: block;
 }
 

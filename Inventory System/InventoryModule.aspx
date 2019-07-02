@@ -39,11 +39,12 @@
   <a href="MenuModule.aspx">Menu</a>
   <a href="ProductionModule.aspx">Production</a>
   <a href="SupplierModule.aspx">Supplier</a>
-  <div class="dropdownR">
-    <button class="dropbtn">Dropdown 
+  <a href="InventoryReportView.aspx">Forecasting</a>
+  <div class="dropdownReport">
+    <button class="dropbtnReport">Reports 
       <i class="fa fa-caret-down"></i>
     </button>
-    <div class="dropdownR-content">
+    <div class="contentNavbar">
       <a href="Reports.aspx">Purchase Order Reports</a>
       <a href="ProductionReports">Production Reports</a>
       <a href="CrystelReportsItemDetails.aspx">Item Details Reports</a>
@@ -63,14 +64,16 @@
                         <div class="prod_info">
                             <h2>Inventory Details</h2>
                             <p></p>
+
                             <div class="input-group">
                             <span class="fa fa-cutlery" aria-hidden="true"></span>
                             <asp:TextBox ID="txtCheckQuantity" runat="server"></asp:TextBox>
                             </div>
+
                             <asp:Button Text="Check Inventory" ID="checkInventory" runat="server" onclick="checkInventory_Click" />
                             <p></p>
-                            <label>Item</label>
 
+                            <label>Item</label>
                             <div class="input-group">
                                 <span class="fa fa-cutlery" aria-hidden="true"></span>
                                 <asp:TextBox ID="txtItemName" runat="server" placeholder="Enter Item Name"></asp:TextBox>
