@@ -31,6 +31,15 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.TextBox txtbox_Quantity;
         
         /// <summary>
+        /// RegularExpressionValidatorQuantityNumeric control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorQuantityNumeric;
+        
+        /// <summary>
         /// btn_Cancel control.
         /// </summary>
         /// <remarks>

@@ -104,7 +104,13 @@
                                 <span class="fa fa-plus-circle" aria-hidden="true"></span>
                                 <asp:TextBox ID="txtItemQuantity" runat="server" placeholder="Enter Quantity"></asp:TextBox>
                             </div>
-
+                            <div>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidatorItemQuantity"
+                                        ControlToValidate="txtItemQuantity" runat="server"
+                                        ErrorMessage="Only Numbers allowed" ForeColor="Red"
+                                        ValidationExpression="\d+">
+                            </asp:RegularExpressionValidator>
+                            </div>
                             <label>Supplier Name</label>
                             <div class="input-group">
                                 <span class="fa fa-user" aria-hidden="true"></span>
@@ -147,12 +153,19 @@
                                 <span class="fa fa-user" aria-hidden="true"></span>
                                 <asp:TextBox ID="txtItemPrice" runat="server" placeholer="Php per piece/kilo"></asp:TextBox>
                             </div>
+                             <div>
+                               <asp:RegularExpressionValidator ID="RegularExpressionValidatorItemPrice"
+                                        ControlToValidate="txtItemPrice" runat="server"
+                                        ErrorMessage="Only Numbers allowed" ForeColor="Red"
+                                        ValidationExpression="\d+">
+                                </asp:RegularExpressionValidator>
+                            </div>
 
                             <label>Total Price</label>
                             <asp:Button ID="btnCompute" Text="Compute" runat="server" OnClick="btnCompute_Click" />
                             <div class="input-group">
                                 <span class="fa fa-user" aria-hidden="true"></span>
-                                <asp:TextBox ID="txtTotalPrice" runat="server" placeholer="Total Price"></asp:TextBox>
+                                <asp:TextBox ID="txtTotalPrice" runat="server" placeholer="Total Price" ReadOnly="true" BackColor="Gray"></asp:TextBox>
                             </div>
 
                             <div class="text-center">

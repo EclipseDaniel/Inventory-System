@@ -102,6 +102,13 @@
                                 <span class="fa fa-plus-circle" aria-hidden="true"></span>
                                 <asp:TextBox ID="txtItemQuantity" runat="server" placeholder="Enter Quantity"></asp:TextBox>
                             </div>
+                            <div>
+                               <asp:RegularExpressionValidator ID="RegularExpressionValidatorQuantityNumeric"
+                                        ControlToValidate="txtItemQuantity" runat="server"
+                                        ErrorMessage="Only Numbers allowed" ForeColor="Red"
+                                        ValidationExpression="\d+">
+                                </asp:RegularExpressionValidator>
+                            </div>
 
                             <label>Status</label>
                             <div class="dropdown">

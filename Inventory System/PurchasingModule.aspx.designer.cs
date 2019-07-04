@@ -40,6 +40,15 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.TextBox txtItemQuantity;
         
         /// <summary>
+        /// RegularExpressionValidatorItemQuantity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorItemQuantity;
+        
+        /// <summary>
         /// txtSupplierName control.
         /// </summary>
         /// <remarks>
@@ -101,6 +110,15 @@ namespace Inventory_System {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtItemPrice;
+        
+        /// <summary>
+        /// RegularExpressionValidatorItemPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorItemPrice;
         
         /// <summary>
         /// btnCompute control.

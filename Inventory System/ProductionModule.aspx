@@ -76,7 +76,13 @@
                                 <span class="fa fa-plus-circle" aria-hidden="true"></span>
                                 <asp:TextBox ID="txtbox_Quantity" runat="server" placeholder="Enter Quantity " required=""></asp:TextBox>
                             </div>
-
+                            <div>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidatorQuantityNumeric"
+                                        ControlToValidate="txtbox_Quantity" runat="server"
+                                        ErrorMessage="Only Numbers allowed" ForeColor="Red"
+                                        ValidationExpression="\d+">
+                                </asp:RegularExpressionValidator>
+                            </div>
                             <div class="text-center">
                                 <asp:Button ID="btn_Cancel" class="btn btn-dark" runat="server" Text="Cancel" OnClick="btn_Cancel_Click" />
                                 <asp:Button ID="btn_Add" Style="margin-left: 10px;" class="btn btn-dark" runat="server" Text="Add" OnClick="btn_Add_Click" />
