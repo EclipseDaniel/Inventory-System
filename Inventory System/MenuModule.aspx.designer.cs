@@ -40,13 +40,31 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.Button btn_Unlock;
         
         /// <summary>
-        /// txtbox_Ingre control.
+        /// RequiredFieldValidatorIngredient control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtbox_Ingre;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorIngredient;
+        
+        /// <summary>
+        /// ddlIngredients control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlIngredients;
+        
+        /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
         /// txtbox_Quantity control.

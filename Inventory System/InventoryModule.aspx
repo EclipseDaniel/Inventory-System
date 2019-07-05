@@ -110,6 +110,12 @@
                                 </asp:RegularExpressionValidator>
                             </div>
 
+                            <label>Unit</label>
+                            <div class="input-group">
+                                <span class="fa fa-plus-circle" aria-hidden="true"></span>
+                                <asp:TextBox ID="txtItemUnit" runat="server" placeholder="Enter Unit"></asp:TextBox>
+                            </div>
+
                             <label>Status</label>
                             <div class="dropdown">
                                 <span class="fa fa-dot-circle-o" aria-hidden="true"></span>
@@ -168,6 +174,7 @@
                                 <asp:BoundField DataField="ItemSupplier" HeaderText="Item Supplier" />
                                 <asp:BoundField DataField="ItemDeliveryDate" HeaderText="Item Delivery Date" />
                                 <asp:BoundField DataField="ItemExpirationDate" HeaderText="Item Expiration Date" />
+                                <asp:BoundField DataField="ItemUnit" HeaderText="Item Unit" />
                                 <asp:TemplateField>
                                     <ItemTemplate>
                                         <asp:LinkButton ID="lnk" runat="server" CommandArgument='<%# Eval("ItemID") %>' OnClick="lnk_Click" CausesValidation="false">View</asp:LinkButton>

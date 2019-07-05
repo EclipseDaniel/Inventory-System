@@ -67,6 +67,15 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorQuantityNumeric;
         
         /// <summary>
+        /// txtItemUnit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtItemUnit;
+        
+        /// <summary>
         /// ddListStatus control.
         /// </summary>
         /// <remarks>

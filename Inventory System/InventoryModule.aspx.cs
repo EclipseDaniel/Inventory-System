@@ -46,6 +46,7 @@ namespace Inventory_System
             txtSupplierItem.Text = "";
             txtItemDeliveryDate.Text = "";
             txtItemExpirationDate.Text = "";
+            txtItemUnit.Text = string.Empty;
             lblSuccessMessage.Text = "";
             lblErrorMessage.Text = "";
             btn_Delete.Enabled = false;
@@ -55,12 +56,11 @@ namespace Inventory_System
         {
             int ItemID = Convert.ToInt32((sender as LinkButton).CommandArgument);
 
-            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + ItemID + "');", true);
+            //ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + ItemID + "');", true);
 
             if (con.State == ConnectionState.Closed)
                 con.Open();
             SqlDataAdapter sqlDa = new SqlDataAdapter("ItemViewByID", con);
-
             sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
             sqlDa.SelectCommand.Parameters.AddWithValue("@ItemID", ItemID);
             DataTable dt = new DataTable();
@@ -75,6 +75,7 @@ namespace Inventory_System
             txtSupplierItem.Text = dt.Rows[0]["ItemSupplier"].ToString();
             txtItemDeliveryDate.Text = dt.Rows[0]["ItemDeliveryDate"].ToString();
             txtItemExpirationDate.Text = dt.Rows[0]["ItemExpirationDate"].ToString();
+            txtItemUnit.Text = dt.Rows[0]["ItemUnit"].ToString();
 
             btnSave.Text = "Update";
             btn_Delete.Enabled = true;
@@ -86,16 +87,37 @@ namespace Inventory_System
             if (con.State == ConnectionState.Closed)
             {
                 con.Open();
+                SqlDataAdapter sqlDa = new SqlDataAdapter("ItemViewAll", con);
+                sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+                DataTable dt = new DataTable();
+                sqlDa.Fill(dt);
+                string strCurrNumber = null;
+                string strQuantity = null;
+                foreach (DataRow dr in dt.Rows)
+                {
+                    if (dr["ItemName"].ToString().ToLower() == txtItemName.Text.ToLower())
+                    {
+                        strCurrNumber = dr["ItemID"].ToString();
+                        strQuantity = (Convert.ToInt32(txtItemQuantity.Text) + Convert.ToInt32(dr["ItemQuantity"])).ToString();
+                        break;
+                    }
+                }
+
+
+
+
                 SqlCommand cmd = new SqlCommand("ItemCreateOrUpdate", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@ItemID", (txtItemNo.Text == "" ? 0 : Convert.ToInt32(txtItemNo.Text)));
+
+                cmd.Parameters.AddWithValue("@ItemID", String.IsNullOrEmpty(strCurrNumber) ? 0 : Convert.ToInt32(strCurrNumber));
                 cmd.Parameters.AddWithValue("@ItemName", txtItemName.Text.Trim());
                 cmd.Parameters.AddWithValue("@ItemType", ddlistCategory.SelectedValue.Trim());
-                cmd.Parameters.AddWithValue("@ItemQuantity", txtItemQuantity.Text.Trim());
+                cmd.Parameters.AddWithValue("@ItemQuantity", String.IsNullOrEmpty(strQuantity) ? txtItemQuantity.Text.Trim() : strQuantity);  
                 cmd.Parameters.AddWithValue("@ItemStatus", ddListStatus.SelectedValue.Trim());
                 cmd.Parameters.AddWithValue("@ItemSupplier", txtSupplierItem.Text.Trim());
                 cmd.Parameters.AddWithValue("@ItemDeliveryDate", txtItemDeliveryDate.Text.Trim());
                 cmd.Parameters.AddWithValue("@ItemExpirationDate", txtItemExpirationDate.Text.Trim());
+                cmd.Parameters.AddWithValue("@ItemUnit", txtItemUnit.Text.Trim());
                 cmd.ExecuteNonQuery();
                 con.Close();
 
@@ -107,6 +129,7 @@ namespace Inventory_System
                 txtSupplierItem.Text = string.Empty;
                 txtItemDeliveryDate.Text = string.Empty;
                 txtItemExpirationDate.Text = string.Empty;
+                txtItemUnit.Text = string.Empty;
 
                 string itemID = txtItemNo.Text;
                 Clear();
