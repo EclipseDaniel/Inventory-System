@@ -323,7 +323,6 @@ namespace Inventory_System
 
         protected void btn_PurchaseGood_Click(object sender, EventArgs e)
         {
-
             Response.Redirect("~/PurchasingModule.aspx");
         }
 
