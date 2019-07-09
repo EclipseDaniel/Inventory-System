@@ -51,7 +51,8 @@
     <div class="contentNavbar">
       <a href="Reports.aspx">Purchase Order Reports</a>
       <a href="ProductionReports">Production Reports</a>
-      <a href="CrystelReportsItemDetails.aspx">Item Details Reports</a>
+      <a href="CrystalReportsItemDetails.aspx">Item Details Reports</a>
+      <a href="CrystalReportExpiration.aspx">Wastage Reports</a>
     </div>
   </div> 
 </div>
@@ -74,9 +75,15 @@
                             <label>Item</label>
                             <div class="input-group">
 
-                             <div class="dropdown">
+<%--                             <div class="dropdown">
                                 <span class="fa fa-cutlery" aria-hidden="true"></span>
-                                <asp:DropDownList ID="ddlMenuList" class="dropdown-content" runat="server" AutoPostBack="true" ></asp:DropDownList>
+                                <asp:DropDownList ID="ddlMenuList" class="dropdown-content"  runat="server" AutoPostBack="true" ></asp:DropDownList>
+                            </div>--%>
+
+                            <label>Item Name</label>
+                            <div class="input-group">
+                                <span class="fa fa-plus-circle" aria-hidden="true"></span>
+                                <asp:TextBox ID="txtItemName" runat="server" placeholder="Enter Item Name"></asp:TextBox>
                             </div>
                                 
                             </div>
@@ -103,7 +110,16 @@
                             <div class="input-group">
                                 <span class="fa fa-plus-circle" aria-hidden="true"></span>
                                 <asp:TextBox ID="txtItemQuantity" runat="server" placeholder="Enter Quantity"></asp:TextBox>
+                                <asp:RequiredFieldValidator ControlToValidate="txtItemQuantity" ErrorMessage="This field is required" ForeColor="Red" runat="server"></asp:RequiredFieldValidator>
                             </div>
+
+                            <label>Item Unit</label>
+                            <div class="input-group">
+                                <span class="fa fa-circle" aria-hidden="true"></span>
+                                <asp:TextBox ID="txtItemUnit" runat="server" placeholer="Enter Item Unit"></asp:TextBox>
+                                <asp:RequiredFieldValidator ErrorMessage="This field is required" ControlToValidate="txtItemUnit" ForeColor="Red" runat="server"></asp:RequiredFieldValidator>
+                            </div>
+
                             <div>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidatorItemQuantity"
                                         ControlToValidate="txtItemQuantity" runat="server"
@@ -152,6 +168,7 @@
                             <div class="input-group">
                                 <span class="fa fa-user" aria-hidden="true"></span>
                                 <asp:TextBox ID="txtItemPrice" runat="server" placeholer="Php per piece/kilo"></asp:TextBox>
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtItemPrice" ErrorMessage="This field is required" ForeColor="Red"></asp:RequiredFieldValidator>
                             </div>
                              <div>
                                <asp:RegularExpressionValidator ID="RegularExpressionValidatorItemPrice"
@@ -165,13 +182,30 @@
                             <asp:Button ID="btnCompute" Text="Compute" runat="server" OnClick="btnCompute_Click" />
                             <div class="input-group">
                                 <span class="fa fa-user" aria-hidden="true"></span>
-                                <asp:TextBox ID="txtTotalPrice" runat="server" placeholer="Total Price" ReadOnly="true" BackColor="Gray"></asp:TextBox>
+                                <asp:TextBox ID="txtTotalPrice" runat="server" placeholer="Total Price" ReadOnly="true" BackColor="WhiteSmoke"></asp:TextBox>
+                            </div>
+
+                            <label>Item Delivery Date</label>
+                            <div class="input-group">
+                                <span class="fa fa-user" aria-hidden="true"></span>
+                                <asp:TextBox ID="txtItemDeliveryDate" runat="server" placeholer="Select Date of Delivery" TextMode="DateTime" ReadOnly="true" BackColor="WhiteSmoke"></asp:TextBox>
+                                <br />
+                                <asp:Calendar ID="calendarItemDeliveryDate" runat="server" style="margin-top: 8px" OnSelectionChanged="calenderItemDeliveryDate_SelectionChanged" OnDayRender="calendarItemDeliveryDate_DayRender"></asp:Calendar>
+                            </div>
+
+                            <label>Item Expiration Date</label>
+                            <div class="input-group">
+                                <span class="fa fa-user" aria-hidden="true"></span>
+                                <asp:TextBox ID="txtItemExpirationDate" runat="server" placeholer="Select Expiration Date" TextMode="DateTime" ReadOnly="true" BackColor="WhiteSmoke" />
+                                <br />
+                                <asp:Calendar ID="calendarItemExpirationDate" runat="server" style="margin-top: 8px" OnSelectionChanged="calendarItemExpirationDate_SelectionChanged" OnDayRender="calendarItemExpirationDate_DayRender"    ></asp:Calendar>
                             </div>
 
                             <div class="text-center">
                                 <asp:Button ID="btnSave" class="btn btn-dark btn-danger" runat="server" Text="Save" OnClick="btnSave_Click" />
                                 <asp:Button ID="btn_Delete" class="btn btn-dark " Style="margin-left: 20px;" runat="server" Text="Delete" OnClick="btn_Delete_Click" />
                                 <asp:Button ID="btn_Clear" class="btn btn-dark" Style="margin-left: 20px;" runat="server" Text="Clear" OnClick="btn_Clear_Click" />
+                                <asp:Button ID="btnReceived" class="btn btn-dark" Style="margin-left: 20px;" runat="server" Text="Receive" Enabled="false" OnClick="btnReceived_Click"  />
                             </div>
 
                             <br />
@@ -198,6 +232,9 @@
                                 <asp:BoundField DataField="Terms" HeaderText="Terms" />
                                 <asp:BoundField DataField="Notes" HeaderText="Remarks" />
                                 <asp:BoundField DataField="Date" HeaderText="Date" />
+                                <asp:BoundField DataField="ItemDeliveryDate" HeaderText="Delivery Date" />
+                                <asp:BoundField DataField="ItemExpirationDate" HeaderText="Expiry Date" />
+                                <asp:BoundField DataField="Status" HeaderText="Status" />
                                 <asp:TemplateField>
                                     <ItemTemplate>
                                         <asp:LinkButton ID="lnk" runat="server" CommandArgument='<%# Eval("PurchaseID") %>' OnClick="lnk_Click" CausesValidation="false">View</asp:LinkButton>

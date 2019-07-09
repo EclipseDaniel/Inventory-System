@@ -21,7 +21,6 @@ namespace Inventory_System
         {
             if (!IsPostBack)
             {
-                executeCommand("DELETE FROM tblOrderOutput");
                 listMenuLoad("SELECT DISTINCT Dish FROM tblMenu");
                 ddlMenuList.DataSource = listMenu;
                 ddlMenuList.DataTextField = "Dish";
@@ -76,6 +75,7 @@ namespace Inventory_System
                 cmd.Parameters.AddWithValue("@MenuID", (txtbox_DishID.Text == "" ? 0 : Convert.ToInt32(txtbox_DishID.Text)));
                 cmd.Parameters.AddWithValue("@Dish", ddlMenuList.Text.Trim());
                 cmd.Parameters.AddWithValue("@Order", strCurrentQuantity);
+                //cmd.Parameters.AddWithValue("@StartTime", DateTime.Now.ToString());
                 cmd.ExecuteNonQuery();
 
                 con.Close();
@@ -145,6 +145,10 @@ namespace Inventory_System
 
             con.Close();
             Response.Write("Transaction Successful");
+
+            string time = DateTime.Now.ToString();
+
+
         }
 
         public void executeCommand(string sqlQuery)
@@ -312,12 +316,17 @@ namespace Inventory_System
             foreach (DataRow dr in dt.Rows)
             {
 
-                if (dr["CriticalLevel"].ToString() == "Critical")
+                if (dr["ItemLevelStatus"].ToString() == "Critical")
                 {
                     btn_PurchaseGood.Enabled = true;
                     Response.Write($"<script>alert('Ingredient is in critical level')</script>");
+                    break;
                 }
-                
+                else if (dr["ItemLevelStatus"].ToString() == "Optimal")
+                {
+
+                }
+
             }
         }
 
@@ -327,34 +336,27 @@ namespace Inventory_System
             Response.Redirect("~/PurchasingModule.aspx");
         }
 
-        protected void btn_ProcessOrder_Click(object sender, EventArgs e)
+        protected void btn_ProcessOrder_Click(object sender, EventArgs e) //PROCESS TO TIMER
         {
-            listInventoryViewLoad("SELECT * FROM vwInventoryLeft");
             if (con.State == ConnectionState.Closed)
                 con.Open();
-            SqlDataAdapter sqlDa = new SqlDataAdapter("ItemViewAll", con);
+            SqlDataAdapter sqlDa = new SqlDataAdapter("OrderViewAll", con);
             sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
             DataTable dt = new DataTable();
             sqlDa.Fill(dt);
 
+
             foreach (DataRow dr in dt.Rows)
             {
-                foreach (cInventoryView c in listInventoryView)
-                {
-                    if (c.ItemID == dr["ItemID"].ToString())
-                    {
-                        SqlCommand cmd = new SqlCommand("InventoryUpdateQuantity", con);
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@ItemID", Convert.ToInt32(c.ItemID));
-                        cmd.Parameters.AddWithValue("@ItemQuantity", c.QtyLeft.Trim());
-                        cmd.ExecuteNonQuery();
-                        break;
-                    }
-                }
+                    SqlCommand cmd = new SqlCommand("OrderUpdate", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@MenuID", Convert.ToInt32(dr["MenuID"]));
+                    cmd.Parameters.AddWithValue("@StartTime", DateTime.Now.ToString());                    
+                    cmd.ExecuteNonQuery();
             }
 
-            con.Close();
 
+            con.Close();
             Response.Redirect("~/ProductionTimerModule.aspx");
         }
     }

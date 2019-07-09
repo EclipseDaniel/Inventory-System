@@ -183,6 +183,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="CrystalReportExpiration.aspx" />
     <Content Include="CrystalReportsItemDetails.aspx" />
     <Content Include="css\Chart.css" />
     <Content Include="css\Chart.min.css" />
@@ -245,6 +246,17 @@
     </None>
     <Content Include="dsItemDetails.xss">
       <DependentUpon>dsItemDetails.xsd</DependentUpon>
+    </Content>
+    <Content Include="dsItemExpiration.xsc">
+      <DependentUpon>dsItemExpiration.xsd</DependentUpon>
+    </Content>
+    <None Include="dsItemExpiration.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsItemExpiration.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="dsItemExpiration.xss">
+      <DependentUpon>dsItemExpiration.xsd</DependentUpon>
     </Content>
     <None Include="dsPurchaseOrder.xsd">
       <SubType>Designer</SubType>
@@ -311,10 +323,23 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CrystalReportExpiration.aspx.cs">
+      <DependentUpon>CrystalReportExpiration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CrystalReportExpiration.aspx.designer.cs">
+      <DependentUpon>CrystalReportExpiration.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CrystalReportItem.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CrystalReportItem.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReportsExpiration.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportsExpiration.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CrystalReportsItemDetails.aspx.cs">
@@ -341,6 +366,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsItemDetails.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsItemExpiration.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsItemExpiration.xsd</DependentUpon>
     </Compile>
     <Compile Include="dsPurchaseOrder.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -485,6 +515,10 @@
     <EmbeddedResource Include="CrystalReportItem.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReportItem.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReportsExpiration.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportsExpiration.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReportsPurchaseOrder.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

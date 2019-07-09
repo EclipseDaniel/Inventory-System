@@ -45,7 +45,8 @@
     <div class="contentNavbar">
       <a href="Reports.aspx">Purchase Order Reports</a>
       <a href="ProductionReports">Production Reports</a>
-      <a href="CrystelReportsItemDetails.aspx">Item Details Reports</a>
+      <a href="CrystalReportsItemDetails.aspx">Item Details Reports</a>
+      <a href="CrystalReportExpiration.aspx">Wastage Reports</a>
     </div>
   </div> 
 </div>

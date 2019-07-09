@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true"  CodeBehind="ProductionModule.aspx.cs" Inherits="Inventory_System.ProductionModule1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProductionModule.aspx.cs" Inherits="Inventory_System.ProductionModule1" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,26 +31,28 @@
 </head>
 <body>
 
-<div class="navbar">
-  <a href="About.aspx">Home</a>
-  <a href="Contact.aspx">Contacts</a>
-  <a href="PurchasingModule.aspx">Purchase</a>
-  <a href="InventoryModule.aspx">Inventory</a>
-  <a href="MenuModule.aspx">Menu</a>
-  <a href="ProductionModule.aspx">Production</a>
-  <a href="SupplierModule.aspx">Supplier</a>
-  <a href="InventoryReportView.aspx">Forecasting</a>
-  <div class="dropdownReport">
-    <button class="dropbtnReport">Reports 
+    <div class="navbar">
+        <a href="About.aspx">Home</a>
+        <a href="Contact.aspx">Contacts</a>
+        <a href="PurchasingModule.aspx">Purchase</a>
+        <a href="InventoryModule.aspx">Inventory</a>
+        <a href="MenuModule.aspx">Menu</a>
+        <a href="ProductionModule.aspx">Production</a>
+        <a href="SupplierModule.aspx">Supplier</a>
+        <a href="InventoryReportView.aspx">Forecasting</a>
+        <div class="dropdownReport">
+            <button class="dropbtnReport">
+                Reports 
       <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="contentNavbar">
-      <a href="Reports.aspx">Purchase Order Reports</a>
-      <a href="ProductionReports">Production Reports</a>
-      <a href="CrystelReportsItemDetails.aspx">Item Details Reports</a>
+            </button>
+            <div class="contentNavbar">
+                <a href="Reports.aspx">Purchase Order Reports</a>
+                <a href="ProductionReports">Production Reports</a>
+                <a href="CrystalReportsItemDetails.aspx">Item Details Reports</a>
+                <a href="CrystalReportExpiration.aspx">Wastage Reports</a>
+            </div>
+        </div>
     </div>
-  </div> 
-</div>
 
     <div class="productionform">
         <div class="container">
@@ -78,9 +80,9 @@
                             </div>
                             <div>
                                 <asp:RegularExpressionValidator ID="RegularExpressionValidatorQuantityNumeric"
-                                        ControlToValidate="txtbox_Quantity" runat="server"
-                                        ErrorMessage="Only Numbers allowed" ForeColor="Red"
-                                        ValidationExpression="\d+">
+                                    ControlToValidate="txtbox_Quantity" runat="server"
+                                    ErrorMessage="Only Numbers allowed" ForeColor="Red"
+                                    ValidationExpression="\d+">
                                 </asp:RegularExpressionValidator>
                             </div>
                             <div class="text-center">
@@ -96,41 +98,45 @@
                     <%-- Production Form--%>
 
                     <%--Datagrid and Header for checking production stock levels--%>
-                    <div class="prodTable_Info" >
+                    <div class="prodTable_Info">
                         <h1>Production Data</h1>
-                        <div class="text-center" style="margin:10px,10px,10px,10px;align-content:center flex-start;">
+                        <div class="text-center" style="margin: 10px,10px,10px,10px; align-content: center flex-start;">
                             <asp:GridView ID="gridOrderedDish" runat="server" AutoGenerateColumns="false" BorderStyle="Solid">
                                 <Columns>
                                     <asp:BoundField DataField="Dish" HeaderText="Dish" />
                                     <asp:BoundField DataField="Order" HeaderText="Order" />
-                                </Columns>
+                                    <asp:BoundField DataField="StartTime" HeaderText="Start Time" />
+                                    <asp:BoundField DataField="EndTime" HeaderText="End Time" />
+                                    <asp:BoundField DataField="Duration" HeaderText="Duration" />
+                                    <asp:BoundField DataField="OrderStatus" HeaderText="Status" />
+                                    </Columns>
                             </asp:GridView>
                         </div>
 
                         <div class="text-center">
-                            <asp:Button ID="btn_Proceed" style="margin-top:30px" class="btn btn-dark" runat="server" Text="Next" OnClick="btn_Proceed_Click" />
-                            
+                            <asp:Button ID="btn_Proceed" Style="margin-top: 30px" class="btn btn-dark" runat="server" Text="Next" OnClick="btn_Proceed_Click" />
+
                         </div>
 
-                        <div class="text-center" style="margin-top:200px;align-content:center flex-start;">
+                        <div class="text-center" style="margin-top: 200px; align-content: center flex-start;">
                             <asp:GridView ID="gridProdMod" runat="server" AutoGenerateColumns="false" CssClass="Grid">
-                                <HeaderStyle CssClass ="GridHeader"/>
-                                <AlternatingRowStyle CssClass ="GridAltItem" />
+                                <HeaderStyle CssClass="GridHeader" />
+                                <AlternatingRowStyle CssClass="GridAltItem" />
                                 <Columns>
                                     <asp:BoundField DataField="Dish" HeaderText="Dish" />
                                     <asp:BoundField DataField="Ingredients" HeaderText="Ingredients" />
                                     <asp:BoundField DataField="TotalQty" HeaderText="Quantity" />
                                     <asp:BoundField DataField="ItemQuantity" HeaderText="Stock Level" />
-                                     <asp:BoundField DataField="QtyLeft" HeaderText="QtyLeft" />
+                                    <asp:BoundField DataField="QtyLeft" HeaderText="QtyLeft" />
                                 </Columns>
                             </asp:GridView>
                         </div>
 
                         <div class="text-center">
                             <%--<asp:Button ID="btn_ProceedProcess" class="btn btn-dark" runat="server" Text="Calculate" OnClick="btn_ProceedProcess_Click" style="margin-left:10px" />--%>
-                            <asp:Button ID="btn_Validate" class="btn btn-dark" runat="server" Text="Validate"  OnClick="btn_Validate_Click" style="margin-left:10px" />
-                            <asp:Button ID="btn_PurchaseGood" class="btn btn-dark" runat="server" Text="Purchase Goods" OnClick="btn_PurchaseGood_Click" style="margin-left:10px"/>
-                            <asp:Button ID="btn_ProcessOrder" class="btn btn-dark" runat="server" Text="Process Order" OnClick="btn_ProcessOrder_Click"  style="margin-left:10px"/>
+                            <asp:Button ID="btn_Validate" class="btn btn-dark" runat="server" Text="Validate" OnClick="btn_Validate_Click" Style="margin-left: 10px" />
+                            <asp:Button ID="btn_PurchaseGood" class="btn btn-dark" runat="server" Text="Purchase Goods" OnClick="btn_PurchaseGood_Click" Style="margin-left: 10px" />
+                            <asp:Button ID="btn_ProcessOrder" class="btn btn-dark" runat="server" Text="Process Order" OnClick="btn_ProcessOrder_Click" Style="margin-left: 10px" />
                         </div>
                     </div>
                     <%--Datagrid and Header for checking production stock levels--%>

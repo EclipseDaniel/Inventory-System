@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Reports.aspx.cs" Inherits="Inventory_System.Reports" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CrystalReportExpiration.aspx.cs" Inherits="Inventory_System.CrystalReportExpiration" %>
 
 <%@ Register assembly="CrystalDecisions.Web, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" namespace="CrystalDecisions.Web" tagprefix="CR" %>
 
@@ -9,9 +9,8 @@
     <title></title>
     <link href="css/prodStyle.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
-</head>
-<body>
-
+ </head>
+    <body>
 <div class="navbar">
   <a href="About.aspx">Home</a>
   <a href="Contact.aspx">Contacts</a>
@@ -34,13 +33,11 @@
 </div>
     <form id="form1" runat="server">
         <div>
-
-            <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="True" DisplayToolbar="False" EnableDatabaseLogonPrompt="False" EnableParameterPrompt="False" GroupTreeImagesFolderUrl="" Height="1202px" ReportSourceID="CrystalReportsPurchaseOrder" ToolbarImagesFolderUrl="" ToolPanelView="None" ToolPanelWidth="200px" Width="1104px" />
-            <CR:CrystalReportSource ID="CrystalReportsPurchaseOrder" runat="server">
-                <Report FileName="CrystalReportsPurchaseOrder.rpt">
+            <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="True" DisplayToolbar="False" EnableDatabaseLogonPrompt="False" EnableParameterPrompt="False" GroupTreeImagesFolderUrl="" Height="1202px" ReportSourceID="CrystalReportsExpiration" ToolbarImagesFolderUrl="" ToolPanelView="None" ToolPanelWidth="200px" Width="1104px" />
+            <CR:CrystalReportSource ID="CrystalReportsExpiration" runat="server">
+                <Report FileName="CrystalReportsExpiration.rpt">
                 </Report>
             </CR:CrystalReportSource>
-
         </div>
     </form>
 </body>

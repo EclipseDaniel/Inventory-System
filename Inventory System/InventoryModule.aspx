@@ -47,7 +47,8 @@
     <div class="contentNavbar">
       <a href="Reports.aspx">Purchase Order Reports</a>
       <a href="ProductionReports">Production Reports</a>
-      <a href="CrystelReportsItemDetails.aspx">Item Details Reports</a>
+      <a href="CrystalReportsItemDetails.aspx">Item Details Reports</a>
+      <a href="CrystalReportExpiration.aspx">Wastage Reports</a>
     </div>
   </div> 
 </div>
@@ -137,13 +138,29 @@
                             <label>Delivery Date</label>
                             <div class="input-group">
                                 <span class="fa fa-calendar" aria-hidden="true"></span>
-                                <asp:TextBox ID="txtItemDeliveryDate" runat="server" placeholder="Enter Delivery Date"></asp:TextBox>
+                                <asp:TextBox ID="txtItemDeliveryDate" runat="server" placeholder="Enter Delivery Date" ReadOnly="true" BackColor="WhiteSmoke"></asp:TextBox>
+                                <br />
+                                <asp:Calendar ID="calendarItemDeliveryDate" runat="server" style="margin-top: 8px" OnSelectionChanged="calendarItemDeliveryDate_SelectionChanged"  OnDayRender="calendarItemDeliveryDate_DayRender" ></asp:Calendar>
                             </div>
 
                             <label>Expiration Date</label>
                             <div class="input-group">
                                 <span class="fa fa-calendar" aria-hidden="true"></span>
-                                <asp:TextBox ID="txtItemExpirationDate" runat="server" placeholder="Enter Expiration Date"></asp:TextBox>
+                                <asp:TextBox ID="txtItemExpirationDate" runat="server" placeholder="Enter Expiration Date" ReadOnly="true" BackColor="WhiteSmoke"></asp:TextBox>
+                                <br />
+                                <asp:Calendar ID="calendarItemExpirationDate" runat="server" style="margin-top: 8px" OnSelectionChanged="calendarItemExpirationDate_SelectionChanged" OnDayRender="calendarItemExpirationDate_DayRender"></asp:Calendar>
+                            </div>
+
+                            <label>Critical Level</label>
+                            <div class="input-group">
+                                <span class="fa fa-circle" aria-hidden="true"></span>
+                                <asp:TextBox ID="txtCriticalLevel" runat="server" placeholder="Enter Critical Level"></asp:TextBox>
+                            </div>
+
+                            <label>Optimal Level</label>
+                            <div class="input-group">
+                                <span class="fa fa-circle" aria-hidden="true"></span>
+                                <asp:TextBox ID="txtOptimalLevel" runat="server" placeholder="Enter Optimal Level"></asp:TextBox>
                             </div>
 
                             <div class="text-center">
@@ -158,9 +175,30 @@
                             <asp:TextBox ID="txtItemNo" runat="server" Visible="false"></asp:TextBox>
 
                         </div>
-                    </div>
 
                     <div class="prodTable_Info">
+                        <h1>Critical Level</h1>
+                        <asp:GridView ID="gridViewCritical" runat="server" AutoGenerateColumns="false" CssClass="Grid" HorizontalAlign="Center">
+                            <HeaderStyle CssClass ="GridHeader"/>
+                            <AlternatingRowStyle CssClass ="GridAltItem" />
+                            <Columns>
+                                <asp:BoundField DataField="ItemID" HeaderText="Item ID" />
+                                <asp:BoundField DataField="ItemName" HeaderText="Item Name" />
+                                <asp:BoundField DataField="ItemType" HeaderText="Item Type" />
+                                <asp:BoundField DataField="ItemQuantity" HeaderText="Item Quantity" />
+                                <asp:BoundField DataField="ItemStatus" HeaderText="Item Status" />
+                                <asp:BoundField DataField="ItemSupplier" HeaderText="Item Supplier" />
+                                <asp:BoundField DataField="ItemDeliveryDate" HeaderText="Item Delivery Date" />
+                                <asp:BoundField DataField="ItemExpirationDate" HeaderText="Item Expiration Date" />
+                                <asp:BoundField DataField="ItemUnit" HeaderText="Item Unit" />
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <asp:LinkButton ID="lnk" runat="server" CommandArgument='<%# Eval("ItemID") %>' OnClick="lnk_Click" CausesValidation="false">Create P.O.</asp:LinkButton>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
+
                         <h1>Inventory Details</h1>
                         <asp:GridView ID="gridViewItem" runat="server" AutoGenerateColumns="false" CssClass="Grid" HorizontalAlign="Center">
                             <HeaderStyle CssClass ="GridHeader"/>
@@ -182,8 +220,30 @@
                                 </asp:TemplateField>
                             </Columns>
                         </asp:GridView>
+                        <h1>Expired</h1>
+                        <asp:GridView ID="gridViewItemExpiration" runat="server" AutoGenerateColumns="false" CssClass="Grid" HorizontalAlign="Center">
+                            <HeaderStyle CssClass ="GridHeader"/>
+                            <AlternatingRowStyle CssClass ="GridAltItem" />
+                            <Columns>
+                                <asp:BoundField DataField="ItemID" HeaderText="Item ID" />
+                                <asp:BoundField DataField="ItemName" HeaderText="Item Name" />
+                                <asp:BoundField DataField="ItemType" HeaderText="Item Type" />
+                                <asp:BoundField DataField="ItemQuantity" HeaderText="Item Quantity" />
+                                <asp:BoundField DataField="ItemStatus" HeaderText="Item Status" />
+                                <asp:BoundField DataField="ItemSupplier" HeaderText="Item Supplier" />
+                                <asp:BoundField DataField="ItemDeliveryDate" HeaderText="Item Delivery Date" />
+                                <asp:BoundField DataField="ItemExpirationDate" HeaderText="Item Expiration Date" />
+                                <asp:BoundField DataField="ItemUnit" HeaderText="Item Unit" />
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <asp:LinkButton ID="lnk" runat="server" CommandArgument='<%# Eval("ItemID") %>' OnClick="lnk_Click" CausesValidation="false">View</asp:LinkButton>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
 
                     </div>
+
 
 
                 </div>

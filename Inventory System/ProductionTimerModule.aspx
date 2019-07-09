@@ -28,41 +28,30 @@
     <!-- google fonts -->
     <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <!-- //google fonts -->
-    <style>
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #333;
-        }
-
-        li {
-            float: left;
-        }
-
-            li a {
-                display: block;
-                color: white;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-            }
-
-                li a:hover {
-                    background-color: #111;
-                }
-    </style>
 </head>
 <body>
 
-    <ul>
-        <li><a class="active" href="About.aspx">Home</a></li>
-        <li><a href="MenuModule.aspx">Menu</a></li>
-        <li><a href="ProductionModule.aspx">Production</a></li>
-        <li><a href="InventoryModule.aspx">Inventory</a></li>
-        <li><a href="PurchasingModule.aspx">Purchasing</a></li>
-    </ul>
+<div class="navbar">
+  <a href="About.aspx">Home</a>
+  <a href="Contact.aspx">Contacts</a>
+  <a href="PurchasingModule.aspx">Purchase</a>
+  <a href="InventoryModule.aspx">Inventory</a>
+  <a href="MenuModule.aspx">Menu</a>
+  <a href="ProductionModule.aspx">Production</a>
+  <a href="SupplierModule.aspx">Supplier</a>
+  <a href="InventoryReportView.aspx">Forecasting</a>
+  <div class="dropdownReport">
+    <button class="dropbtnReport">Reports 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="contentNavbar">
+      <a href="Reports.aspx">Purchase Order Reports</a>
+      <a href="ProductionReports">Production Reports</a>
+      <a href="CrystalReportsItemDetails.aspx">Item Details Reports</a>
+      <a href="CrystalReportExpiration.aspx">Wastage Reports</a>
+    </div>
+  </div> 
+</div>
 
     <div class="productionform">
         <div class="container">
@@ -72,24 +61,52 @@
                     <div class="prodTable_Info">
 
                         <%-- Production Time Data--%>
+                        <label>Start Time</label>
+                        <div class="input-group">
+                        <span class="fa fa-bars" aria-hidden="true"></span>
+                        <asp:Textbox runat="server" ID="txtStartTime" ReadOnly="true" BackColor="WhiteSmoke"></asp:Textbox>
+                        </div>
+
+                        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                        <asp:Timer runat="server" ID="UpdateTimer" Interval="1000" OnTick="UpdateTimer_Tick" />
+                        
+                            
+
+                        <label>End time</label>
+                        <div class="input-group">
+                        <span class="fa fa-bars" aria-hidden="true"></span>
+                        <asp:Textbox runat="server" ID="txtEndTime" ReadOnly="true" BackColor="WhiteSmoke"></asp:Textbox>
+                        </div>
+
+                        <asp:Button runat="server" ID="btnEnd" Text="Done" Style="margin-left: 10px;" class="btn btn-dark" OnClick="btnEnd_Click"/>
+
                         <%--Datagrid and Header for checking production stock levels--%>
                         <div class="prod_info">
                             <h1>Production Data</h1>
                             <div class="text-center" style="margin: 10px,10px,10px,10px; align-content: center flex-start;">
-                                <asp:GridView ID="gridOrderedDish" runat="server" AutoGenerateColumns="false" CssClass="Grid" HorizontalAlign="Center">
-                                    <HeaderStyle CssClass="GridHeader" />
-                                    <AlternatingRowStyle CssClass="GridAltItem" />
+                                <asp:UpdatePanel runat="server" ID="TimePanel" UpdateMode="Conditional">
+                                    <Triggers>
+                                        <asp:AsyncPostBackTrigger ControlID="UpdateTimer" EventName="Tick" />
+                                    </Triggers>
+                                    <ContentTemplate>
+                                        <asp:GridView ID="gridOrderedDish" runat="server" AutoGenerateColumns="false" CssClass="Grid" HorizontalAlign="Center">
+                                            <HeaderStyle CssClass="GridHeader" />
+                                            <AlternatingRowStyle CssClass="GridAltItem" />
 
 
-                                    <Columns>
-                                        <asp:BoundField DataField="Dish" HeaderText="Dish" />
-                                        <asp:BoundField DataField="Order" HeaderText="Order" />
-                                        <asp:BoundField DataField="Quantity" HeaderText="Quantity" />
-                                        <asp:BoundField DataField="Order" HeaderText="Expected Time" />
-                                        <asp:BoundField DataField="Dish" HeaderText="Time Started" />
-                                        <asp:BoundField DataField="Order" HeaderText="Time Ended" />
-                                    </Columns>
-                                </asp:GridView>
+                                            <Columns>
+                                                <asp:BoundField DataField="MenuID" HeaderText="Menu ID" />
+                                                <asp:BoundField DataField="Dish" HeaderText="Dish" />
+                                                <asp:BoundField DataField="Order" HeaderText="Order" />
+                                                <asp:BoundField DataField="OrderStatus" HeaderText="Status" />
+                                                <asp:BoundField DataField="Duration" HeaderText="Duration" />
+                                                <asp:BoundField DataField="StartTime" HeaderText="Start Time" />
+                                                <asp:BoundField DataField="EndTime" HeaderText="End Time" />
+                                            </Columns>
+                                        </asp:GridView>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+                                        
                             </div>
                             <%--Datagrid and Header for checking production stock levels--%>
                         </div>

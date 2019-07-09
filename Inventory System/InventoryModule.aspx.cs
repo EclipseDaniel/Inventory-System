@@ -17,8 +17,10 @@ namespace Inventory_System
             if (!IsPostBack)
             {
                 btn_Delete.Enabled = false;
-                //FillGridView();
+                FillGridView();
+                FillGridViewCritical();
                 criticalLevel();
+                FillGridViewExpiration();
             }
         }
 
@@ -37,18 +39,20 @@ namespace Inventory_System
 
         public void Clear()
         {
-            txtItemNo.Text = "";
-            txtItemName.Text = "";
-            txtItemName.Text = "";
-            ddlistCategory.Text = "";
-            txtItemQuantity.Text = "";
-            ddListStatus.Text = "";
-            txtSupplierItem.Text = "";
-            txtItemDeliveryDate.Text = "";
-            txtItemExpirationDate.Text = "";
+            txtItemNo.Text = string.Empty;
+            txtItemName.Text = string.Empty;
+            txtItemName.Text = string.Empty;
+            ddlistCategory.Text = string.Empty;
+            txtItemQuantity.Text = string.Empty;
+            ddListStatus.Text = string.Empty;
+            txtSupplierItem.Text = string.Empty;
+            txtItemDeliveryDate.Text = string.Empty;
+            txtItemExpirationDate.Text = string.Empty;
             txtItemUnit.Text = string.Empty;
-            lblSuccessMessage.Text = "";
-            lblErrorMessage.Text = "";
+            txtCriticalLevel.Text = string.Empty;
+            txtOptimalLevel.Text = string.Empty;
+            lblSuccessMessage.Text = string.Empty;
+            lblErrorMessage.Text = string.Empty;
             btn_Delete.Enabled = false;
         }
 
@@ -76,9 +80,14 @@ namespace Inventory_System
             txtItemDeliveryDate.Text = dt.Rows[0]["ItemDeliveryDate"].ToString();
             txtItemExpirationDate.Text = dt.Rows[0]["ItemExpirationDate"].ToString();
             txtItemUnit.Text = dt.Rows[0]["ItemUnit"].ToString();
+            txtCriticalLevel.Text = dt.Rows[0]["CriticalLevel"].ToString();
+            txtOptimalLevel.Text = dt.Rows[0]["OptimalLevel"].ToString();
 
             btnSave.Text = "Update";
             btn_Delete.Enabled = true;
+
+            Session["ID"] = dt.Rows[0]["ItemID"].ToString(); 
+            Response.Redirect("PurchasingModule.aspx?ID=" + Session["ID"]);
 
         }
 
@@ -118,6 +127,8 @@ namespace Inventory_System
                 cmd.Parameters.AddWithValue("@ItemDeliveryDate", txtItemDeliveryDate.Text.Trim());
                 cmd.Parameters.AddWithValue("@ItemExpirationDate", txtItemExpirationDate.Text.Trim());
                 cmd.Parameters.AddWithValue("@ItemUnit", txtItemUnit.Text.Trim());
+                cmd.Parameters.AddWithValue("@CriticalLevel", txtCriticalLevel.Text.Trim());
+                cmd.Parameters.AddWithValue("@OptimalLevel", txtOptimalLevel.Text.Trim());
                 cmd.ExecuteNonQuery();
                 con.Close();
 
@@ -206,6 +217,64 @@ namespace Inventory_System
                 }
 
             }
+        }
+
+        public void FillGridViewCritical()
+        {
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+            SqlDataAdapter sqlDa = new SqlDataAdapter("ItemWithCriticalOnly", con);
+            sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataTable dt = new DataTable();
+            sqlDa.Fill(dt);
+            con.Close();
+            gridViewCritical.DataSource = dt;
+            gridViewCritical.DataBind();
+        }
+
+        protected void calendarItemDeliveryDate_SelectionChanged(object sender, EventArgs e)
+        {
+            txtItemDeliveryDate.Text = calendarItemDeliveryDate.SelectedDate.ToShortDateString().ToString();
+        }
+
+        protected void calendarItemExpirationDate_SelectionChanged(object sender, EventArgs e)
+        {
+            txtItemExpirationDate.Text = calendarItemExpirationDate.SelectedDate.ToShortDateString().ToString();
+        }
+
+        protected void calendarItemExpirationDate_DayRender(object sender, DayRenderEventArgs e)
+        {
+            if (e.Day.Date <= DateTime.Now)
+            {
+
+                e.Cell.BackColor = System.Drawing.ColorTranslator.FromHtml("#a9a9a9");
+
+                e.Day.IsSelectable = false;
+            }
+        }
+
+        protected void calendarItemDeliveryDate_DayRender(object sender, DayRenderEventArgs e)
+        {
+            if (e.Day.Date <= DateTime.Now)
+            {
+
+                e.Cell.BackColor = System.Drawing.ColorTranslator.FromHtml("#a9a9a9");
+
+                e.Day.IsSelectable = false;
+            }
+        }
+
+        public void FillGridViewExpiration()
+        {
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+            SqlDataAdapter sqlDa = new SqlDataAdapter("ItemWithExpiration", con);
+            sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataTable dt = new DataTable();
+            sqlDa.Fill(dt);
+            con.Close();
+            gridViewItemExpiration.DataSource = dt;
+            gridViewItemExpiration.DataBind();
         }
     }
 }

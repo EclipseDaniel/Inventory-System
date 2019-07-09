@@ -13,13 +13,13 @@ namespace Inventory_System {
     public partial class PurchasingModule {
         
         /// <summary>
-        /// ddlMenuList control.
+        /// txtItemName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMenuList;
+        protected global::System.Web.UI.WebControls.TextBox txtItemName;
         
         /// <summary>
         /// dDlistCategory control.
@@ -38,6 +38,15 @@ namespace Inventory_System {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtItemQuantity;
+        
+        /// <summary>
+        /// txtItemUnit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtItemUnit;
         
         /// <summary>
         /// RegularExpressionValidatorItemQuantity control.
@@ -139,6 +148,42 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.TextBox txtTotalPrice;
         
         /// <summary>
+        /// txtItemDeliveryDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtItemDeliveryDate;
+        
+        /// <summary>
+        /// calendarItemDeliveryDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar calendarItemDeliveryDate;
+        
+        /// <summary>
+        /// txtItemExpirationDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtItemExpirationDate;
+        
+        /// <summary>
+        /// calendarItemExpirationDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar calendarItemExpirationDate;
+        
+        /// <summary>
         /// btnSave control.
         /// </summary>
         /// <remarks>
@@ -164,6 +209,15 @@ namespace Inventory_System {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_Clear;
+        
+        /// <summary>
+        /// btnReceived control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnReceived;
         
         /// <summary>
         /// lblSuccessMessage control.
