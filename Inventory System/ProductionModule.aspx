@@ -7,7 +7,7 @@
     <!-- Meta-Tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <meta name="keywords" content="Cafe Inventory System Production form a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
+    <meta name="keywords" content="Cafe Inventory System  Supplier Details form a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
     <script>
         addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
@@ -17,7 +17,6 @@
             window.scrollTo(0, 1);
         }
     </script>
-
     <!-- //Meta-Tags -->
 
     <!-- css files -->
@@ -29,30 +28,28 @@
     <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <!-- //google fonts -->
 </head>
-<body>
-
+  <body>
     <div class="navbar">
-        <a href="About.aspx">Home</a>
-        <a href="Contact.aspx">Contacts</a>
-        <a href="PurchasingModule.aspx">Purchase</a>
-        <a href="InventoryModule.aspx">Inventory</a>
-        <a href="MenuModule.aspx">Menu</a>
-        <a href="ProductionModule.aspx">Production</a>
-        <a href="SupplierModule.aspx">Supplier</a>
-        <a href="InventoryReportView.aspx">Forecasting</a>
-        <div class="dropdownReport">
-            <button class="dropbtnReport">
-                Reports 
+  <a href="About.aspx">Home</a>
+  <a href="Contact.aspx">Contacts</a>
+  <a href="PurchasingModule.aspx">Purchase</a>
+  <a href="InventoryModule.aspx">Inventory</a>
+  <a href="MenuModule.aspx">Menu</a>
+  <a href="ProductionModule.aspx">Production</a>
+  <a href="SupplierModule.aspx">Supplier</a>
+  <a href="ProductionTimerModule.aspx">Production Timer</a>
+  <div class="dropdownReport">
+    <button class="dropbtnReport">Reports 
       <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="contentNavbar">
-                <a href="Reports.aspx">Purchase Order Reports</a>
-                <a href="ProductionReports">Production Reports</a>
-                <a href="CrystalReportsItemDetails.aspx">Item Details Reports</a>
-                <a href="CrystalReportExpiration.aspx">Wastage Reports</a>
-            </div>
-        </div>
+    <%--</button>--%>
+    <div class="contentNavbar">
+      <a href="Reports.aspx">Purchase Order Reports</a>
+      <a href="ReportsOrders.aspx">Production Reports</a>
+      <a href="CrystalReportsItemDetails.aspx">Item Details Reports</a>
+      <a href="CrystalReportsItemExpired.aspx">Wastage Reports</a>
     </div>
+  </div> 
+</div>
 
     <div class="productionform">
         <div class="container">
@@ -85,6 +82,20 @@
                                     ValidationExpression="\d+">
                                 </asp:RegularExpressionValidator>
                             </div>
+
+                             <label>Lead Time (in minutes)</label>
+                            <div class="input-group">
+                                <span class="fa fa-plus-circle" aria-hidden="true"></span>
+                                <asp:TextBox ID="txtLeadTime" runat="server" placeholder="Enter Lead Time in minutes " required=""></asp:TextBox>
+                            </div>
+                            <div>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1"
+                                    ControlToValidate="txtbox_Quantity" runat="server"
+                                    ErrorMessage="Only Numbers allowed" ForeColor="Red"
+                                    ValidationExpression="\d+">
+                                </asp:RegularExpressionValidator>
+                            </div>
+
                             <div class="text-center">
                                 <asp:Button ID="btn_Cancel" class="btn btn-dark" runat="server" Text="Cancel" OnClick="btn_Cancel_Click" />
                                 <asp:Button ID="btn_Add" Style="margin-left: 10px;" class="btn btn-dark" runat="server" Text="Add" OnClick="btn_Add_Click" />
@@ -108,7 +119,7 @@
                                     <asp:BoundField DataField="StartTime" HeaderText="Start Time" />
                                     <asp:BoundField DataField="EndTime" HeaderText="End Time" />
                                     <asp:BoundField DataField="Duration" HeaderText="Duration" />
-                                    <asp:BoundField DataField="OrderStatus" HeaderText="Status" />
+                                    <asp:BoundField DataField="LeadTime" HeaderText="LeadTime" />
                                     </Columns>
                             </asp:GridView>
                         </div>

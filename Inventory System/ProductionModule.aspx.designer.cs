@@ -40,6 +40,24 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorQuantityNumeric;
         
         /// <summary>
+        /// txtLeadTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtLeadTime;
+        
+        /// <summary>
+        /// RegularExpressionValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        
+        /// <summary>
         /// btn_Cancel control.
         /// </summary>
         /// <remarks>

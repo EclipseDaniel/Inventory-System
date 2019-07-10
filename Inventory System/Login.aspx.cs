@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text;
 
 namespace Inventory_System
 {
@@ -34,7 +35,13 @@ namespace Inventory_System
                 {
                     if (c.Username == txt_UserName.Text && c.Password == txt_Password.Text)
                     {
+                        Session["AccountID"] = txt_UserName.Text;
                         Response.Redirect("~/About.aspx");
+                        Session.RemoveAll();
+                    }
+                    else
+                    {
+                        ShowPopUpMsg("Incorrect User Credentials");
                     }
                 }
             }
@@ -91,6 +98,15 @@ namespace Inventory_System
             public string Password { get; set; }
             public string Firstname { get; set; }
             public string Lastname { get; set; }
+        }
+
+        private void ShowPopUpMsg(string msg)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("alert('");
+            sb.Append(msg.Replace("\n", "\\n").Replace("\r", "").Replace("'", "\\'"));
+            sb.Append("');");
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "showalert", sb.ToString(), true);
         }
     }
 }

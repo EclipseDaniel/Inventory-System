@@ -37,16 +37,16 @@
   <a href="MenuModule.aspx">Menu</a>
   <a href="ProductionModule.aspx">Production</a>
   <a href="SupplierModule.aspx">Supplier</a>
-  <a href="InventoryReportView.aspx">Forecasting</a>
+  <a href="ProductionTimerModule.aspx">Production Timer</a>
   <div class="dropdownReport">
     <button class="dropbtnReport">Reports 
       <i class="fa fa-caret-down"></i>
-    </button>
+    <%--</button>--%>
     <div class="contentNavbar">
       <a href="Reports.aspx">Purchase Order Reports</a>
-      <a href="ProductionReports">Production Reports</a>
+      <a href="ReportsOrders.aspx">Production Reports</a>
       <a href="CrystalReportsItemDetails.aspx">Item Details Reports</a>
-      <a href="CrystalReportExpiration.aspx">Wastage Reports</a>
+      <a href="CrystalReportsItemExpired.aspx">Wastage Reports</a>
     </div>
   </div> 
 </div>

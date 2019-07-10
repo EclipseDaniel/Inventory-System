@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="dsItemExpiration" targetNamespace="http://tempuri.org/dsItemExpiration.xsd" xmlns:mstns="http://tempuri.org/dsItemExpiration.xsd" xmlns="http://tempuri.org/dsItemExpiration.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="ItemExpired" targetNamespace="http://tempuri.org/ItemExpired.xsd" xmlns:mstns="http://tempuri.org/ItemExpired.xsd" xmlns="http://tempuri.org/ItemExpired.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
@@ -42,7 +42,7 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="dsItemExpiration" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsItemExpiration" msprop:Generator_UserDSName="dsItemExpiration">
+  <xs:element name="ItemExpired" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ItemExpired" msprop:Generator_UserDSName="ItemExpired">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="ItemWithExpiration" msprop:Generator_TableClassName="ItemWithExpirationDataTable" msprop:Generator_TableVarName="tableItemWithExpiration" msprop:Generator_TablePropName="ItemWithExpiration" msprop:Generator_RowDeletingName="ItemWithExpirationRowDeleting" msprop:Generator_RowChangingName="ItemWithExpirationRowChanging" msprop:Generator_RowEvHandlerName="ItemWithExpirationRowChangeEventHandler" msprop:Generator_RowDeletedName="ItemWithExpirationRowDeleted" msprop:Generator_UserTableName="ItemWithExpiration" msprop:Generator_RowChangedName="ItemWithExpirationRowChanged" msprop:Generator_RowEvArgName="ItemWithExpirationRowChangeEvent" msprop:Generator_RowClassName="ItemWithExpirationRow">

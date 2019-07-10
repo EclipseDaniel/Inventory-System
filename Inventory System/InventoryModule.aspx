@@ -27,11 +27,9 @@
     <!-- google fonts -->
     <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <!-- //google fonts -->
-
 </head>
-<body>
-
-<div class="navbar">
+  <body>
+    <div class="navbar">
   <a href="About.aspx">Home</a>
   <a href="Contact.aspx">Contacts</a>
   <a href="PurchasingModule.aspx">Purchase</a>
@@ -39,16 +37,16 @@
   <a href="MenuModule.aspx">Menu</a>
   <a href="ProductionModule.aspx">Production</a>
   <a href="SupplierModule.aspx">Supplier</a>
-  <a href="InventoryReportView.aspx">Forecasting</a>
+  <a href="ProductionTimerModule.aspx">Production Timer</a>
   <div class="dropdownReport">
     <button class="dropbtnReport">Reports 
       <i class="fa fa-caret-down"></i>
-    </button>
+    <%--</button>--%>
     <div class="contentNavbar">
       <a href="Reports.aspx">Purchase Order Reports</a>
-      <a href="ProductionReports">Production Reports</a>
+      <a href="ReportsOrders.aspx">Production Reports</a>
       <a href="CrystalReportsItemDetails.aspx">Item Details Reports</a>
-      <a href="CrystalReportExpiration.aspx">Wastage Reports</a>
+      <a href="CrystalReportsItemExpired.aspx">Wastage Reports</a>
     </div>
   </div> 
 </div>
@@ -73,6 +71,8 @@
 
                             <asp:Button Text="Check Inventory" ID="checkInventory" runat="server" onclick="checkInventory_Click" />
                             <p></p>
+
+                            <asp:TextBox Visible="false" ID="txtItemID" runat="server"></asp:TextBox>
 
                             <label>Item</label>
                             <div class="input-group">
@@ -155,12 +155,14 @@
                             <div class="input-group">
                                 <span class="fa fa-circle" aria-hidden="true"></span>
                                 <asp:TextBox ID="txtCriticalLevel" runat="server" placeholder="Enter Critical Level"></asp:TextBox>
+                                <asp:RequiredFieldValidator ControlToValidate="txtCriticalLevel" ErrorMessage="This field is required" ForeColor="Red" runat="server"></asp:RequiredFieldValidator>
                             </div>
 
                             <label>Optimal Level</label>
                             <div class="input-group">
                                 <span class="fa fa-circle" aria-hidden="true"></span>
                                 <asp:TextBox ID="txtOptimalLevel" runat="server" placeholder="Enter Optimal Level"></asp:TextBox>
+                                <asp:RequiredFieldValidator ControlToValidate="txtOptimalLevel" ErrorMessage="This field is required" ForeColor="Red" runat="server"></asp:RequiredFieldValidator>
                             </div>
 
                             <div class="text-center">
@@ -213,9 +215,11 @@
                                 <asp:BoundField DataField="ItemDeliveryDate" HeaderText="Item Delivery Date" />
                                 <asp:BoundField DataField="ItemExpirationDate" HeaderText="Item Expiration Date" />
                                 <asp:BoundField DataField="ItemUnit" HeaderText="Item Unit" />
+                                <asp:BoundField DataField="CriticalLevel" HeaderText="Critical Level" />
+                                <asp:BoundField DataField="OptimalLevel" HeaderText="Optimal Level" />
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:LinkButton ID="lnk" runat="server" CommandArgument='<%# Eval("ItemID") %>' OnClick="lnk_Click" CausesValidation="false">View</asp:LinkButton>
+                                        <asp:LinkButton ID="lnk" runat="server" CommandArgument='<%# Eval("ItemID") %>' OnClick="lnk2_Click" CausesValidation="false">View</asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>

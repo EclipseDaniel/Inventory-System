@@ -16,14 +16,14 @@ namespace Inventory_System {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class CrystalReportsExpiration : ReportClass {
+    public class CrystalReportOrders : ReportClass {
         
-        public CrystalReportsExpiration() {
+        public CrystalReportOrders() {
         }
         
         public override string ResourceName {
             get {
-                return "CrystalReportsExpiration.rpt";
+                return "CrystalReportOrders.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Inventory_System {
         
         public override string FullResourceName {
             get {
-                return "Inventory_System.CrystalReportsExpiration.rpt";
+                return "Inventory_System.CrystalReportOrders.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace Inventory_System {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCrystalReportsExpiration : Component, ICachedReport {
+    public class CachedCrystalReportOrders : Component, ICachedReport {
         
-        public CachedCrystalReportsExpiration() {
+        public CachedCrystalReportOrders() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace Inventory_System {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            CrystalReportsExpiration rpt = new CrystalReportsExpiration();
+            CrystalReportOrders rpt = new CrystalReportOrders();
             rpt.Site = this.Site;
             return rpt;
         }

@@ -86,7 +86,7 @@ namespace Inventory_System
             btnSave.Text = "Update";
             btn_Delete.Enabled = true;
 
-            Session["ID"] = dt.Rows[0]["ItemID"].ToString(); 
+            Session["ID"] = dt.Rows[0]["ItemName"].ToString(); 
             Response.Redirect("PurchasingModule.aspx?ID=" + Session["ID"]);
 
         }
@@ -275,6 +275,36 @@ namespace Inventory_System
             con.Close();
             gridViewItemExpiration.DataSource = dt;
             gridViewItemExpiration.DataBind();
+        }
+
+        protected void lnk2_Click(object sender, EventArgs e)
+        {
+            int ItemID = Convert.ToInt32((sender as LinkButton).CommandArgument);
+
+
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+            SqlDataAdapter sqlDa = new SqlDataAdapter("ItemViewByID", con);
+
+            sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+            sqlDa.SelectCommand.Parameters.AddWithValue("@ItemID", ItemID);
+            DataTable dt = new DataTable();
+            sqlDa.Fill(dt);
+            con.Close();
+
+            txtItemID.Text = ItemID.ToString();
+            txtItemName.Text = dt.Rows[0]["ItemName"].ToString();
+            ddlistCategory.SelectedValue = dt.Rows[0]["ItemType"].ToString();
+            txtItemQuantity.Text = dt.Rows[0]["ItemQuantity"].ToString();
+            txtItemUnit.Text = dt.Rows[0]["ItemUnit"].ToString();
+            ddListStatus.Text = dt.Rows[0]["ItemStatus"].ToString();
+            txtCriticalLevel.Text = dt.Rows[0]["CriticalLevel"].ToString();
+            txtOptimalLevel.Text = dt.Rows[0]["OptimalLevel"].ToString();
+            txtItemDeliveryDate.Text = dt.Rows[0]["ItemDeliveryDate"].ToString();
+            txtItemExpirationDate.Text = dt.Rows[0]["ItemExpirationDate"].ToString();
+            btnSave.Text = "Update";
+            btn_Delete.Enabled = true;
+
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CrystalReportsItemDetails.aspx.cs" Inherits="Inventory_System.CrystalReportsItemDetails" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CrystalReportsItemExpired.aspx.cs" Inherits="Inventory_System.CrystalReportsItemExpired" %>
 
 <%@ Register assembly="CrystalDecisions.Web, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" namespace="CrystalDecisions.Web" tagprefix="CR" %>
 
@@ -55,12 +55,12 @@
 </div>
     <form id="form1" runat="server">
         <div>
-            <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="True" DisplayToolbar="False" EnableDatabaseLogonPrompt="False" EnableParameterPrompt="False" GroupTreeImagesFolderUrl="" Height="1202px" ReportSourceID="CrystalReportItemDetails" ToolbarImagesFolderUrl="" ToolPanelView="None" ToolPanelWidth="200px" Width="1104px" />
-            <CR:CrystalReportSource ID="CrystalReportItemDetails" runat="server">
-                <Report FileName="CrystalReportsItemDetails.rpt">
-                </Report>
-            </CR:CrystalReportSource>
         </div>
+        <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="True" DisplayToolbar="False" EnableDatabaseLogonPrompt="False" EnableParameterPrompt="False" GroupTreeImagesFolderUrl="" Height="1202px" ReportSourceID="CrystalReportItemExpired" ToolbarImagesFolderUrl="" ToolPanelView="None" ToolPanelWidth="200px" Width="1104px" />
+        <CR:CrystalReportSource ID="CrystalReportItemExpired" runat="server">
+            <Report FileName="CrystalReportItemExpired.rpt">
+            </Report>
+        </CR:CrystalReportSource>
     </form>
 </body>
 </html>

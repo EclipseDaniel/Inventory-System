@@ -68,7 +68,7 @@
                              <label>Contact Number</label>
                             <div class="input-group">
                                 <span class="fa fa-envelope" aria-hidden="true"></span>
-                                <asp:TextBox ID="txt_ContactNum" runat="server" placeholder="Enter Your Contact Number" required=""></asp:TextBox>
+                                <asp:TextBox ID="txt_ContactNum" runat="server" placeholder="09123456789" required="" MaxLength="11"></asp:TextBox>
                             </div>
 
                              <label>User Role</label>
@@ -99,7 +99,7 @@
 
                         </form>
 
-                        <asp:Label ID="lblError" runat="server" Text="Incorrect Credential Input" ForeColor="Red"></asp:Label>
+                        <asp:Label ID="lblError" runat="server"  ForeColor="Red"></asp:Label>
                         <asp:Label ID="lblSuccessMessage" runat="server" ForeColor="Green"></asp:Label>
                         <p class="reg_Form">Dont have an account? <a href="#">Register here</a></p>
 

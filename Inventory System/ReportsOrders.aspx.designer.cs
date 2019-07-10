@@ -10,7 +10,7 @@
 namespace Inventory_System {
     
     
-    public partial class CrystalReportExpiration {
+    public partial class ReportsOrders {
         
         /// <summary>
         /// form1 control.
@@ -31,12 +31,12 @@ namespace Inventory_System {
         protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer1;
         
         /// <summary>
-        /// CrystalReportsExpiration control.
+        /// CrystalReportsOrder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportSource CrystalReportsExpiration;
+        protected global::CrystalDecisions.Web.CrystalReportSource CrystalReportsOrder;
     }
 }

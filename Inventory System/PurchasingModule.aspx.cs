@@ -21,23 +21,24 @@ namespace Inventory_System
             {
                 btn_Delete.Enabled = false;
                 FillGridView();
-                string strID = null;
-                strID = Request.QueryString["ID"];
-                if (strID != null && strID != string.Empty)
+                string strName = null;
+                strName = Request.QueryString["ID"];
+                if (strName != null && strName != string.Empty)
                 {
                     if (con.State == ConnectionState.Closed)
                         con.Open();
-                    SqlDataAdapter sqlDa = new SqlDataAdapter("ItemViewByID", con);
+                    SqlDataAdapter sqlDa = new SqlDataAdapter("ItemViewByName", con);
                     sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
-                    sqlDa.SelectCommand.Parameters.AddWithValue("@ItemID", strID);
+                    sqlDa.SelectCommand.Parameters.AddWithValue("@ItemName", strName);
                     DataTable dt = new DataTable();
                     sqlDa.Fill(dt);
+                    gridViewPurchase.DataBind();
                     con.Close();
 
-                    txtPurchaseID.Text = strID;
-                    txtItemName.Text = dt.Rows[0]["ItemName"].ToString();
+                    txtPurchaseID.Text = "0";//strID;
+                    txtItemName.Text = strName;
                     dDlistCategory.SelectedValue = dt.Rows[0]["ItemType"].ToString();
-                    txtItemQuantity.Text = dt.Rows[0]["ItemQuantity"].ToString();
+                    txtItemQuantity.Text = (Convert.ToInt32(dt.Rows[0]["OptimalLevel"].ToString()) -  Convert.ToInt32(dt.Rows[0]["ItemQuantity"].ToString())).ToString() ;
                     txtSupplierName.Text = dt.Rows[0]["ItemSupplier"].ToString();
                     txtItemDeliveryDate.Text = dt.Rows[0]["ItemDeliveryDate"].ToString();
                     txtItemExpirationDate.Text = dt.Rows[0]["ItemExpirationDate"].ToString();
@@ -253,70 +254,47 @@ namespace Inventory_System
         {
             if (con.State == ConnectionState.Closed)
                 con.Open();
-            SqlDataAdapter sqlStatus = new SqlDataAdapter("PurchaseViewByStatus", con);
-            sqlStatus.SelectCommand.CommandType = CommandType.StoredProcedure;
-            //sqlStatus.SelectCommand.Parameters.AddWithValue("@PurchaseStatus", string.Empty);
-            DataTable dtPurchase = new DataTable();
-            sqlStatus.Fill(dtPurchase);
 
             SqlDataAdapter sqlItem = new SqlDataAdapter("ItemViewAll", con);
             sqlItem.SelectCommand.CommandType = CommandType.StoredProcedure;
             DataTable dtItem = new DataTable();
             sqlItem.Fill(dtItem);
 
-            foreach (DataRow dtPur in dtPurchase.Rows)
+            bool isUpdateSuccess = false;
+            foreach (DataRow dtIt in dtItem.Rows)
             {
-                bool isUpdateSuccess = false;
-                foreach (DataRow dtIt in dtItem.Rows)
+                if (txtItemName.Text.ToLower() == dtIt["ItemName"].ToString().ToLower())
                 {
-                    if (dtPur["ItemName"].ToString().ToLower() == dtIt["ItemName"].ToString().ToLower())
-                    {
-                        string strCurrQuantity = null;
-                        strCurrQuantity = (Convert.ToInt32(dtPur["ItemQuantity"].ToString()) + Convert.ToInt32(dtIt["ItemQuantity"].ToString())).ToString();
+                    string strCurrQuantity = null;
+                    strCurrQuantity = (Convert.ToInt32(txtItemQuantity.Text.Trim()) + Convert.ToInt32(dtIt["ItemQuantity"].ToString())).ToString();
 
-                        SqlCommand cmd = new SqlCommand("InventoryUpdateQuantity", con);
-                        cmd.CommandType = CommandType.StoredProcedure;
+                    SqlCommand cmd = new SqlCommand("InventoryUpdateQuantity", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-                        cmd.Parameters.AddWithValue("@ItemID", dtIt["ItemID"].ToString());
-                        cmd.Parameters.AddWithValue("@ItemName", dtPur["ItemName"].ToString());
-                        cmd.Parameters.AddWithValue("@ItemType", dtPur["ItemType"].ToString());
-                        cmd.Parameters.AddWithValue("@ItemQuantity", strCurrQuantity);
-                        cmd.Parameters.AddWithValue("@ItemStatus", dtIt["ItemStatus"]);
-                        cmd.Parameters.AddWithValue("@ItemSupplier", dtPur["SupplierName"].ToString());
-                        cmd.Parameters.AddWithValue("@ItemDeliveryDate", txtItemDeliveryDate.Text.Trim());
-                        cmd.ExecuteNonQuery();
-                        executeCommand("UPDATE tblPurchaseOrder SET Status = 'Received' WHERE PurchaseID = " + dtPur["PurchaseID"]);
-                        isUpdateSuccess = true;
-                        break;
-                    }
-                }
-                if (isUpdateSuccess == true)
-                {
-                    continue;
-                }
-                else
-                {
-                    foreach (DataRow dtIt in dtItem.Rows)
-                    {
-                        SqlCommand cmds = new SqlCommand("InventoryUpdateQuantity", con);
-                        cmds.CommandType = CommandType.StoredProcedure;
-                        cmds.Parameters.AddWithValue("@ItemID", 0);
-                        cmds.Parameters.AddWithValue("@ItemName", dtPur["ItemName"].ToString());
-                        cmds.Parameters.AddWithValue("@ItemType", dtPur["ItemType"].ToString());
-                        cmds.Parameters.AddWithValue("@ItemQuantity", txtItemQuantity.Text.Trim());
-                        cmds.Parameters.AddWithValue("@ItemStatus", dtIt["ItemStatus"]);
-                        cmds.Parameters.AddWithValue("@ItemSupplier", dtPur["SupplierName"].ToString());
-                        cmds.Parameters.AddWithValue("@ItemDeliveryDate", txtItemDeliveryDate.Text.Trim());
-                        cmds.ExecuteNonQuery();
-                        executeCommand("UPDATE tblPurchaseOrder SET Status = 'Received' WHERE PurchaseID = " + dtPur["PurchaseID"]);
-                        break;
-                    }
+                    cmd.Parameters.AddWithValue("@ItemID", dtIt["ItemID"].ToString());
+                    cmd.Parameters.AddWithValue("@ItemName", txtItemName.Text.Trim());
+                    cmd.Parameters.AddWithValue("@ItemQuantity", strCurrQuantity);
+                    cmd.ExecuteNonQuery();
+                    executeCommand("UPDATE tblPurchaseOrder SET Status = 'Received' WHERE PurchaseID = " + txtPurchaseID.Text.Trim());
+                    isUpdateSuccess = true;
+                    break;
                 }
 
             }
+            if (isUpdateSuccess == false)
+            {
+                SqlCommand cmds = new SqlCommand("InventoryInsertQuantity", con);
+                cmds.CommandType = CommandType.StoredProcedure;
+                cmds.Parameters.AddWithValue("@ItemName", txtItemName.Text);
+                cmds.Parameters.AddWithValue("@ItemType", dDlistCategory.SelectedItem.Text);
+                cmds.Parameters.AddWithValue("@ItemQuantity", txtItemQuantity.Text);
+                cmds.Parameters.AddWithValue("@ItemSupplier", txtSupplierName.Text);
+                cmds.Parameters.AddWithValue("@ItemDeliveryDate", txtItemDeliveryDate.Text);
+                cmds.Parameters.AddWithValue("@ItemExpirationDate", txtItemExpirationDate.Text);
+                cmds.ExecuteNonQuery();
+                executeCommand("UPDATE tblPurchaseOrder SET Status = 'Received' WHERE PurchaseID = " + txtPurchaseID.Text.Trim());
 
-
-
+            }
             enableReceive(false);
             con.Close();
             FillGridView();
@@ -409,6 +387,18 @@ namespace Inventory_System
 
                 e.Day.IsSelectable = false;
             }
+        }
+
+        protected void calendarDate_DayRender(object sender, DayRenderEventArgs e)
+        {
+            e.Cell.BackColor = System.Drawing.ColorTranslator.FromHtml("#a9a9a9");
+
+            e.Day.IsSelectable = false;
+        }
+
+        protected void calendarDate_SelectionChanged1(object sender, EventArgs e)
+        {
+            txtDate.Text = calendarDate.SelectedDate.ToShortDateString().ToString();
         }
     }
 }

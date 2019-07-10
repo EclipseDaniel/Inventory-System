@@ -183,8 +183,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="CrystalReportExpiration.aspx" />
     <Content Include="CrystalReportsItemDetails.aspx" />
+    <Content Include="CrystalReportsItemExpired.aspx" />
     <Content Include="css\Chart.css" />
     <Content Include="css\Chart.min.css" />
     <Content Include="css\font-awesome.min.css" />
@@ -201,15 +201,13 @@
     <Content Include="Images\image.jpg" />
     <Content Include="Images\tick.png" />
     <Content Include="InventoryModule.aspx" />
-    <Content Include="InventoryReportView.aspx" />
     <Content Include="MenuModule.aspx" />
     <Content Include="ProductionModule.aspx" />
-    <Content Include="ProductionReportModule.aspx" />
     <Content Include="ProductionTimerModule.aspx" />
-    <Content Include="ProductionTimerReport.aspx" />
     <Content Include="PurchasingModule.aspx" />
     <Content Include="RegisterForm.aspx" />
     <Content Include="Reports.aspx" />
+    <Content Include="ReportsOrders.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Chart.bundle.js" />
@@ -247,16 +245,16 @@
     <Content Include="dsItemDetails.xss">
       <DependentUpon>dsItemDetails.xsd</DependentUpon>
     </Content>
-    <Content Include="dsItemExpiration.xsc">
-      <DependentUpon>dsItemExpiration.xsd</DependentUpon>
+    <Content Include="dsOrders.xsc">
+      <DependentUpon>dsOrders.xsd</DependentUpon>
     </Content>
-    <None Include="dsItemExpiration.xsd">
+    <None Include="dsOrders.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsItemExpiration.Designer.cs</LastGenOutput>
+      <LastGenOutput>dsOrders.Designer.cs</LastGenOutput>
     </None>
-    <Content Include="dsItemExpiration.xss">
-      <DependentUpon>dsItemExpiration.xsd</DependentUpon>
+    <Content Include="dsOrders.xss">
+      <DependentUpon>dsOrders.xsd</DependentUpon>
     </Content>
     <None Include="dsPurchaseOrder.xsd">
       <SubType>Designer</SubType>
@@ -265,6 +263,17 @@
     </None>
     <Content Include="dsPurchaseOrder.xss">
       <DependentUpon>dsPurchaseOrder.xsd</DependentUpon>
+    </Content>
+    <Content Include="ItemExpired.xsc">
+      <DependentUpon>ItemExpired.xsd</DependentUpon>
+    </Content>
+    <None Include="ItemExpired.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ItemExpired.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="ItemExpired.xss">
+      <DependentUpon>ItemExpired.xsd</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -323,23 +332,22 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CrystalReportExpiration.aspx.cs">
-      <DependentUpon>CrystalReportExpiration.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CrystalReportExpiration.aspx.designer.cs">
-      <DependentUpon>CrystalReportExpiration.aspx</DependentUpon>
-    </Compile>
     <Compile Include="CrystalReportItem.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CrystalReportItem.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CrystalReportsExpiration.cs">
+    <Compile Include="CrystalReportItemExpired.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReportsExpiration.rpt</DependentUpon>
+      <DependentUpon>CrystalReportItemExpired.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReportOrders.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportOrders.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CrystalReportsItemDetails.aspx.cs">
@@ -348,6 +356,13 @@
     </Compile>
     <Compile Include="CrystalReportsItemDetails.aspx.designer.cs">
       <DependentUpon>CrystalReportsItemDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalReportsItemExpired.aspx.cs">
+      <DependentUpon>CrystalReportsItemExpired.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CrystalReportsItemExpired.aspx.designer.cs">
+      <DependentUpon>CrystalReportsItemExpired.aspx</DependentUpon>
     </Compile>
     <Compile Include="CrystalReportsPurchaseOrder.cs">
       <AutoGen>True</AutoGen>
@@ -367,10 +382,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsItemDetails.xsd</DependentUpon>
     </Compile>
-    <Compile Include="dsItemExpiration.Designer.cs">
+    <Compile Include="dsOrders.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dsItemExpiration.xsd</DependentUpon>
+      <DependentUpon>dsOrders.xsd</DependentUpon>
     </Compile>
     <Compile Include="dsPurchaseOrder.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -387,12 +402,10 @@
     <Compile Include="InventoryModule.aspx.designer.cs">
       <DependentUpon>InventoryModule.aspx</DependentUpon>
     </Compile>
-    <Compile Include="InventoryReportView.aspx.cs">
-      <DependentUpon>InventoryReportView.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="InventoryReportView.aspx.designer.cs">
-      <DependentUpon>InventoryReportView.aspx</DependentUpon>
+    <Compile Include="ItemExpired.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ItemExpired.xsd</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -415,26 +428,12 @@
     <Compile Include="ProductionModule.aspx.designer.cs">
       <DependentUpon>ProductionModule.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ProductionReportModule.aspx.cs">
-      <DependentUpon>ProductionReportModule.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProductionReportModule.aspx.designer.cs">
-      <DependentUpon>ProductionReportModule.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ProductionTimerModule.aspx.cs">
       <DependentUpon>ProductionTimerModule.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ProductionTimerModule.aspx.designer.cs">
       <DependentUpon>ProductionTimerModule.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ProductionTimerReport.aspx.cs">
-      <DependentUpon>ProductionTimerReport.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProductionTimerReport.aspx.designer.cs">
-      <DependentUpon>ProductionTimerReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PurchasingModule.aspx.cs">
@@ -457,6 +456,13 @@
     </Compile>
     <Compile Include="Reports.aspx.designer.cs">
       <DependentUpon>Reports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportsOrders.aspx.cs">
+      <DependentUpon>ReportsOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportsOrders.aspx.designer.cs">
+      <DependentUpon>ReportsOrders.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -516,9 +522,13 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReportItem.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="CrystalReportsExpiration.rpt">
+    <EmbeddedResource Include="CrystalReportItemExpired.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReportsExpiration.cs</LastGenOutput>
+      <LastGenOutput>CrystalReportItemExpired.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReportOrders.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportOrders.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReportsPurchaseOrder.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

@@ -36,59 +36,64 @@ namespace Inventory_System
 
         protected void btn_Add_Click(object sender, EventArgs e)
         {
-            string strDishSelected = null;
-            strDishSelected = ddlMenuList.Text;
+
+            //if (con.State == ConnectionState.Closed)
+            //{
+            //    con.Open();
+            //    SqlDataAdapter sqlDa = new SqlDataAdapter("OrderViewAll", con);
+            //    sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+            //    DataTable dt = new DataTable();
+            //    sqlDa.Fill(dt);
+
+            //    string strCurrentQuantity = null;
+
+            //    if (dt.Rows.Count > 0)
+            //    {
+            //        foreach (DataRow dr in dt.Rows)
+            //        {
+            //            if (ddlMenuList.Text == dr["Dish"].ToString())
+            //            {
+            //                txtbox_DishID.Text = dr["MenuID"].ToString();
+            //                strCurrentQuantity = (Convert.ToInt32(dr["Order"]) + Convert.ToInt32(txtbox_Quantity.Text)).ToString();
+            //                break;
+            //            }
+            //            strCurrentQuantity = Convert.ToInt32(txtbox_Quantity.Text).ToString();
+            //        }
+
+            //    }
+            //    else
+            //    {
+            //    }
+
+                string strDishSelected = null;
+                strDishSelected = ddlMenuList.Text;
+                string strCurrentQuantity = Convert.ToInt32(txtbox_Quantity.Text).ToString();
+                string leadTime = txtLeadTime.Text.Trim();
 
             if (con.State == ConnectionState.Closed)
             {
                 con.Open();
-                SqlDataAdapter sqlDa = new SqlDataAdapter("OrderViewAll", con);
-                sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
-
-                DataTable dt = new DataTable();
-                sqlDa.Fill(dt);
-
-                string strCurrentQuantity = null;
-
-                if (dt.Rows.Count > 0)
-                {
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        if (ddlMenuList.Text == dr["Dish"].ToString())
-                        {
-                            txtbox_DishID.Text = dr["MenuID"].ToString();
-                            strCurrentQuantity = (Convert.ToInt32(dr["Order"]) + Convert.ToInt32(txtbox_Quantity.Text)).ToString();
-                            break;
-                        }
-                        strCurrentQuantity = Convert.ToInt32(txtbox_Quantity.Text).ToString();
-                    }
-
-                }
-                else
-                {
-                    strCurrentQuantity = Convert.ToInt32(txtbox_Quantity.Text).ToString();
-                }
-
-
                 SqlCommand cmd = new SqlCommand("OrderCreateOrUpdate", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@MenuID", (txtbox_DishID.Text == "" ? 0 : Convert.ToInt32(txtbox_DishID.Text)));
+                cmd.Parameters.AddWithValue("@MenuID", 0);//(txtbox_DishID.Text == "" ? 0 : Convert.ToInt32(txtbox_DishID.Text)));
                 cmd.Parameters.AddWithValue("@Dish", ddlMenuList.Text.Trim());
                 cmd.Parameters.AddWithValue("@Order", strCurrentQuantity);
-                //cmd.Parameters.AddWithValue("@StartTime", DateTime.Now.ToString());
+                cmd.Parameters.AddWithValue("@LeadTime", leadTime);
                 cmd.ExecuteNonQuery();
 
                 con.Close();
                 txtbox_DishID.Text = string.Empty;
                 FillGridView();
             }
+            
         }
 
         public void FillGridView()
         {
             if (con.State == ConnectionState.Closed)
                 con.Open();
-            SqlDataAdapter sqlDa = new SqlDataAdapter("OrderViewAll", con);
+            SqlDataAdapter sqlDa = new SqlDataAdapter("OrderViewBeforeStart", con);
             sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
             DataTable dt = new DataTable();
             sqlDa.Fill(dt);

@@ -7,9 +7,7 @@
     <!-- Meta-Tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <meta name="keywords" content="Cafe Inventory System  Purchasing form a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
-
-
+    <meta name="keywords" content="Cafe Inventory System  Supplier Details form a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
     <script>
         addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
@@ -18,7 +16,6 @@
         function hideURLbar() {
             window.scrollTo(0, 1);
         }
-
     </script>
     <!-- //Meta-Tags -->
 
@@ -30,12 +27,9 @@
     <!-- google fonts -->
     <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <!-- //google fonts -->
-
-
 </head>
-<body>
-
-<div class="navbar">
+  <body>
+    <div class="navbar">
   <a href="About.aspx">Home</a>
   <a href="Contact.aspx">Contacts</a>
   <a href="PurchasingModule.aspx">Purchase</a>
@@ -43,16 +37,16 @@
   <a href="MenuModule.aspx">Menu</a>
   <a href="ProductionModule.aspx">Production</a>
   <a href="SupplierModule.aspx">Supplier</a>
-  <a href="InventoryReportView.aspx">Forecasting</a>
+  <a href="ProductionTimerModule.aspx">Production Timer</a>
   <div class="dropdownReport">
     <button class="dropbtnReport">Reports 
       <i class="fa fa-caret-down"></i>
-    </button>
+    <%--</button>--%>
     <div class="contentNavbar">
       <a href="Reports.aspx">Purchase Order Reports</a>
-      <a href="ProductionReports">Production Reports</a>
+      <a href="ReportsOrders.aspx">Production Reports</a>
       <a href="CrystalReportsItemDetails.aspx">Item Details Reports</a>
-      <a href="CrystalReportExpiration.aspx">Wastage Reports</a>
+      <a href="CrystalReportsItemExpired.aspx">Wastage Reports</a>
     </div>
   </div> 
 </div>
@@ -161,7 +155,9 @@
                             <label>Date</label>
                             <div class="input-group">
                                 <span class="fa fa-calendar" aria-hidden="true"></span>
-                                <asp:TextBox ID="txtDate" runat="server" placeholder="Enter Date of Purchase"></asp:TextBox>
+                                <asp:TextBox ID="txtDate" runat="server"  placeholer="Select Date" TextMode="DateTime" ReadOnly="true" BackColor="WhiteSmoke"></asp:TextBox>
+                                <br />
+                                 <asp:Calendar ID="calendarDate" runat="server" style="margin-top: 8px" OnSelectionChanged="calendarDate_SelectionChanged1"    OnDayRender="calendarDate_DayRender"       ></asp:Calendar>
                             </div>
 
                             <label>Item Price</label>
