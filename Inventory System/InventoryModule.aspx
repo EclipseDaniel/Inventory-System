@@ -168,7 +168,7 @@
                             <div class="text-center">
                                 <asp:Button ID="btnSave" class="btn btn-dark" runat="server" Text="Save" OnClick="btnSave_Click" />
                                 <asp:Button ID="btn_Delete" class="btn btn-dark" Style="margin-left: 20px;" runat="server" Text="Delete" OnClick="btn_Delete_Click" />
-                                <asp:Button ID="btn_Clear" class="btn btn-dark" Style="margin-left: 20px;" runat="server" Text="Clear" OnClick="btn_Clear_Click" />
+                                <asp:Button ID="btn_Clear" class="btn btn-dark" Style="margin-left: 20px;" runat="server" Text="Clear" OnClick="btn_Clear_Click"  />
                             </div>
 
                             <br />

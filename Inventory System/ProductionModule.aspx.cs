@@ -343,15 +343,42 @@ namespace Inventory_System
 
         protected void btn_ProcessOrder_Click(object sender, EventArgs e) //PROCESS TO TIMER
         {
+            listInventoryViewLoad("SELECT * FROM vwInventoryLeft");
             if (con.State == ConnectionState.Closed)
                 con.Open();
-            SqlDataAdapter sqlDa = new SqlDataAdapter("OrderViewAll", con);
+            SqlDataAdapter sqlDa = new SqlDataAdapter("ItemViewAll", con);
             sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
             DataTable dt = new DataTable();
             sqlDa.Fill(dt);
 
-
             foreach (DataRow dr in dt.Rows)
+            {
+                foreach (cInventoryView c in listInventoryView)
+                {
+                    if (c.ItemID == dr["ItemID"].ToString())
+                    {
+                        SqlCommand cmd = new SqlCommand("InventoryUpdateQuantity", con);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@ItemID", Convert.ToInt32(c.ItemID));
+                        cmd.Parameters.AddWithValue("@ItemQuantity", c.QtyLeft.Trim());
+                        cmd.Parameters.AddWithValue("@ItemName", c.ItemName);
+                        cmd.ExecuteNonQuery();
+                        break;
+                    }
+                }
+            }
+
+            con.Close();
+
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+            sqlDa = new SqlDataAdapter("OrderViewAll", con);
+            sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataTable dt2 = new DataTable();
+            sqlDa.Fill(dt2);
+
+
+            foreach (DataRow dr in dt2.Rows)
             {
                     SqlCommand cmd = new SqlCommand("OrderUpdate", con);
                     cmd.CommandType = CommandType.StoredProcedure;
