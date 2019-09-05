@@ -252,6 +252,7 @@ namespace Inventory_System
 
         protected void btnReceived_Click(object sender, EventArgs e)
         {
+             
             if (con.State == ConnectionState.Closed)
                 con.Open();
 
@@ -325,6 +326,10 @@ namespace Inventory_System
                     foreach (cPurchase c in listPurchase)
                     {
                         if (c.Status == "Received" && txtPurchaseID.Text != "")
+                        {
+                            btnReceived.Enabled = false;
+                        }
+                        else
                         {
                             btnReceived.Enabled = true;
                         }

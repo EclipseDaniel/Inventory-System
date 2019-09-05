@@ -32,6 +32,19 @@ namespace Inventory_System
         protected void btn_Cancel_Click(object sender, EventArgs e)
         {
 
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("OrderDeleteBeforeStart", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+                txtbox_DishID.Text = string.Empty;
+                FillGridView();
+            }
+
+
         }
 
         protected void btn_Add_Click(object sender, EventArgs e)
