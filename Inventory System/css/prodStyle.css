@@ -1,5 +1,5 @@
 ﻿
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, nav ul, nav li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol,  fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu,  output, ruby, section, summary, time, mark, audio, video {
     margin: 0;
     padding: 0;
     border: 0;
@@ -8,11 +8,11 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     vertical-align: baseline;
 }
 
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, section {
     display: block;
 }
 
-ol, ul {
+ol {
     list-style: none;
     margin: 0px;
     padding: 0px;
@@ -75,14 +75,6 @@ a {
 .vertical-top {
     vertical-align: top;
 }
-/* vertical align top */
-nav.vertical ul li {
-    display: block;
-}
-/* vertical menu */
-nav.horizontal ul li {
-    display: inline-block;
-}
 /* horizontal menu */
 img {
     max-width: 100%;
@@ -112,65 +104,7 @@ img {
     font-size: smaller;
 }*/
 
-.navbar {
-    overflow: hidden;
-    background-color: #333;
-}
 
-    .navbar a {
-        float: left;
-        font-size: 16px;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-
-.dropdownR {
-    float: left;
-    overflow: hidden;
-}
-
-    .dropdownR .dropbtnR {
-        font-size: 16px;
-        border: none;
-        outline: none;
-        color: white;
-        padding: 14px 16px;
-        background-color: inherit;
-        font-family: inherit;
-        margin: 0;
-    }
-
-.navbar a:hover, .dropdownR:hover .dropbtn {
-    background-color: red;
-}
-
-.dropdownR-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdownR-content a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-
-    .dropdownR-content a:hover {
-        background-color: #ddd;
-    }
-
-.dropdownR:hover .dropdownR-content {
-    display: block;
-}
 
 .GridItem {
     background-color: LightGoldenrodYellow;
@@ -180,7 +114,7 @@ img {
     background-color: PaleGoldenrod;
 }
 
-body {
+/*#bodyStyle body {
     padding: 0;
     margin: 0;
     background-color: #fff;
@@ -205,7 +139,7 @@ body {
 
         body a:focus, a:hover {
             text-decoration: none;
-        }
+        }*/
 
 input[type="button"], input[type="submit"] {
     transition: 0.5s all;
@@ -240,10 +174,6 @@ p {
     padding: 0px;
 }
 
-ul {
-    margin: 0;
-    padding: 0;
-}
 
 label {
     margin: 0;
@@ -256,6 +186,7 @@ a:focus, a:hover {
 
 .productionform {
     padding: 3em 0;
+    background-color: wheat;
 }
 
 .prodTable_Info h1 {
@@ -281,7 +212,7 @@ input[type="text"] {
     font-family: 'Raleway', sans-serif;
 }
 
-.dropdown {
+/*.dropdown {
     margin-top: 10px;
     margin-bottom: 20px;
     padding: 3px 10px;
@@ -317,7 +248,7 @@ input[type="text"] {
 
 .dropdown:hover .dropdown-content {
     display: block;
-}
+}*/
 
 .input-group {
     margin-top: 10px;

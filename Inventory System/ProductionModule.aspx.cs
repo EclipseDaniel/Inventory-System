@@ -6,12 +6,14 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
+using System.Configuration;
 
 namespace Inventory_System
 {
     public partial class ProductionModule1 : System.Web.UI.Page
     {
-        SqlConnection con = new SqlConnection(@"Data Source=PPCA-5253YR6-LX\AACRSQLEXPRESS;Initial Catalog=dbMain;Integrated Security=True");
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dbMainConnectionString"].ConnectionString);
+
         List<cMenu> listMenu;
         List<cOrder> listOrder;
         List<cInventory> listInventory;
@@ -21,74 +23,93 @@ namespace Inventory_System
         {
             if (!IsPostBack)
             {
-                executeCommand("DELETE FROM tblOrderOutput");
                 listMenuLoad("SELECT DISTINCT Dish FROM tblMenu");
                 ddlMenuList.DataSource = listMenu;
                 ddlMenuList.DataTextField = "Dish";
                 ddlMenuList.DataBind();
                 ddlMenuList.Items.Insert(0, "Select");
+                FillGridView();
             }
         }
 
         protected void btn_Cancel_Click(object sender, EventArgs e)
         {
 
-        }
-
-        protected void btn_Add_Click(object sender, EventArgs e)
-        {
-            string strDishSelected = null;
-            strDishSelected = ddlMenuList.Text;
-
             if (con.State == ConnectionState.Closed)
             {
                 con.Open();
-                SqlDataAdapter sqlDa = new SqlDataAdapter("OrderViewAll", con);
-                sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
-
-                DataTable dt = new DataTable();
-                sqlDa.Fill(dt);
-
-                string strCurrentQuantity = null;
-
-                if (dt.Rows.Count > 0)
-                {
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        if (ddlMenuList.Text == dr["Dish"].ToString())
-                        {
-                            txtbox_DishID.Text = dr["MenuID"].ToString();
-                            strCurrentQuantity = (Convert.ToInt32(dr["Order"]) + Convert.ToInt32(txtbox_Quantity.Text)).ToString();
-                            break;
-                        }
-                        strCurrentQuantity = Convert.ToInt32(txtbox_Quantity.Text).ToString();
-                    }
-
-                }
-                else
-                {
-                    strCurrentQuantity = Convert.ToInt32(txtbox_Quantity.Text).ToString();
-                }
-
-
-                SqlCommand cmd = new SqlCommand("OrderCreateOrUpdate", con);
+                SqlCommand cmd = new SqlCommand("OrderDeleteBeforeStart", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@MenuID", (txtbox_DishID.Text == "" ? 0 : Convert.ToInt32(txtbox_DishID.Text)));
-                cmd.Parameters.AddWithValue("@Dish", ddlMenuList.Text.Trim());
-                cmd.Parameters.AddWithValue("@Order", strCurrentQuantity);
                 cmd.ExecuteNonQuery();
 
                 con.Close();
                 txtbox_DishID.Text = string.Empty;
                 FillGridView();
             }
+
+
+        }
+
+        protected void btn_Add_Click(object sender, EventArgs e)
+        {
+
+            //if (con.State == ConnectionState.Closed)
+            //{
+            //    con.Open();
+            //    SqlDataAdapter sqlDa = new SqlDataAdapter("OrderViewAll", con);
+            //    sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+            //    DataTable dt = new DataTable();
+            //    sqlDa.Fill(dt);
+
+            //    string strCurrentQuantity = null;
+
+            //    if (dt.Rows.Count > 0)
+            //    {
+            //        foreach (DataRow dr in dt.Rows)
+            //        {
+            //            if (ddlMenuList.Text == dr["Dish"].ToString())
+            //            {
+            //                txtbox_DishID.Text = dr["MenuID"].ToString();
+            //                strCurrentQuantity = (Convert.ToInt32(dr["Order"]) + Convert.ToInt32(txtbox_Quantity.Text)).ToString();
+            //                break;
+            //            }
+            //            strCurrentQuantity = Convert.ToInt32(txtbox_Quantity.Text).ToString();
+            //        }
+
+            //    }
+            //    else
+            //    {
+            //    }
+
+                string strDishSelected = null;
+                strDishSelected = ddlMenuList.Text;
+                string strCurrentQuantity = Convert.ToInt32(txtbox_Quantity.Text).ToString();
+                string leadTime = txtLeadTime.Text.Trim();
+
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("OrderCreateOrUpdate", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MenuID", 0);//(txtbox_DishID.Text == "" ? 0 : Convert.ToInt32(txtbox_DishID.Text)));
+                cmd.Parameters.AddWithValue("@Dish", ddlMenuList.Text.Trim());
+                cmd.Parameters.AddWithValue("@Order", strCurrentQuantity);
+                cmd.Parameters.AddWithValue("@LeadTime", leadTime);
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+                txtbox_DishID.Text = string.Empty;
+                FillGridView();
+            }
+            
         }
 
         public void FillGridView()
         {
             if (con.State == ConnectionState.Closed)
                 con.Open();
-            SqlDataAdapter sqlDa = new SqlDataAdapter("OrderViewAll", con);
+            SqlDataAdapter sqlDa = new SqlDataAdapter("OrderViewBeforeStart", con);
             sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
             DataTable dt = new DataTable();
             sqlDa.Fill(dt);
@@ -145,6 +166,10 @@ namespace Inventory_System
 
             con.Close();
             Response.Write("Transaction Successful");
+
+            string time = DateTime.Now.ToString();
+
+
         }
 
         public void executeCommand(string sqlQuery)
@@ -312,12 +337,17 @@ namespace Inventory_System
             foreach (DataRow dr in dt.Rows)
             {
 
-                if (dr["CriticalLevel"].ToString() == "Critical")
+                if (dr["ItemLevelStatus"].ToString() == "Critical")
                 {
                     btn_PurchaseGood.Enabled = true;
-                    btn_ProcessOrder.Enabled = false;
+                    Response.Write($"<script>alert('Ingredient is in critical level')</script>");
+                    break;
                 }
-                
+                else if (dr["ItemLevelStatus"].ToString() == "Optimal")
+                {
+
+                }
+
             }
         }
 
@@ -326,7 +356,7 @@ namespace Inventory_System
             Response.Redirect("~/PurchasingModule.aspx");
         }
 
-        protected void btn_ProcessOrder_Click(object sender, EventArgs e)
+        protected void btn_ProcessOrder_Click(object sender, EventArgs e) //PROCESS TO TIMER
         {
             listInventoryViewLoad("SELECT * FROM vwInventoryLeft");
             if (con.State == ConnectionState.Closed)
@@ -346,6 +376,7 @@ namespace Inventory_System
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@ItemID", Convert.ToInt32(c.ItemID));
                         cmd.Parameters.AddWithValue("@ItemQuantity", c.QtyLeft.Trim());
+                        cmd.Parameters.AddWithValue("@ItemName", c.ItemName);
                         cmd.ExecuteNonQuery();
                         break;
                     }
@@ -354,6 +385,25 @@ namespace Inventory_System
 
             con.Close();
 
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+            sqlDa = new SqlDataAdapter("OrderViewAll", con);
+            sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataTable dt2 = new DataTable();
+            sqlDa.Fill(dt2);
+
+
+            foreach (DataRow dr in dt2.Rows)
+            {
+                    SqlCommand cmd = new SqlCommand("OrderUpdate", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@MenuID", Convert.ToInt32(dr["MenuID"]));
+                    cmd.Parameters.AddWithValue("@StartTime", DateTime.Now.ToString());                    
+                    cmd.ExecuteNonQuery();
+            }
+
+
+            con.Close();
             Response.Redirect("~/ProductionTimerModule.aspx");
         }
     }

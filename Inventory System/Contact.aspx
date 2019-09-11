@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="Contact" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="Inventory_System.Contact" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="ContactBodyContent" ContentPlaceHolderID="BodyContent" runat="server">
     <h2><%: Title %>.</h2>
     <h3>Your contact page.</h3>
     <address>

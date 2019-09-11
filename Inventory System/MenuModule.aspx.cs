@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,12 +12,12 @@ namespace Inventory_System
 {
     public partial class ProductionModule : System.Web.UI.Page
     {
-        SqlConnection con = new SqlConnection(@"Data Source=PPCA-5253YR6-LX\AACRSQLEXPRESS;Initial Catalog=dbMain;Integrated Security=True");
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dbMainConnectionString"].ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {  
-
+            {
+                dropDownListFill();
             }
 
             //btn_Next.Enabled = !string.IsNullOrWhiteSpace(txtbox_DishName.Text);
@@ -43,19 +44,32 @@ namespace Inventory_System
 
         protected void btn_Next_Click(object sender, EventArgs e)
         {
-            txtbox_DishName.ReadOnly = true;
-            //txtbox_DishName.ReadOnly = true;
-            //txtbox_Quantity.ReadOnly = false;
-            //txtbox_Ingre.ReadOnly = false;
-            //btn_Next.Enabled = false;
-            //btn_Add.Enabled = true;
-            //btn_Cancel.Enabled = true;
+            con.Open();
+            SqlDataAdapter sqlDa = new SqlDataAdapter("MenuViewByDish", con);
+            sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+            sqlDa.SelectCommand.Parameters.AddWithValue("@Dish", txtbox_DishName.Text);
+            DataTable dt = new DataTable();
+            sqlDa.Fill(dt);
+
+            if (dt.Rows.Count > 0)
+            {
+                Response.Write($"<script>alert('Dish is already existing.')</script>");
+                txtbox_DishName.Text = string.Empty;
+                txtbox_Quantity.Text = string.Empty;
+                ddlIngredients.SelectedItem.Text = string.Empty;
+            }
+            else
+            {
+                txtbox_DishName.ReadOnly = true;
+
+            }
+            con.Close();
         }
 
         protected void btn_Cancel_Click(object sender, EventArgs e)
         {
             txtbox_DishName.Text = string.Empty;
-            txtbox_Ingre.Text = string.Empty;
+            ddlIngredients.SelectedItem.Text = string.Empty;
             txtbox_Quantity.Text = string.Empty;
 
             //btn_Add.Enabled = false;
@@ -69,7 +83,7 @@ namespace Inventory_System
             string strIngredients = null;
             string strQuantitySelected = null;
             strDishSelected = txtbox_DishName.Text;
-            strIngredients = txtbox_Ingre.Text;
+            strIngredients = ddlIngredients.SelectedItem.Text;
             strQuantitySelected = txtbox_Quantity.Text;
 
             if (con.State == ConnectionState.Closed)
@@ -99,7 +113,7 @@ namespace Inventory_System
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@MenuID", (txtbox_MenuId.Text == "" ? 0 : Convert.ToInt32(txtbox_MenuId.Text)));
                 cmd.Parameters.AddWithValue("@Dish", txtbox_DishName.Text.Trim());
-                cmd.Parameters.AddWithValue("@Ingredients", txtbox_Ingre.Text.Trim());
+                cmd.Parameters.AddWithValue("@Ingredients", ddlIngredients.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@Quantity", strCurrentQuantity);
                 cmd.ExecuteNonQuery();
 
@@ -108,7 +122,7 @@ namespace Inventory_System
 
                 string MenuID = txtbox_MenuId.Text;
 
-                if(txtbox_DishName.ReadOnly == true && txtbox_DishName.Text != "")
+                if (txtbox_DishName.ReadOnly == true && txtbox_DishName.Text != "")
                 {
 
                 }
@@ -117,7 +131,7 @@ namespace Inventory_System
                     txtbox_DishName.Text = string.Empty;
                 }
                 txtbox_DishName.Text = string.Empty;
-                txtbox_Ingre.Text = string.Empty;
+                ddlIngredients.SelectedItem.Text = string.Empty;
                 txtbox_Quantity.Text = string.Empty;
 
                 FillGridView(strDishSelected);
@@ -138,6 +152,23 @@ namespace Inventory_System
         {
             txtbox_DishName.ReadOnly = false;
         }
+
+        protected void dropDownListFill()
+        {
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+
+            string ddlFill = "SELECT ItemName FROM tblItemDetails";
+            SqlDataAdapter da = new SqlDataAdapter(ddlFill, con);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            ddlIngredients.DataSource = dt;
+            ddlIngredients.DataBind();
+            ddlIngredients.DataTextField = "ItemName";
+            ddlIngredients.DataValueField = "ItemName";
+            ddlIngredients.DataBind();
+        }
+
     }
 
 }

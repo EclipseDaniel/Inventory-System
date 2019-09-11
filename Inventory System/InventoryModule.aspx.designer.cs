@@ -31,6 +31,15 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.Button checkInventory;
         
         /// <summary>
+        /// txtItemID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtItemID;
+        
+        /// <summary>
         /// txtItemName control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,24 @@ namespace Inventory_System {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtItemQuantity;
+        
+        /// <summary>
+        /// RegularExpressionValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        
+        /// <summary>
+        /// txtItemUnit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtItemUnit;
         
         /// <summary>
         /// ddListStatus control.
@@ -92,6 +119,24 @@ namespace Inventory_System {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtItemExpirationDate;
+        
+        /// <summary>
+        /// txtCriticalLevel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCriticalLevel;
+        
+        /// <summary>
+        /// txtOptimalLevel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtOptimalLevel;
         
         /// <summary>
         /// btnSave control.
@@ -148,6 +193,15 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.TextBox txtItemNo;
         
         /// <summary>
+        /// gridViewCritical control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridViewCritical;
+        
+        /// <summary>
         /// gridViewItem control.
         /// </summary>
         /// <remarks>
@@ -155,5 +209,14 @@ namespace Inventory_System {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gridViewItem;
+        
+        /// <summary>
+        /// gridViewItemExpiration control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridViewItemExpiration;
     }
 }

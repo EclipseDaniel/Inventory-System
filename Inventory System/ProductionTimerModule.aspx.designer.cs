@@ -13,6 +13,24 @@ namespace Inventory_System {
     public partial class ProductionTimerModule {
         
         /// <summary>
+        /// UpdateTimer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.Timer UpdateTimer;
+        
+        /// <summary>
+        /// TimePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel TimePanel;
+        
+        /// <summary>
         /// gridOrderedDish control.
         /// </summary>
         /// <remarks>

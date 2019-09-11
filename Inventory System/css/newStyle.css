@@ -1,0 +1,23 @@
+﻿/** Bootstrap Grid **/
+
+.col-centered {
+    padding-left: 50px;
+}
+
+.col-paddinglefttop {
+    margin: 50px 50px 0px 50px;
+    padding-left: 20px;
+
+}
+
+
+
+/*  */
+input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
+}
+
+.spacer{
+    margin-top: 30px;
+}

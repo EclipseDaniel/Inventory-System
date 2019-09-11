@@ -6,12 +6,15 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text;
+using System.Configuration;
 
 namespace Inventory_System
 {
     public partial class Login : System.Web.UI.Page
     {
-        SqlConnection con = new SqlConnection(@"Data Source=PPCA-5253YR6-LX\AACRSQLEXPRESS;Initial Catalog=dbMain;Integrated Security=True");
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dbMainConnectionString"].ConnectionString);
+
         List<cLogin> listLogin;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,7 +37,13 @@ namespace Inventory_System
                 {
                     if (c.Username == txt_UserName.Text && c.Password == txt_Password.Text)
                     {
+                        Session["AccountID"] = txt_UserName.Text;
                         Response.Redirect("~/About.aspx");
+                        Session.RemoveAll();
+                    }
+                    else
+                    {
+                        ShowPopUpMsg("Incorrect User Credentials");
                     }
                 }
             }
@@ -91,6 +100,15 @@ namespace Inventory_System
             public string Password { get; set; }
             public string Firstname { get; set; }
             public string Lastname { get; set; }
+        }
+
+        private void ShowPopUpMsg(string msg)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("alert('");
+            sb.Append(msg.Replace("\n", "\\n").Replace("\r", "").Replace("'", "\\'"));
+            sb.Append("');");
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "showalert", sb.ToString(), true);
         }
     }
 }

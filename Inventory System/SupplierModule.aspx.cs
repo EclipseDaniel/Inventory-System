@@ -6,14 +6,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Inventory_System
 {
 
     public partial class SupplierDetails : System.Web.UI.Page
     {
-        SqlConnection con = new SqlConnection(@"Data Source=PPCA-5253YR6-LX\AACRSQLEXPRESS;Initial Catalog=dbMain;Integrated Security=True");
-
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dbMainConnectionString"].ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -122,7 +122,7 @@ namespace Inventory_System
         {
             int SupplierID = Convert.ToInt32((sender as LinkButton).CommandArgument);
 
-            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + SupplierID + "');", true);
+            //ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + SupplierID + "');", true);
 
             if (con.State == ConnectionState.Closed)
                 con.Open();
