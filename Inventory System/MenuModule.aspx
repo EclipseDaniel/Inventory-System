@@ -3,6 +3,7 @@
 <asp:Content ID="MenuHeaderContent" ContentPlaceHolderID="HeaderContent" runat="server" >
 
      <link href="css/newStyle.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/Pagination.css" rel="stylesheet" />
 </asp:Content>
 
 
@@ -99,7 +100,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="col-centered">
-                            <asp:GridView ID="gridDishMenu" runat="server" AutoGenerateColumns="false" CssClass="table table-striped table-hover" HorizontalAlign="Center">
+                            <asp:GridView ID="gridDishMenu" runat="server" AutoGenerateColumns="false" CssClass="table table-striped table-hover" HorizontalAlign="Center">                
                                 <HeaderStyle CssClass="GridHeader" />
                                 <AlternatingRowStyle CssClass="GridAltItem" />
                                 <Columns>

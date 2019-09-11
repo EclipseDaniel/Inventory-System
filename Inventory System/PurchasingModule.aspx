@@ -192,7 +192,8 @@
                             </div>
                             <div class="panel-body">
                                         <div class="col-centered">
-                                            <asp:GridView ID="gridViewPurchase" runat="server" AutoGenerateColumns="false"  Width="887px" CssClass="table table-striped table-hover">
+                                            <asp:GridView ID="gridViewPurchase" runat="server" AutoGenerateColumns="false"  Width="887px" CssClass="table table-striped table-hover" AllowPaging="true" PageSize="10" OnPageIndexChanging="gridViewPurchase_PageIndexChanging">
+                                                <PagerStyle HorizontalAlign="Center" CssClass="GridPager" />
                                                 <HeaderStyle CssClass ="GridHeader"/>
                                                 <AlternatingRowStyle CssClass ="GridAltItem" />
                                                 <Columns>

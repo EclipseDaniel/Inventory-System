@@ -168,7 +168,5 @@ namespace Inventory_System
             ddlIngredients.DataValueField = "ItemName";
             ddlIngredients.DataBind();
         }
-
     }
-
 }

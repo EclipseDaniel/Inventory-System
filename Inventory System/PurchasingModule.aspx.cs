@@ -370,8 +370,18 @@ namespace Inventory_System
             public string Status { get; set; }
         }
 
-     
-
-       
+        protected void gridViewPurchase_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+            SqlDataAdapter sqlDa = new SqlDataAdapter("PurchaseViewAll", con);
+            sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataTable dt = new DataTable();
+            sqlDa.Fill(dt);
+            con.Close();
+            gridViewPurchase.PageIndex = e.NewPageIndex;
+            gridViewPurchase.DataSource = dt;
+            gridViewPurchase.DataBind();
+        }
     }
 }

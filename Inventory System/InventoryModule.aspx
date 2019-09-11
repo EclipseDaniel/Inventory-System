@@ -2,7 +2,7 @@
 
 <asp:Content ID="InventoryHeaderContent" ContentPlaceHolderID="HeaderContent" runat="server">
         <link href="css/newStyle.css" rel="stylesheet" type="text/css" media="all" />
-
+        <link href="css/Pagination.css" rel="stylesheet" />
 </asp:Content>
 
 <asp:Content ID="InventoryBodyContent" ContentPlaceHolderID="BodyContent" runat="server">
@@ -163,7 +163,8 @@
                     <h3 class="panel-title">Critical Level</h3>
                 </div>
                 <div class="panel-body">
-                        <asp:GridView ID="gridViewCritical" runat="server" AutoGenerateColumns="false" CssClass="table table-striped table-hover" HorizontalAlign="Center">
+                        <asp:GridView ID="gridViewCritical" runat="server" AutoGenerateColumns="false" CssClass="table table-striped table-hover" HorizontalAlign="Center" PageSize="10" AllowPaging="true" OnPageIndexChanging="gridViewCritical_PageIndexChanging">
+                            <PagerStyle HorizontalAlign="Center" CssClass="GridPager" />
                             <HeaderStyle CssClass ="GridHeader"/>
                             <AlternatingRowStyle CssClass ="GridAltItem" />
                             <Columns>
@@ -191,7 +192,8 @@
                     <h3 class="panel-title">Inventory Details</h3>
                 </div>
                 <div class="panel-body">
-                    <asp:GridView ID="gridViewItem" runat="server" AutoGenerateColumns="false" CssClass="table table-striped table-hover" HorizontalAlign="Center">
+                    <asp:GridView ID="gridViewItem" runat="server" AutoGenerateColumns="false" CssClass="table table-striped table-hover" HorizontalAlign="Center" PageSize="10" AllowPaging="true" OnPageIndexChanging="gridViewItem_PageIndexChanging">
+                        <PagerStyle HorizontalAlign="Center" CssClass="GridPager" />
                         <HeaderStyle CssClass ="GridHeader"/>
                         <AlternatingRowStyle CssClass ="GridAltItem" />
                         <Columns>
@@ -221,7 +223,8 @@
                     <h3 class="panel-title">Expired</h3>
                 </div>
                 <div class="panel-body">
-                       <asp:GridView ID="gridViewItemExpiration" runat="server" AutoGenerateColumns="false" CssClass="table table-striped table-hover" HorizontalAlign="Center">
+                       <asp:GridView ID="gridViewItemExpiration" runat="server" AutoGenerateColumns="false" CssClass="table table-striped table-hover" HorizontalAlign="Center" PageSize="10" AllowPaging="true" OnPageIndexChanging="gridViewItemExpiration_PageIndexChanging" >
+                           <PagerStyle HorizontalAlign="Center" CssClass="GridPager" />
                             <HeaderStyle CssClass ="GridHeader"/>
                             <AlternatingRowStyle CssClass ="GridAltItem" />
                             <Columns>
