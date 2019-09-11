@@ -73,7 +73,7 @@
                     </form>
 
                     <asp:Label ID="lblError" runat="server" Text="Incorrect User Credential" ForeColor="Red"></asp:Label>
-                    <p class="reg_Form">Dont have an account? <a href="~/RegisterForm">Register here</a></p>
+                    <p class="reg_Form">Dont have an account? <a href="RegisterForm">Register here</a></p>
 
                 </div>
             </div>

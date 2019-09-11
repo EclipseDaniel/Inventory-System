@@ -6,12 +6,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Inventory_System
 {
     public partial class InventoryModule : System.Web.UI.Page
     {
-        SqlConnection con = new SqlConnection(@"Data Source=PPCA-5253YR6-LX\AACRSQLEXPRESS;Initial Catalog=dbMain;Integrated Security=True");
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dbMainConnectionString"].ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -232,37 +233,7 @@ namespace Inventory_System
             gridViewCritical.DataBind();
         }
 
-        protected void calendarItemDeliveryDate_SelectionChanged(object sender, EventArgs e)
-        {
-            txtItemDeliveryDate.Text = calendarItemDeliveryDate.SelectedDate.ToShortDateString().ToString();
-        }
-
-        protected void calendarItemExpirationDate_SelectionChanged(object sender, EventArgs e)
-        {
-            txtItemExpirationDate.Text = calendarItemExpirationDate.SelectedDate.ToShortDateString().ToString();
-        }
-
-        protected void calendarItemExpirationDate_DayRender(object sender, DayRenderEventArgs e)
-        {
-            if (e.Day.Date <= DateTime.Now)
-            {
-
-                e.Cell.BackColor = System.Drawing.ColorTranslator.FromHtml("#a9a9a9");
-
-                e.Day.IsSelectable = false;
-            }
-        }
-
-        protected void calendarItemDeliveryDate_DayRender(object sender, DayRenderEventArgs e)
-        {
-            if (e.Day.Date <= DateTime.Now)
-            {
-
-                e.Cell.BackColor = System.Drawing.ColorTranslator.FromHtml("#a9a9a9");
-
-                e.Day.IsSelectable = false;
-            }
-        }
+    
 
         public void FillGridViewExpiration()
         {

@@ -6,19 +6,25 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
-
+using System.Configuration;
 
 namespace Inventory_System
 {
     public partial class PurchasingModule : System.Web.UI.Page
     {
-        SqlConnection con = new SqlConnection(@"Data Source=PPCA-5253YR6-LX\AACRSQLEXPRESS;Initial Catalog=dbMain;Integrated Security=True");
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dbMainConnectionString"].ConnectionString);
+
         List<cInventory> listInventory;
         List<cPurchase> listPurchase;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+
+                txtDate.Attributes["min"] = DateTime.Now.ToString("yyyy-MM-dd");
+                txtDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                txtItemDeliveryDate.Attributes["min"] = DateTime.Now.ToString("yyyy-MM-dd");
+                txtItemExpirationDate.Attributes["min"] = DateTime.Now.ToString("yyyy-MM-dd");
                 btn_Delete.Enabled = false;
                 FillGridView();
                 string strName = null;
@@ -107,7 +113,6 @@ namespace Inventory_System
             txtTerms.Text = "";
             txtAddress.Text = "";
             txtNotes.Text = "";
-            txtDate.Text = "";
             txtItemPrice.Text = "";
             txtTotalPrice.Text = "";
             txtItemDeliveryDate.Text = "";
@@ -123,7 +128,7 @@ namespace Inventory_System
         {
             int PurchaseID = Convert.ToInt32((sender as LinkButton).CommandArgument);
 
-            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + PurchaseID + "');", true);
+            //ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + PurchaseID + "');", true);
 
             if (con.State == ConnectionState.Closed)
                 con.Open();
@@ -201,6 +206,9 @@ namespace Inventory_System
                 if (supplierID == "")
                 {
                     lblSuccessMessage.Text = "You have successfully added a record!";
+                    string Message = "You have successfully added a record!";
+                    string MsgType = "Success";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), System.Guid.NewGuid().ToString(), "ShowMessage('" + Message + "','" + MsgType + "');", true);
                 }
                 else
                 {
@@ -362,48 +370,8 @@ namespace Inventory_System
             public string Status { get; set; }
         }
 
-        protected void calendarItemExpirationDate_SelectionChanged(object sender, EventArgs e)
-        {
-            txtItemExpirationDate.Text = calendarItemExpirationDate.SelectedDate.ToShortDateString().ToString();
-        }
+     
 
-        protected void calenderItemDeliveryDate_SelectionChanged(object sender, EventArgs e)
-        {
-            txtItemDeliveryDate.Text = calendarItemDeliveryDate.SelectedDate.ToShortDateString().ToString();
-        }
-
-        protected void calendarItemDeliveryDate_DayRender(object sender, DayRenderEventArgs e)
-        {
-            if (e.Day.Date <= DateTime.Now)
-            {
-
-                e.Cell.BackColor = System.Drawing.ColorTranslator.FromHtml("#a9a9a9");
-
-                e.Day.IsSelectable = false;
-            }
-        }
-
-        protected void calendarItemExpirationDate_DayRender(object sender, DayRenderEventArgs e)
-        {
-            if (e.Day.Date <= DateTime.Now)
-            {
-
-                e.Cell.BackColor = System.Drawing.ColorTranslator.FromHtml("#a9a9a9");
-
-                e.Day.IsSelectable = false;
-            }
-        }
-
-        protected void calendarDate_DayRender(object sender, DayRenderEventArgs e)
-        {
-            e.Cell.BackColor = System.Drawing.ColorTranslator.FromHtml("#a9a9a9");
-
-            e.Day.IsSelectable = false;
-        }
-
-        protected void calendarDate_SelectionChanged1(object sender, EventArgs e)
-        {
-            txtDate.Text = calendarDate.SelectedDate.ToShortDateString().ToString();
-        }
+       
     }
 }

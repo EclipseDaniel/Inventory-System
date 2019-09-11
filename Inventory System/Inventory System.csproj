@@ -127,14 +127,23 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Contact.aspx" />
+    <Content Include="Content\bootstrap-datetimepicker.css" />
+    <Content Include="Content\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\flatly.bootstrap.css" />
+    <Content Include="Content\flatly.bootstrap.min.css" />
+    <Content Include="Content\litera.bootstrap.css" />
+    <Content Include="Content\litera.bootstrap.min.css" />
+    <Content Include="Content\lumen.bootstrap.css" />
+    <Content Include="Content\lumen.bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="css\Chart.css" />
     <Content Include="css\Chart.min.css" />
     <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\newStyle.css" />
     <Content Include="css\prodStyle.css" />
     <Content Include="css\style.css" />
     <Content Include="Default.aspx" />
@@ -153,6 +162,8 @@
     <Content Include="ProductionTimerModule.aspx" />
     <Content Include="PurchasingModule.aspx" />
     <Content Include="RegisterForm.aspx" />
+    <Content Include="Scripts\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Chart.bundle.js" />
@@ -182,6 +193,10 @@
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\samples.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />

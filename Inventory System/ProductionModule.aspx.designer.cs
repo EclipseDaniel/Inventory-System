@@ -31,13 +31,13 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.TextBox txtbox_Quantity;
         
         /// <summary>
-        /// RegularExpressionValidatorQuantityNumeric control.
+        /// RegularExpressionValidator2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorQuantityNumeric;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
         
         /// <summary>
         /// txtLeadTime control.
@@ -49,13 +49,13 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.TextBox txtLeadTime;
         
         /// <summary>
-        /// RegularExpressionValidator1 control.
+        /// RegularExpressionValidator3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
         
         /// <summary>
         /// btn_Cancel control.

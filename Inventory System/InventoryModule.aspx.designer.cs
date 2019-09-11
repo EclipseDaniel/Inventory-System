@@ -67,13 +67,13 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.TextBox txtItemQuantity;
         
         /// <summary>
-        /// RegularExpressionValidatorQuantityNumeric control.
+        /// RegularExpressionValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorQuantityNumeric;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
         
         /// <summary>
         /// txtItemUnit control.
@@ -112,15 +112,6 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.TextBox txtItemDeliveryDate;
         
         /// <summary>
-        /// calendarItemDeliveryDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar calendarItemDeliveryDate;
-        
-        /// <summary>
         /// txtItemExpirationDate control.
         /// </summary>
         /// <remarks>
@@ -128,15 +119,6 @@ namespace Inventory_System {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtItemExpirationDate;
-        
-        /// <summary>
-        /// calendarItemExpirationDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar calendarItemExpirationDate;
         
         /// <summary>
         /// txtCriticalLevel control.
