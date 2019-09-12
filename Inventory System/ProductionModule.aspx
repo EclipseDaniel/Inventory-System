@@ -4,7 +4,8 @@
 
 <asp:Content ID="ProductionHeaderContent" ContentPlaceHolderID="HeaderContent" runat="server">
             <link href="css/newStyle.css" rel="stylesheet" type="text/css" media="all" />
-
+    <link href="css/Pagination.css" rel="stylesheet" />
+    <link href="css/Pagination.css" rel="stylesheet" />
 </asp:Content>
 
 
@@ -69,7 +70,8 @@
                     <h3 class="panel-title">Production Data</h3>
                 </div>
                 <div class="panel-body">
-                    <asp:GridView ID="gridOrderedDish" runat="server" AutoGenerateColumns="false" CssClass="table table-striped table-hover" >
+                    <asp:GridView ID="gridOrderedDish" runat="server" AutoGenerateColumns="false" CssClass="table table-striped table-hover" AllowPaging="true" PageSize="10" OnPageIndexChanging="gridOrderedDish_PageIndexChanging">
+                        <PagerStyle HorizontalAlign="Center" CssClass="GridPager" />
                         <Columns>
                             <asp:BoundField DataField="Dish" HeaderText="Dish" />
                             <asp:BoundField DataField="Order" HeaderText="Order" />
