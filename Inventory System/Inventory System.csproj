@@ -140,6 +140,7 @@
     <Content Include="Content\lumen.bootstrap.css" />
     <Content Include="Content\lumen.bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="css\animate.min.css" />
     <Content Include="css\Chart.css" />
     <Content Include="css\Chart.min.css" />
     <Content Include="css\contacts.css" />
@@ -156,8 +157,10 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Images\fogg-coffee-break.png" />
     <Content Include="Images\image.jpg" />
     <Content Include="Images\tick.png" />
+    <Content Include="Images\vectorcloud.png" />
     <Content Include="InventoryModule.aspx" />
     <Content Include="MenuModule.aspx" />
     <Content Include="ProductionModule.aspx" />
