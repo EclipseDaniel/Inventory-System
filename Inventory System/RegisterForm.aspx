@@ -115,7 +115,7 @@
 
                         <asp:Button ID="btn_Register" runat="server" class="btn btn-danger" OnClick="btn_Register_Click" Text="Register" />
 
-                    </form>
+                    </form>  
 
                     <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
                     <asp:Label ID="lblSuccessMessage" runat="server" ForeColor="Green"></asp:Label>
@@ -130,8 +130,6 @@
         </div>
 
     </div>
-
-
 
 </body>
 </html>
