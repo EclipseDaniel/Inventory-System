@@ -20,8 +20,19 @@ namespace Inventory_System
 
             }
         }
+        public void Clear()
+        {
+            txt_AccountID.Text = "";
+            txt_UserName.Text = "";
+            txt_Password.Text = "";
+            txt_FirstName.Text = "";
+            txt_LastName.Text = "";
+            txt_UserRole.Text = "";
+            txt_Email.Text = "";
+            txt_ContactNum.Text = "";
+        }
 
-        protected void btn_Login_Click(object sender, EventArgs e)
+        protected void btn_Register_Click(object sender, EventArgs e)
         {
             if (con.State == ConnectionState.Closed)
             {
@@ -60,17 +71,6 @@ namespace Inventory_System
                     lblSuccessMessage.Text = "Record has been updated!";
                 }
             }
-        }
-        public void Clear()
-        {
-            txt_AccountID.Text = "";
-            txt_UserName.Text = "";
-            txt_Password.Text = "";
-            txt_FirstName.Text = "";
-            txt_LastName.Text = "";
-            txt_UserRole.Text = "";
-            txt_Email.Text = "";
-            txt_ContactNum.Text = "";
         }
     }
 }

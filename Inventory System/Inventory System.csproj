@@ -146,7 +146,7 @@
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\newStyle.css" />
     <Content Include="css\Pagination.css" />
-    <Content Include="css\prodStyle.css" />
+    <Content Include="css\LoginStyle.css" />
     <Content Include="css\style.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -157,6 +157,11 @@
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="Images\image.jpg" />
+    <Content Include="Images\Login-Vector.png" />
+    <Content Include="Images\Login-Vector2.png" />
+    <Content Include="Images\Register-Vector.png" />
+    <Content Include="Images\Register-Vector2.png" />
+    <Content Include="Images\Register-Vector3.png" />
     <Content Include="Images\tick.png" />
     <Content Include="InventoryModule.aspx" />
     <Content Include="MenuModule.aspx" />
@@ -228,6 +233,7 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="SupplierModule.aspx" />
+    <Content Include="TestLogin.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -330,6 +336,13 @@
     </Compile>
     <Compile Include="SupplierModule.aspx.designer.cs">
       <DependentUpon>SupplierModule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestLogin.aspx.cs">
+      <DependentUpon>TestLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestLogin.aspx.designer.cs">
+      <DependentUpon>TestLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
