@@ -3,7 +3,7 @@
 <asp:Content ID="MenuHeaderContent" ContentPlaceHolderID="HeaderContent" runat="server" >
 
      <link href="css/newStyle.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="css/Pagination.css" rel="stylesheet" />
+     <link href="css/Pagination.css" rel="stylesheet" />
 </asp:Content>
 
 
@@ -12,8 +12,6 @@
                 <!-- spacing sa taas -->
                 <div class="spacer"></div>
                         
-
-
                 <!-- Menu Details Panel -->
                 <div class="panel panel-success">
                     <div class="panel-heading">
