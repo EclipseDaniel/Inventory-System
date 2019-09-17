@@ -26,7 +26,7 @@
                             </div>
                         </div>
                     </div>
-            <!-- Modal -->
+            <!-- Modal MOdal -->
             <div class="modal" id="feedback" tabindex="-1">
                 <div class="modal-dialog animated fadeInDown">
                     <div class="modal-content">
