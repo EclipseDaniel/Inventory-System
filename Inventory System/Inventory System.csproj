@@ -140,6 +140,7 @@
     <Content Include="Content\lumen.bootstrap.css" />
     <Content Include="Content\lumen.bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="css\background.css" />
     <Content Include="css\Chart.css" />
     <Content Include="css\Chart.min.css" />
     <Content Include="css\contacts.css" />
@@ -156,6 +157,10 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Images\architecture-bar-bar-cafe.jpg" />
+    <Content Include="Images\cafecafe.jpg" />
+    <Content Include="Images\cafefood.jpg" />
+    <Content Include="Images\cafeplates.jpg" />
     <Content Include="Images\image.jpg" />
     <Content Include="Images\tick.png" />
     <Content Include="InventoryModule.aspx" />
