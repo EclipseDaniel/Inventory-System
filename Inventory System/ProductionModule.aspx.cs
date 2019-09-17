@@ -407,5 +407,19 @@ namespace Inventory_System
             con.Close();
             Response.Redirect("~/ProductionTimerModule.aspx");
         }
+
+        protected void gridOrderedDish_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+            SqlDataAdapter sqlDa = new SqlDataAdapter("OrderViewBeforeStart", con);
+            sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataTable dt = new DataTable();
+            sqlDa.Fill(dt);
+            con.Close();
+            gridOrderedDish.PageIndex = e.NewPageIndex;
+            gridOrderedDish.DataSource = dt;
+            gridOrderedDish.DataBind();
+        }
     }
 }

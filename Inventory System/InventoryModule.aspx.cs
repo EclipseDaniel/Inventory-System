@@ -277,5 +277,47 @@ namespace Inventory_System
             btn_Delete.Enabled = true;
 
         }
+
+        protected void gridViewCritical_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+            SqlDataAdapter sqlDa = new SqlDataAdapter("ItemWithCriticalOnly", con);
+            sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataTable dt = new DataTable();
+            sqlDa.Fill(dt);
+            con.Close();
+            gridViewCritical.PageIndex = e.NewPageIndex;
+            gridViewCritical.DataSource = dt;
+            gridViewCritical.DataBind();
+        }
+
+        protected void gridViewItem_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+            SqlDataAdapter sqlDa = new SqlDataAdapter("ItemViewAll", con);
+            sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataTable dt = new DataTable();
+            sqlDa.Fill(dt);
+            con.Close();
+            gridViewItem.PageIndex = e.NewPageIndex;
+            gridViewItem.DataSource = dt;
+            gridViewItem.DataBind();
+        }
+
+        protected void gridViewItemExpiration_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+            SqlDataAdapter sqlDa = new SqlDataAdapter("ItemWithExpiration", con);
+            sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataTable dt = new DataTable();
+            sqlDa.Fill(dt);
+            con.Close();
+            gridViewItemExpiration.PageIndex = e.NewPageIndex;
+            gridViewItemExpiration.DataSource = dt;
+            gridViewItemExpiration.DataBind();
+        }
     }
 }
