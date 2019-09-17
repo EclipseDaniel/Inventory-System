@@ -1,0 +1,43 @@
+﻿ .card {
+
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,1);
+    transition: 0.3s;
+    width: 100%;
+    vertical-align:central   
+}
+
+
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+.center-col-align {
+    padding-left: 110px;
+}
+
+.padding-left-align{
+    padding-left:30px;
+}
+
+.align-reg{
+    margin: 125px 0px 0px 0px;
+    padding-bottom:50px;
+}
+
+.pad-top{
+    padding-top: 30px;
+}
+
+.spacer-top{
+    margin-top:45px;
+}
+
+.spacer-bottom {
+    margin-bottom: 40px;
+}
+
+.fit-image {
+    padding-top:60px;
+    width: 100%;
+    object-fit: cover;
+}

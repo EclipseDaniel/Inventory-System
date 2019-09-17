@@ -1,4 +1,64 @@
-﻿.Intro {
+﻿/*.Intro {
     font-family: Calibri;
     font-size: 100px;
 }
+.bodyContacts {
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    overflow: hidden;
+    background-image: url("../Images/fogg-coffee-break.png");
+    
+}*/
+
+/*section {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 2000px;
+    height: 700px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}*/
+
+.imgCloud{
+    padding-top:30px;
+    height:300px;
+    width:370px;
+    
+}
+
+.imgBackground {
+    background: url("../Images/fogg-coffee-break.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 600px;
+}
+
+.innerContainer{
+    padding-top:125px;
+    padding-left:300px;
+    position:absolute;
+    top:0;left:0;right:0;bottom:0;
+    background-color:transparent;
+    
+   
+}
+
+.Label1{
+    font-size:2.5vw;
+    font-family:'Bauhaus 93';
+    text-shadow: 2px 2px 4px #000;
+    color: mintcream;
+}
+
+.modalHeader{
+    background-color:rgb(255, 219, 5);
+    font-family:'Comic Sans MS';
+    font-size:30px;
+    text-shadow: 2px 2px 4px #000;
+    color: mintcream;
+}
+
+
