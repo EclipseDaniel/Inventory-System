@@ -4,7 +4,7 @@
 <asp:Content ID="PurchasingHeaderContent" ContentPlaceHolderID="HeaderContent" runat="server">
        
     <link href="css/newStyle.css" rel="stylesheet" type="text/css" media="all" />
-
+    <link href="css/Pagination.css" rel="stylesheet" />
 
 </asp:Content>
 
