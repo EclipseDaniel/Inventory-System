@@ -1,8 +1,9 @@
-﻿<%@  Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="About.aspx.cs" Inherits="Inventory_System.About" %>
+﻿<%@Page  Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="About.aspx.cs" Inherits="Inventory_System.About" %>
+
 <asp:Content ID="AboutHeaderContent" ContentPlaceHolderID="HeaderContent" runat="server">
 
-    <%-- <link href="css/newStyle.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="css/Pagination.css" rel="stylesheet" />--%>
+     <%--<link href="css/newStyle.css" rel="stylesheet" type="text/css" media="all" />--%>
+    <%--<link href="css/Pagination.css" rel="stylesheet" />--%>
     <link href="css/background.css" rel="stylesheet" type="text/css" media="all" />
 
 </asp:Content>
@@ -16,7 +17,7 @@
                     <h1 class="lg-text">About Us</h1>
                     <p class="image-aboutus-para">The Grind is open in Westchase! We are excited to introduce our Coffee Shop & Cafe. If you crave great coffee, you'll love knowing that we provide a real alternative to chains with handcrafted coffee and espresso drinks, a full tea bar, and real food options.</p>
                     <p class="image-aboutus-para">Our Cafe delivers way beyond the traditional coffee shop favorites (although we think our homemade pastries are pretty good). We have traditional breakfast choices, including eggs and pancakes, and plenty of healthy options. Our lunch offerings include a wide variety of salads,  sandwiches and flatbreads.   And as for the late nighters… we know you’ll appreciate having a spot for your dessert fix as well as a spiked coffee.</p>
-                    <p class="image-aboutus-para">Our Cafe delivers way beyond the traditional coffee shop favorites (although we think our homemade pastries are pretty good). We have traditional breakfast choices, including eggs and pancakes, and plenty of healthy options. Our lunch offerings include a wide variety of salads,  sandwiches and flatbreads.   And as for the late nighters… we know you’ll appreciate having a spot for your dessert fix as well as a spiked coffee.</p>
+<%--                    <p class="image-aboutus-para">Our Cafe delivers way beyond the traditional coffee shop favorites (although we think our homemade pastries are pretty good). We have traditional breakfast choices, including eggs and pancakes, and plenty of healthy options. Our lunch offerings include a wide variety of salads,  sandwiches and flatbreads.   And as for the late nighters… we know you’ll appreciate having a spot for your dessert fix as well as a spiked coffee.</p>--%>
                     <p><br /></p>
                     <%--<p class="image-aboutus-para">Copyright © 2019 The Cafe By The Ruins. All rights reserved.</p>--%>
 

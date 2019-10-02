@@ -87,8 +87,12 @@
 
 
                             <div class="form-group col-lg-6 col-md-6 col-sm-6">
-                                <label>User Role</label>
-                                <asp:TextBox ID="txt_UserRole" runat="server" placeholder="Enter Your User Role" required="" CssClass="form-control"></asp:TextBox>
+                                <label for="cboUserRole" class="control-label">User Role</label>
+                                <asp:DropDownList  ID="cboUserRole" runat="server" CssClass="form-control"  >
+                                    <asp:ListItem Text="User" Value="" Selected="True"></asp:ListItem>
+                                    <asp:ListItem Text="Admin" Value="Admin"></asp:ListItem>
+                                </asp:DropDownList>
+                               <%-- <asp:TextBox ID="txt_UserRole" runat="server" placeholder="Enter Your User Role" required="" CssClass="form-control"></asp:TextBox>--%>
                             </div>
 
 
