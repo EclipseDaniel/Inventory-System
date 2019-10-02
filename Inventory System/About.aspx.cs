@@ -51,6 +51,10 @@ namespace Inventory_System
                             sqlDaa.SelectCommand.Parameters.AddWithValue("@Months", DateTime.Now.ToString("MMMM"));
                             DataTable dt2 = new DataTable();
                             sqlDaa.Fill(dt2);
+
+                            if (dt2.Rows.Count <= 0)
+                                return;
+
                             string supplyRate = dt2.Rows[0]["SupplyRate"].ToString();
                             con.Close();
 
