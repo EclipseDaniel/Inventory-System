@@ -33,44 +33,44 @@ namespace Inventory_System
                 SqlDataReader dr = cmd.ExecuteReader();
                 dt.Load(dr, LoadOption.OverwriteChanges);
                 con.Close();
+
+                if (dt.Rows.Count > 0)
+                {
+                    String chart = "";
+                    chart = "<canvas id=\"line-chart\" width=\"100%\" height=\"40\"></canvas>";
+                    chart += "<script>";
+                    chart += "new Chart(document.getElementById(\"line-chart\"), { type: 'line', data: {labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'";
+                    chart += "],datasets: [{ data: [";
+
+                    // get data from database and add to chart
+                    String value = "";
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                        value += dt.Rows[i]["SupplyRate"].ToString() + ",";
+                    value = value.Substring(0, value.Length - 1);
+                    chart += value;
+
+                    chart += "],label: \"Supply Rate\",borderColor: \"#3e95cd\",fill: true}"; // Chart color
+
+                    chart += ", { data: [";
+
+                    String value2 = "";
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                        value2 += dt.Rows[i]["DemandRate"].ToString() + ",";
+                    value2 = value2.Substring(0, value2.Length - 1);
+                    chart += value2;
+
+                    chart += "],label: \"Demand Rate\",borderColor: \"#3e95cd\",fill: true}";
+
+                    chart += "]},options: { title: { display: true,text: 'Inventory Forecasting'} }"; // Chart title
+                    chart += "});";
+                    chart += "</script>";
+
+                    ltChart.Text = chart;
+                }
             }
             catch
             {
 
-            }
-
-            if (dt != null)
-            {
-                String chart = "";
-                chart = "<canvas id=\"line-chart\" width=\"100%\" height=\"40\"></canvas>";
-                chart += "<script>";
-                chart += "new Chart(document.getElementById(\"line-chart\"), { type: 'line', data: {labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'";
-                chart += "],datasets: [{ data: [";
-
-                // get data from database and add to chart
-                String value = "";
-                for (int i = 0; i < dt.Rows.Count; i++)
-                    value += dt.Rows[i]["SupplyRate"].ToString() + ",";
-                value = value.Substring(0, value.Length - 1);
-                chart += value;
-
-                chart += "],label: \"Supply Rate\",borderColor: \"#3e95cd\",fill: true}"; // Chart color
-
-                chart += ", { data: [";
-
-                String value2 = "";
-                for (int i = 0; i < dt.Rows.Count; i++)
-                    value2 += dt.Rows[i]["DemandRate"].ToString() + ",";
-                value2 = value2.Substring(0, value2.Length - 1);
-                chart += value2;
-
-                chart += "],label: \"Demand Rate\",borderColor: \"#3e95cd\",fill: true}";
-
-                chart += "]},options: { title: { display: true,text: 'Inventory Forecasting'} }"; // Chart title
-                chart += "});";
-                chart += "</script>";
-
-                ltChart.Text = chart;
             }
         }
 
