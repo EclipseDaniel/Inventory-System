@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 using System.Configuration;
+using Inventory_System.Globals;
 
 namespace Inventory_System
 {
@@ -37,9 +38,10 @@ namespace Inventory_System
                 {
                     if (c.Username == txt_UserName.Text && c.Password == txt_Password.Text)
                     {
-                        Session["AccountID"] = txt_UserName.Text;
+                        SessionManager.UserName = c.Username;
+                        SessionManager.UserLevel = c.UserRole;
                         Response.Redirect("~/About.aspx");
-                        Session.RemoveAll();
+                        //Session.RemoveAll();
                     }
                     else
                     {
@@ -89,6 +91,7 @@ namespace Inventory_System
                         Password = dr["Password"].ToString(),
                         Firstname = dr["Firstname"].ToString(),
                         Lastname = dr["Lastname"].ToString(),
+                        UserRole = dr["Userlevel"].ToString()
                     });
                 }
             }
@@ -100,6 +103,11 @@ namespace Inventory_System
             public string Password { get; set; }
             public string Firstname { get; set; }
             public string Lastname { get; set; }
+
+            public string UserRole
+            {
+                get; set;
+            }
         }
 
         private void ShowPopUpMsg(string msg)

@@ -11,6 +11,9 @@
 
 <asp:Content ID="PurchasingBodyContent" ContentPlaceHolderID="BodyContent" runat="server">
 
+    <!-- This panel is Used for disabling controls -->
+        <asp:Panel ID="pnlPage" runat="server" >
+
                         <div class="spacer"></div>
                         
                         <div class="panel panel-success">
@@ -221,5 +224,5 @@
                              </div>
 
 
-
+        </asp:Panel>
 </asp:Content>

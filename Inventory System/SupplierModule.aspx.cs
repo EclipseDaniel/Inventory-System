@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
+using Inventory_System.Globals;
 
 namespace Inventory_System
 {
@@ -18,6 +19,28 @@ namespace Inventory_System
         {
             if (!IsPostBack)
             {
+                //Check User role here
+                if (SessionManager.UserLevel == "Admin")
+                {
+                    //Insert Code Here
+                }
+                else
+                {
+                    //Insert Code Here
+
+                    //Disable Controls
+                    GlobalFunctions.DisableControls(this.pnlPage);
+
+                    //Prompt user
+                    GlobalFunctions.ShowPopUpMsg(this, "You need admin rights to have full access to this page."
+                                                        + Environment.NewLine +
+                                                        "This page is set to read-only.");
+
+                }
+
+
+
+
                 btn_Delete.Enabled = false;
                 FillGridView();
             }

@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using Inventory_System.Globals;
 
 namespace Inventory_System
 {
@@ -17,6 +18,19 @@ namespace Inventory_System
         {
             if(!IsPostBack)
             {
+
+                //Check User role here
+                if (SessionManager.UserLevel == "Admin")
+                {
+                    //Insert Code Here
+                }
+                else
+                {
+                    //Insert Code Here
+                }
+
+
+
                 ShowData();
             }
         }

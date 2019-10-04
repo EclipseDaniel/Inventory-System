@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Inventory_System.Globals;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.SessionState;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -20,6 +22,16 @@ namespace Inventory_System
             
             if (!IsPostBack)
             {
+                //Check User role here
+                if (SessionManager.UserLevel == "Admin")
+                {
+                    //Insert Code Here
+                }
+                else
+                {
+                    //Insert Code Here
+                }
+
                 listInventoryView("SELECT * FROM tblItemDetails");
                 if (con.State == ConnectionState.Closed)
                     con.Open();

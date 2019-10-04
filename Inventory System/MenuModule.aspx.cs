@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Inventory_System.Globals;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -17,6 +18,18 @@ namespace Inventory_System
         {
             if (!IsPostBack)
             {
+                //Check User role here
+                if (SessionManager.UserLevel == "Admin")
+                {
+                    //Insert Code Here
+                }
+                else
+                {
+                    //Insert Code Here
+                }
+
+
+
                 dropDownListFill();
             }
 

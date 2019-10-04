@@ -10,6 +10,8 @@
 <asp:Content ID="SupplierBodyContent" ContentPlaceHolderID="BodyContent" runat="server">
 
 
+    <!-- This panel is Used for disabling controls -->
+     <asp:Panel ID="pnlPage" runat="server" >
         <div class="spacer"></div>
                         
         <div class="panel panel-primary">
@@ -133,6 +135,6 @@
             </div>
         </div>
 
-
+    </asp:Panel>
 
 </asp:Content>
