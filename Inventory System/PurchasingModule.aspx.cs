@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using Inventory_System.Globals;
 
 namespace Inventory_System
 {
@@ -20,6 +21,27 @@ namespace Inventory_System
         {
             if (!IsPostBack)
             {
+
+                //Check User role here
+                if (SessionManager.UserLevel == "Admin")
+                {
+                    //Insert Code Here
+                }
+                else
+                {
+                    //Insert Code Here
+
+                    //Disable Controls by passing the parent panel of this page
+                    GlobalFunctions.DisableControls(this.pnlPage);
+
+                    //Prompt user
+                    GlobalFunctions.ShowPopUpMsg(this, "You need admin rights to have full access to this page."
+                                                        + Environment.NewLine +
+                                                        "This page is set to read-only.");
+                }
+
+
+
 
                 txtDate.Attributes["min"] = DateTime.Now.ToString("yyyy-MM-dd");
                 txtDate.Text = DateTime.Now.ToString("yyyy-MM-dd");

@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
+using Inventory_System.Globals;
 
 namespace Inventory_System
 {
@@ -23,6 +24,20 @@ namespace Inventory_System
         {
             if (!IsPostBack)
             {
+
+
+                //Check User role here
+                if (SessionManager.UserLevel == "Admin")
+                {
+                    //Insert Code Here
+                }
+                else
+                {
+                    //Insert Code Here
+                }
+
+
+
                 listMenuLoad("SELECT DISTINCT Dish FROM tblMenu");
                 ddlMenuList.DataSource = listMenu;
                 ddlMenuList.DataTextField = "Dish";

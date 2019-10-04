@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="InventoryModule.aspx.cs" Inherits="Inventory_System.InventoryModule" %>
+﻿<%@ Page  Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="InventoryModule.aspx.cs" Inherits="Inventory_System.InventoryModule" %>
 
 <asp:Content ID="InventoryHeaderContent" ContentPlaceHolderID="HeaderContent" runat="server">
         <link href="css/newStyle.css" rel="stylesheet" type="text/css" media="all" />
@@ -7,9 +7,12 @@
 
 <asp:Content ID="InventoryBodyContent" ContentPlaceHolderID="BodyContent" runat="server">
 
-            <div class="spacer"></div>
+    <!-- This panel is Used for disabling controls -->
+     <asp:Panel ID="pnlPage" runat="server" >
 
-            <div class="panel panel-success">
+         <div class="spacer"></div>
+
+            <div  class="panel panel-success">
                 <div class="panel-heading">
                     <h3 class="panel-title">Inventory Details</h3>
                 </div>
@@ -249,7 +252,7 @@
 
 
                    
-
+    </asp:Panel>
 
 </asp:Content>
 

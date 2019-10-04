@@ -27,7 +27,7 @@ namespace Inventory_System
             txt_Password.Text = "";
             txt_FirstName.Text = "";
             txt_LastName.Text = "";
-            //txt_UserRole.Text = "";
+            cbo_UserRole.Text = "";
             txt_Email.Text = "";
             txt_ContactNum.Text = "";
         }
@@ -44,7 +44,7 @@ namespace Inventory_System
                 cmd.Parameters.AddWithValue("@Password", txt_Password.Text.Trim());
                 cmd.Parameters.AddWithValue("@Firstname", txt_FirstName.Text.Trim());
                 cmd.Parameters.AddWithValue("@Lastname", txt_LastName.Text.Trim());
-                //cmd.Parameters.AddWithValue("@Userlevel", txt_UserRole.Text.Trim());
+                cmd.Parameters.AddWithValue("@Userlevel", cbo_UserRole.Text.Trim());
                 cmd.Parameters.AddWithValue("@EmailAddress", txt_Email.Text.Trim());
                 cmd.Parameters.AddWithValue("@ContactNumber", txt_ContactNum.Text.Trim());
                 cmd.ExecuteNonQuery();
@@ -55,7 +55,7 @@ namespace Inventory_System
                 txt_Password.Text = string.Empty;
                 txt_FirstName.Text = string.Empty;
                 txt_LastName.Text = string.Empty;
-                //txt_UserRole.Text = string.Empty;
+                cbo_UserRole.Text = string.Empty;
                 txt_Email.Text = string.Empty;
                 txt_ContactNum.Text = string.Empty;
 
@@ -65,6 +65,7 @@ namespace Inventory_System
                 if (AccountID == "")
                 {
                     lblSuccessMessage.Text = "You have successfully added a record!";
+                    Response.Redirect("~/Login.aspx");
                 }
                 else
                 {
