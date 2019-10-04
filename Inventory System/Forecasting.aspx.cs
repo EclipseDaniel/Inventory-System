@@ -24,7 +24,7 @@ namespace Inventory_System
         private void ShowData()
         {
             
-            string query = "SELECT SupplyRate FROM tblForecasting";
+            string query = "SELECT SupplyRate, DemandRate FROM tblForecasting";
             SqlCommand cmd = new SqlCommand(query, con);
             DataTable dt = new DataTable();
             try
@@ -54,7 +54,18 @@ namespace Inventory_System
                 value = value.Substring(0, value.Length - 1);
                 chart += value;
 
-                chart += "],label: \"Percentage\",borderColor: \"#3e95cd\",fill: true}"; // Chart color
+                chart += "],label: \"Supply Rate\",borderColor: \"#3e95cd\",fill: true}"; // Chart color
+
+                chart += ", { data: [";
+
+                String value2 = "";
+                for (int i = 0; i < dt.Rows.Count; i++)
+                    value2 += dt.Rows[i]["DemandRate"].ToString() + ",";
+                value2 = value2.Substring(0, value2.Length - 1);
+                chart += value2;
+
+                chart += "],label: \"Demand Rate\",borderColor: \"#3e95cd\",fill: true}";
+
                 chart += "]},options: { title: { display: true,text: 'Inventory Forecasting'} }"; // Chart title
                 chart += "});";
                 chart += "</script>";
