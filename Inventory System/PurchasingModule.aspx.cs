@@ -179,7 +179,12 @@ namespace Inventory_System
             txtItemExpirationDate.Text = dt.Rows[0]["ItemExpirationDate"].ToString();
             btnSave.Text = "Update";
             btn_Delete.Enabled = true;
-            enableReceive(true);
+
+            bool isReceived = dt.Rows[0]["Status"].ToString() == "Received" ? true : false;
+
+            btnReceived.Enabled = !isReceived;
+
+            //enableReceive(true);
         }
 
         protected void btnSave_Click(object sender, EventArgs e)

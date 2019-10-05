@@ -13,13 +13,13 @@ namespace Inventory_System {
     public partial class Forecasting {
         
         /// <summary>
-        /// ltChart control.
+        /// ddlItem control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltChart;
+        protected global::System.Web.UI.WebControls.DropDownList ddlItem;
         
         /// <summary>
         /// ddlMonth control.
@@ -31,15 +31,6 @@ namespace Inventory_System {
         protected global::System.Web.UI.WebControls.DropDownList ddlMonth;
         
         /// <summary>
-        /// txtPercentage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPercentage;
-        
-        /// <summary>
         /// btnSavePercentage control.
         /// </summary>
         /// <remarks>
@@ -47,5 +38,14 @@ namespace Inventory_System {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSavePercentage;
+        
+        /// <summary>
+        /// ltChart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltChart;
     }
 }

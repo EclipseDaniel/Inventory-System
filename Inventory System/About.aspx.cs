@@ -77,8 +77,13 @@ namespace Inventory_System
                                     string crit = null;
                                     string optimal = null;
 
-                                    crit = Convert.ToInt32(supplyRate) * Convert.ToInt32(drr["CriticalLevel"].ToString()) + Convert.ToInt32(drr["CriticalLevel"].ToString()).ToString();
-                                    optimal = Convert.ToInt32(supplyRate) * Convert.ToInt32(drr["OptimalLevel"].ToString()) + Convert.ToInt32(drr["OptimalLevel"].ToString()).ToString();
+                                    decimal c1 = (Convert.ToDecimal(supplyRate) * Convert.ToDecimal(drr["CriticalLevel"].ToString()));
+                                    decimal c2 = Convert.ToDecimal(drr["CriticalLevel"].ToString());
+                                    crit = (c1 + c2).ToString();
+
+                                    decimal o1 = Convert.ToDecimal(supplyRate) * Convert.ToDecimal(drr["OptimalLevel"].ToString());
+                                    decimal o2 = Convert.ToDecimal(drr["OptimalLevel"].ToString());
+                                    optimal = (o1 +o2).ToString();
 
 
                                     con.Open();
