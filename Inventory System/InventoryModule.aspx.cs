@@ -152,6 +152,7 @@ namespace Inventory_System
                 cmd.Parameters.AddWithValue("@ItemUnit", txtItemUnit.Text.Trim());
                 cmd.Parameters.AddWithValue("@CriticalLevel", txtCriticalLevel.Text.Trim());
                 cmd.Parameters.AddWithValue("@OptimalLevel", txtOptimalLevel.Text.Trim());
+                cmd.Parameters.AddWithValue("@DateModified", DateTime.UtcNow.ToShortDateString());
                 cmd.ExecuteNonQuery();
                 con.Close();
 
