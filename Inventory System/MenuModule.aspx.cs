@@ -143,8 +143,8 @@ namespace Inventory_System
                 {
                     txtbox_DishName.Text = string.Empty;
                 }
-                txtbox_DishName.Text = string.Empty;
-                ddlIngredients.SelectedItem.Text = string.Empty;
+                //txtbox_DishName.Text = string.Empty;
+                //ddlIngredients.SelectedItem.Text = string.Empty;
                 txtbox_Quantity.Text = string.Empty;
 
                 FillGridView(strDishSelected);
