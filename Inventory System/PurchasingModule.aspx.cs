@@ -334,6 +334,7 @@ namespace Inventory_System
             enableReceive(false);
             con.Close();
             FillGridView();
+            Response.Redirect("~/PurchasingModule.aspx");
         }
 
         public void executeCommand(string sqlQuery)

@@ -18,7 +18,7 @@ namespace Inventory_System
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
 
                 //Check User role here
@@ -34,7 +34,7 @@ namespace Inventory_System
 
 
             }
-                FillGridView();
+            FillGridView();
         }
 
         public void FillGridView()
@@ -57,11 +57,12 @@ namespace Inventory_System
 
         //    TimeSpan ts =  dt2;
         //    string duration = ts.Hours + ":" + ts.Minutes + ":" + ts.Seconds;
-           
+
         //}
 
         protected void lnk_Click(object sender, EventArgs e)
         {
+
             //int MenuID = Convert.ToInt32((sender as LinkButton).CommandArgument);
             int rowIndex = Convert.ToInt32((sender as LinkButton).CommandArgument);
             int menuID = Convert.ToInt32(gridOrderedDish.Rows[rowIndex].Cells[0].Text);
@@ -69,7 +70,7 @@ namespace Inventory_System
             //compute duration
             string startTime = gridOrderedDish.Rows[rowIndex].Cells[5].Text;
             string endTime = DateTime.Now.ToString();
-            
+
             DateTime dt1 = Convert.ToDateTime(startTime);
             DateTime dt2 = Convert.ToDateTime(endTime);
 
@@ -82,7 +83,7 @@ namespace Inventory_System
             string status = "";
             string leadTime = gridOrderedDish.Rows[rowIndex].Cells[7].Text;
 
-            if(ts.TotalMinutes > Convert.ToInt32(leadTime))
+            if (ts.TotalMinutes > Convert.ToInt32(leadTime))
             {
                 status = "Completed - Late";
             }
@@ -91,13 +92,7 @@ namespace Inventory_System
                 status = "Completed - On time";
             }
 
-
-
-
-
-
-
-
+            
 
             if (con.State == ConnectionState.Closed)
                 con.Open();
@@ -137,7 +132,7 @@ namespace Inventory_System
             {
                 foreach (DataRow dr in dt.Rows)
                 {
-                    if(dr["StartTime"] != null && dr["StartTime"].ToString() != "")
+                    if (dr["StartTime"] != null && dr["StartTime"].ToString() != "")
                     {
                         DateTime dt1 = Convert.ToDateTime(dr["StartTime"].ToString());
                         DateTime dt2 = DateTime.Now;
@@ -150,9 +145,9 @@ namespace Inventory_System
                 }
 
                 gridOrderedDish.DataBind();
-                
+
             }
-            
+
         }
     }
 }

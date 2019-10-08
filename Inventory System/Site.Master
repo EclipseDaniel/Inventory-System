@@ -95,15 +95,7 @@
                         <li><a href="SupplierModule.aspx">Supplier</a></li>
                         <li><a href="ProductionTimerModule.aspx">Production Timer</a></li>
                         <li><a href="Forecasting.aspx">Forecasting</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><span class="nav-label">Reports</span> <span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-                                <li><a href="Reports.aspx">Purchase Order Reports</a></li>
-                                <li><a href="ReportsOrders.aspx">Production Reports</a></li>
-                                <li><a href="CrystalReportsItemDetails.aspx">Item Details Reports</a></li>
-                                <li><a href="CrystalReportsItemExpired.aspx">Wastage Reports</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="Reports.aspx">Reports</a></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">

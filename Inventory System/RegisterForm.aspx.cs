@@ -44,7 +44,7 @@ namespace Inventory_System
                 cmd.Parameters.AddWithValue("@Password", txt_Password.Text.Trim());
                 cmd.Parameters.AddWithValue("@Firstname", txt_FirstName.Text.Trim());
                 cmd.Parameters.AddWithValue("@Lastname", txt_LastName.Text.Trim());
-                cmd.Parameters.AddWithValue("@Userlevel", cbo_UserRole.Text.Trim());
+                cmd.Parameters.AddWithValue("@Userlevel", cbo_UserRole.SelectedValue.Trim());
                 cmd.Parameters.AddWithValue("@EmailAddress", txt_Email.Text.Trim());
                 cmd.Parameters.AddWithValue("@ContactNumber", txt_ContactNum.Text.Trim());
                 cmd.ExecuteNonQuery();

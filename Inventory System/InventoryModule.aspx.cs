@@ -152,7 +152,8 @@ namespace Inventory_System
                 cmd.Parameters.AddWithValue("@ItemUnit", txtItemUnit.Text.Trim());
                 cmd.Parameters.AddWithValue("@CriticalLevel", txtCriticalLevel.Text.Trim());
                 cmd.Parameters.AddWithValue("@OptimalLevel", txtOptimalLevel.Text.Trim());
-                cmd.Parameters.AddWithValue("@DateModified", DateTime.UtcNow.ToShortDateString());
+                cmd.Parameters.AddWithValue("@DateModified", DateTime.Now.ToShortDateString());
+                cmd.Parameters.AddWithValue("@TimeModified", DateTime.Now.ToLongTimeString());
                 cmd.ExecuteNonQuery();
                 con.Close();
 
@@ -179,6 +180,7 @@ namespace Inventory_System
                 }
 
                 FillGridView();
+                Response.Redirect("~/InventoryModule.aspx");
             }
         }
 
