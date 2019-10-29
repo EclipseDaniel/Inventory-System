@@ -141,27 +141,30 @@ namespace Inventory_System
         {
             if (ddlReports.SelectedValue == "IL")
             {
+                Response.Redirect("~/Reports.aspx");
                 FillGridViewInventoryLogs();
             }
             else if (ddlReports.SelectedValue == "FD")
             {
+                Response.Redirect("~/Reports.aspx");
                 FillGridViewForecastDemand();
             }
             else if (ddlReports.SelectedValue == "FPS")
             {
-
+                Response.Redirect("~/Reports.aspx");
             }
             else if (ddlReports.SelectedValue == "ISR")
             {
-
+                Response.Redirect("~/Reports.aspx");
             }
             else if (ddlReports.SelectedValue == "FLO")
             {
+                Response.Redirect("~/Reports.aspx");
                 FillGridViewFrequencyOfLate();
             }
             else if (ddlReports.SelectedValue == "FRAVA")
             {
-
+                Response.Redirect("~/Reports.aspx");
             }
         }
     }

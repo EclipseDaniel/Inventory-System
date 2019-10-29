@@ -18,16 +18,16 @@
 
     <div class="panel panel-body">
         <div class="row">
-            <div class="col-centered">
+            <%--<div class="col-centered">--%>
                 <div class="col-lg-8">
                     <label for="ddlReports" class="control-label">Select Report:</label>
                     <asp:DropDownList ID="ddlReports" runat="server" CssClass="form-control" Style="margin-bottom: 10px" OnSelectedIndexChanged="ddlReports_SelectedIndexChanged" AutoPostBack="true">
                         <asp:ListItem Text="FD" Value="FD" Selected="true">Forecast Demand</asp:ListItem>
-                        <asp:ListItem Text="FPS" Value="FPS">Forecast Production Schedule</asp:ListItem>
-                        <asp:ListItem Text="ISR" Value="ISR">Inventory Summary Report</asp:ListItem>
+                        <%--<asp:ListItem Text="FPS" Value="FPS">Forecast Production Schedule</asp:ListItem>
+                        <asp:ListItem Text="ISR" Value="ISR">Inventory Summary Report</asp:ListItem>--%>
                         <asp:ListItem Text="IL" Value="IL">Inventory Logs</asp:ListItem>
                         <asp:ListItem Text="FLO" Value="FLO">Frequence of Late Orders</asp:ListItem>
-                        <asp:ListItem Text="FRAVA" Value="FRAVA">Forcasted Reports Actual vs Forecasted</asp:ListItem>
+                        <%--<asp:ListItem Text="FRAVA" Value="FRAVA">Forcasted Reports Actual vs Forecasted</asp:ListItem>--%>
                     </asp:DropDownList>
                 </div>
                 <div class="col-lg-4">
@@ -69,16 +69,16 @@
                     </Columns>
                 </asp:GridView>--%>
 
-<%--                <asp:GridView ID="gridViewInventorySummaryReport" runat="server" AutoGenerateColumns="false" CssClass="table table-striped table-hover" HorizontalAlign="Center">
+<%--                <asp:GridView ID="gridViewFastMovingMaterials" runat="server" AutoGenerateColumns="false" CssClass="table table-striped table-hover" HorizontalAlign="Center">
                     <HeaderStyle CssClass="GridHeader" />
                     <AlternatingRowStyle CssClass="GridAltItem" />
                     <Columns>
                         <asp:BoundField DataField="ItemName" HeaderText="Item Name" />
-                        <asp:BoundField DataField="DemandRate" HeaderText="Demand Rate" />
-                        <asp:BoundField DataField="Months" HeaderText="Months" />
+                        <asp:BoundField DataField="ItemQuantity" HeaderText="Item Quantity" />
+                        <asp:BoundField DataField="StartTime" HeaderText="Usage" />
                         <asp:BoundField DataField="Date" HeaderText="Date" />
                     </Columns>
-                </asp:GridView--%>>
+                </asp:GridView> --%>
 
                 <asp:GridView ID="gridViewFrequencyOfLateOrders" runat="server" AutoGenerateColumns="false" CssClass="table table-striped table-hover" HorizontalAlign="Center">
                     <HeaderStyle CssClass="GridHeader" />

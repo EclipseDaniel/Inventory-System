@@ -8,13 +8,14 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
 using Inventory_System.Globals;
+using System.Text;
 
 namespace Inventory_System
 {
     public partial class ProductionModule1 : System.Web.UI.Page
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dbMainConnectionString"].ConnectionString);
-
+        //Instantiate
         List<cMenu> listMenu;
         List<cOrder> listOrder;
         List<cInventory> listInventory;
@@ -150,6 +151,7 @@ namespace Inventory_System
             DataTable dt = new DataTable();
             sqlDa.Fill(dt);
             con.Close();
+
             gridProdMod.DataSource = dt;
             gridProdMod.DataBind();
         }
@@ -341,6 +343,19 @@ namespace Inventory_System
             public string ItemExpirationDate { get; set; }
         }
 
+        class cCurrentSelectedDish
+        {
+            public string Dish { get; set; }
+            public string Ingredients { get; set; }
+            public string Quantity { get; set; }
+            public string Order { get; set; }
+            public string TotalQty { get; set; }
+            public string ItemQuantity { get; set; }
+            public string QtyLeft { get; set; }
+
+        }
+
+
         protected void btn_Validate_Click(object sender, EventArgs e)
         {
             if (con.State == ConnectionState.Closed)
@@ -374,12 +389,50 @@ namespace Inventory_System
 
         protected void btn_ProcessOrder_Click(object sender, EventArgs e) //PROCESS TO TIMER
         {
+            #region Retrieve List of SelectedDish
+            listOrderLoad("SELECT * FROM tblOrderOutput");
+
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+            SqlDataAdapter sqlDa = new SqlDataAdapter("OrderViewByIngredients", con);
+            sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataTable dt = new DataTable();
+            sqlDa.Fill(dt);
+            con.Close();
+
+            List<cCurrentSelectedDish> listCurrentSelectedDish = new List<cCurrentSelectedDish>();
+            listCurrentSelectedDish.Clear();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                listCurrentSelectedDish.Add(new cCurrentSelectedDish
+                {
+                    Dish = dr["Dish"].ToString(),
+                    Ingredients = dr["Ingredients"].ToString(),
+                    ItemQuantity = dr["ItemQuantity"].ToString(),
+                    Order = dr["Order"].ToString(),
+                    TotalQty = dr["TotalQty"].ToString(),
+                    Quantity = dr["Quantity"].ToString(),
+                    QtyLeft = dr["QtyLeft"].ToString()
+                });
+            }
+            #endregion  
+
+            foreach (cCurrentSelectedDish c in listCurrentSelectedDish)
+            {
+                if (Convert.ToInt32(c.TotalQty) > Convert.ToInt32(c.ItemQuantity))
+                {
+                    ShowPopUpMsg("Insufficient stocks");
+                    return;
+                }
+            }
+
             listInventoryViewLoad("SELECT * FROM vwInventoryLeft");
             if (con.State == ConnectionState.Closed)
                 con.Open();
-            SqlDataAdapter sqlDa = new SqlDataAdapter("ItemViewAll", con);
+            sqlDa = new SqlDataAdapter("ItemViewAll", con);
             sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
-            DataTable dt = new DataTable();
+            dt = new DataTable();
             sqlDa.Fill(dt);
 
             foreach (DataRow dr in dt.Rows)
@@ -435,6 +488,15 @@ namespace Inventory_System
             gridOrderedDish.PageIndex = e.NewPageIndex;
             gridOrderedDish.DataSource = dt;
             gridOrderedDish.DataBind();
+        }
+
+        private void ShowPopUpMsg(string msg)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("alert('");
+            sb.Append(msg.Replace("\n", "\\n").Replace("\r", "").Replace("'", "\\'"));
+            sb.Append("');");
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "showalert", sb.ToString(), true);
         }
     }
 }

@@ -149,5 +149,12 @@ namespace Inventory_System
             }
 
         }
+
+        protected void lnkCancel_Click(object sender, EventArgs e)
+        {
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+
+        }
     }
 }
